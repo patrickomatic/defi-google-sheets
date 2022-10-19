@@ -1,0 +1,39 @@
+{
+  "name": "google-sheets-crypto-import",
+  "author": "Patrick Carroll",
+  "version": "0.0.1",
+  "types": "./lib/main.d.ts",
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://paypal.me/patrickomatic"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^3.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.36.1",
+    "ava": "^4.3.3",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-shopify": "^35.1.0",
+    "typescript": "*"
+  },
+  "ava": {
+    "typescript": {
+      "extensions": [
+        "ts"
+      ],
+      "rewritePaths": {
+        "src/": "lib/"
+      },
+      "compile": "tsc"
+    }
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "test": "ava"
+  }
+}
