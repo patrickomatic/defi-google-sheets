@@ -1,7 +1,18 @@
-## Scraping ETH
+## ETH Validator Daily Statistics
 
-* Sign up for an account on https://beaconcha.in
+Just put into a spreadsheet cell:
+
+```
+=ETH_VALIDATOR_DAILY_PERFORMANCE(validatorIndex)
+```
+
+where `validatorIndex` is the numeric index of your validator and all stats from beaconcha.in will be inserted into the spreadsheet.
+
+### TODO
+- [ ] Respect rate limits
+- [ ] Polyfills for the Google Apps Script functions I use
 
 ## Scraping Cardano
 
-* Use cardanoscan? blockchair?
+### TODO
+- [ ] Use cardanoscan? blockchair?

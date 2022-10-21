@@ -1,7 +1,15 @@
-// TODO build a proper polyfill or find a lib
-declare namespace Logger {
-  const log: any;
-}
+export {};
 
-declare const UrlFetchApp: any;
-declare const Utilities: any;
+declare global {
+  const Logger: any;
+  const UrlFetchApp: any;
+  /*
+  interface Logger {
+    log: (message: string) => void;
+  }
+
+  interface UrlFetchApp {
+    fetch: (url: string) => void;
+  }
+  */
+}

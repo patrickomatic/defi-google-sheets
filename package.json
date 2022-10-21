@@ -2,7 +2,7 @@
   "name": "google-sheets-crypto-import",
   "author": "Patrick Carroll",
   "version": "0.0.1",
-  "types": "./lib/main.d.ts",
+  "types": "./src/global.d.ts",
   "license": "MIT",
   "funding": {
     "type": "individual",

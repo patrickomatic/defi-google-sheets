@@ -14,7 +14,7 @@ clean:
 
 dist/%.gs: lib/%.js
 	@mkdir -p dist
-	cp $< $@
+	fgrep -v 'export {};' $< > $@
 
 .PRECIOUS: lib/%.js
 lib/%.js: src/%.ts tsconfig.json

@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "module": "none",
-    "outDir": "lib"
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "module": "es2022",
+    "moduleResolution": "node"
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./*.d.ts"
   ],
   "exclude": [
     "node_modules/**/*"
