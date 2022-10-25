@@ -29,19 +29,19 @@ const ALL_STATS: readonly t.ValidatorStat[] = [
   'validatorindex',
 ] as const;
 
-function makeRequest(url: string): t.BeaconchainAPIResponse {
+function makeRequest_(url: string): t.BeaconchainAPIResponse {
   return JSON.parse(UrlFetchApp.fetch(`${API_URL}/${url}`).getContentText());
 }
 
-function dateFromEpic(date: number): Date {
+function dateFromEpic_(date: number): Date {
   const statsDate = new Date(BEACON_CHAIN_EPOCH_DATE);
   statsDate.setDate(statsDate.getDate() + date);
   return statsDate;
 }
 
-function pickStats(row: t.ValidatorStats, stats: readonly t.ValidatorStat[]): t.SpreadsheetRow {
+function pickStats_(row: t.ValidatorStats, stats: readonly t.ValidatorStat[]): t.SpreadsheetRow {
   return stats.map((stat) =>
-    (stat === 'date' ? dateFromEpic(row.day) : row[stat]));
+    (stat === 'date' ? dateFromEpic_(row.day) : row[stat]));
 }
 
 /**
@@ -63,11 +63,11 @@ function ETH_VALIDATOR_DAILY_PERFORMANCE(
   validatorIndex: string,
   stats: readonly t.ValidatorStat[] = ALL_STATS,
 ): t.SpreadsheetRow[] {
-  const {status, data} = makeRequest(`v1/validator/stats/${validatorIndex}`);
+  const {status, data} = makeRequest_(`v1/validator/stats/${validatorIndex}`);
   if (status !== 'OK') {
     Logger.log(`Error making Beaconcha.in API request: ${JSON.stringify(data)}`);
     return [];
   }
 
-  return data.map((row) => pickStats(row, stats));
+  return data.map((row) => pickStats_(row, stats));
 }
