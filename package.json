@@ -23,9 +23,7 @@
   },
   "ava": {
     "typescript": {
-      "extensions": [
-        "ts"
-      ],
+      "extensions": ["ts"],
       "rewritePaths": {
         "src/": "lib/"
       },

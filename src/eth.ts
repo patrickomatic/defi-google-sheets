@@ -58,7 +58,7 @@ function pickStats(row: t.ValidatorStats, stats: readonly t.ValidatorStat[]): t.
  *
  * @customfunction
  */
-// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+// eslint-disable-next-line no-unused-vars
 function ETH_VALIDATOR_DAILY_PERFORMANCE(
   validatorIndex: string,
   stats: readonly t.ValidatorStat[] = ALL_STATS,

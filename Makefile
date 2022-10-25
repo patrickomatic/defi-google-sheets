@@ -1,8 +1,11 @@
-BUILD_DIR := lib/
-OUTPUT_DIR := dist/
+BUILD_DIR := lib
+OUTPUT_DIR := dist
+SRC_DIR := src
 
-# XXX all: test dist/eth.gs
-all: dist/eth.gs
+CONFIG_FILES := tsconfig.json .eslintrc
+
+# XXX all: test $(OUTPUT_DIR)/eth.gs
+all: $(OUTPUT_DIR)/eth.gs
 
 .PHONY: test
 test: 
@@ -12,10 +15,11 @@ test:
 clean:
 	rm -rf $(BUILD_DIR) $(OUTPUT_DIR)
 
-dist/%.gs: lib/%.js
-	@mkdir -p dist
-	fgrep -v 'export {};' $< > $@
+$(OUTPUT_DIR)/%.gs: $(BUILD_DIR)/%.js
+	@mkdir -p $(BUILD_DIR)
+# strip out the empty export or Google Spreadsheets will barf
+	@fgrep -v 'export {};' $< > $@
 
-.PRECIOUS: lib/%.js
-lib/%.js: src/%.ts tsconfig.json
+.PRECIOUS: $(BUILD_DIR)/%.js
+$(BUILD_DIR)/%.js: $(SRC_DIR)/%.ts $(CONFIG_FILES)
 	yarn tsc
