@@ -1,5 +1,5 @@
 /* eslint-disable babel/camelcase */
-export interface ValidatorStats {
+interface ValidatorStats {
   attester_slashings: number;
   day: number;
   deposits: number;
@@ -31,18 +31,18 @@ interface DerivedValidatorStats {
 }
 
 type AllValidatorStats = ValidatorStats & DerivedValidatorStats;
-export type ValidatorStat = keyof AllValidatorStats;
+type ValidatorStat = keyof AllValidatorStats;
 
-export interface BeaconchainOkResponse {
+interface BeaconchainOkResponse {
   status: "OK";
   data: ValidatorStats[];
 }
 
-export interface BeaconchainErrorResponse {
+interface BeaconchainErrorResponse {
   status: "ERROR: could not retrieve db results";
   data: null;
 }
 
-export type BeaconchainAPIResponse = BeaconchainOkResponse | BeaconchainErrorResponse;
+type BeaconchainAPIResponse = BeaconchainOkResponse | BeaconchainErrorResponse;
 
-export type SpreadsheetRow = (number | Date)[];
+type SpreadsheetRow = (number | Date)[];

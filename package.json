@@ -1,8 +1,8 @@
 {
-  "name": "google-sheets-crypto-import",
+  "name": "defi-google-sheets",
   "author": "Patrick Carroll",
   "version": "0.0.1",
-  "types": "./src/global.d.ts",
+  "types": "./src/types.d.ts",
   "license": "MIT",
   "funding": {
     "type": "individual",
@@ -23,7 +23,9 @@
   },
   "ava": {
     "typescript": {
-      "extensions": ["ts"],
+      "extensions": [
+        "ts"
+      ],
       "rewritePaths": {
         "src/": "lib/"
       },
@@ -33,5 +35,6 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "test": "ava"
-  }
+  },
+  "dependencies": {}
 }

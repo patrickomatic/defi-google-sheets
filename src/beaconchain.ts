@@ -1,9 +1,10 @@
-import * as t from './types';
+/// <reference path="./types.d.ts" />
+/// <reference path="./network.ts" />
 
-const API_URL = 'https://beaconcha.in/api' as const;
+const BEACONCHAIN_API_URL = 'https://beaconcha.in/api' as const;
 const BEACON_CHAIN_EPOCH_DATE = "01/12/2020" as const;
 
-const ALL_STATS: readonly t.ValidatorStat[] = [
+const ALL_STATS: readonly ValidatorStat[] = [
   'attester_slashings',
   'day',
   'date',
@@ -29,17 +30,13 @@ const ALL_STATS: readonly t.ValidatorStat[] = [
   'validatorindex',
 ] as const;
 
-function makeRequest_(url: string): t.BeaconchainAPIResponse {
-  return JSON.parse(UrlFetchApp.fetch(`${API_URL}/${url}`).getContentText());
-}
-
 function dateFromEpic_(date: number): Date {
   const statsDate = new Date(BEACON_CHAIN_EPOCH_DATE);
   statsDate.setDate(statsDate.getDate() + date);
   return statsDate;
 }
 
-function pickStats_(row: t.ValidatorStats, stats: readonly t.ValidatorStat[]): t.SpreadsheetRow {
+function pickStats_(row: ValidatorStats, stats: readonly ValidatorStat[]): SpreadsheetRow {
   return stats.map((stat) =>
     (stat === 'date' ? dateFromEpic_(row.day) : row[stat]));
 }
@@ -59,11 +56,11 @@ function pickStats_(row: t.ValidatorStats, stats: readonly t.ValidatorStat[]): t
  * @customfunction
  */
 // eslint-disable-next-line no-unused-vars
-function ETH_VALIDATOR_DAILY_PERFORMANCE(
+function VALIDATOR_STATS(
   validatorIndex: string,
-  stats: readonly t.ValidatorStat[] = ALL_STATS,
-): t.SpreadsheetRow[] {
-  const {status, data} = makeRequest_(`v1/validator/stats/${validatorIndex}`);
+  stats: readonly ValidatorStat[] = ALL_STATS,
+): SpreadsheetRow[] {
+  const {status, data} = makeRequest_(`${BEACONCHAIN_API_URL}/v1/validator/stats/${validatorIndex}`);
   if (status !== 'OK') {
     Logger.log(`Error making Beaconcha.in API request: ${JSON.stringify(data)}`);
     return [];

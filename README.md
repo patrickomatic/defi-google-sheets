@@ -1,4 +1,4 @@
-# google-sheets-crypto-import
+# defi-google-sheets
 
 Some functions that can be used in a Google Spreadsheet to track crypto staking statistics.
 
@@ -34,7 +34,6 @@ Show only missed blocks and day for the validator at index 209112:
 =ETH_VALIDATOR_DAILY_PERFORMANCE(209112, {"day","missed_blocks'})
 ```
 
-## Scraping Cardano
+### Problem Statement
 
-### TODO
-- [ ] Use cardanoscan? blockchair?
+Most crypto-focused/asset-tracking projects for Google Spreadsheet are focused around powering a particular spreadsheet.  The goal of this repository is to provide more primitive wrappings around cyrpto APIs that can be used more generally in any spreadsheet
