@@ -2,19 +2,33 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "import"
   ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts"]
-      }
-    }
-  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:shopify/esnext"
-  ]
+  ],
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/triple-slash-reference": "off",
+        "spaced-comment": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslintno-unused-vars": "error"
+      }
+    }
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "project": "src/"
+    }
+  }
 }

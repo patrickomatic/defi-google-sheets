@@ -15,7 +15,6 @@
     "ava": "^4.3.3",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^23.0.0",
-    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-shopify": "^35.1.0",
@@ -23,11 +22,8 @@
   },
   "ava": {
     "typescript": {
-      "extensions": [
-        "ts"
-      ],
-      "rewritePaths": {
-        "src/": "lib/"
+      "extensions": {
+        "test.ts": "module"
       },
       "compile": "tsc"
     }
@@ -35,6 +31,5 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "test": "ava"
-  },
-  "dependencies": {}
+  }
 }

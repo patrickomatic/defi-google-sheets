@@ -1,3 +1,4 @@
+/// <reference path="./global.d.ts" />
 /// <reference path="./beaconchain.ts" />
 /// <reference path="./etherscan.ts" />
 
@@ -11,6 +12,7 @@ const DEFI = {
     ACCOUNT_BALANCE,
     ACCOUNT_BALANCEMULTI,
     ACCOUNT_TXLIST,
+    ACCOUNT_TXLISTINTERNAL,
   },
 };
 */

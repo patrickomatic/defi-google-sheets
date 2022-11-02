@@ -1,6 +1,16 @@
 /// <reference path="./types.d.ts" />
 
-// XXX this type is a lie - make it polymorphic
-function makeRequest_(url: string, params?: object): BeaconchainAPIResponse {
-  return JSON.parse(UrlFetchApp.fetch(url, params ?? {}).getContentText());
+function makeRequest_<T>({
+  url,
+  params,
+  marshallFn,
+}: {
+  url: string;
+  params?: object;
+  marshallFn?: (arg: any) => T;
+}): T {
+  const response = UrlFetchApp.fetch(url, params ?? {}).getContentText();
+  Logger.log(`got response[${response}]`);
+  Logger.log(`got marshallFn[${marshallFn}]`);
+  return marshallFn == null ? response : marshallFn(response);
 }

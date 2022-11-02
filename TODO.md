@@ -1,4 +1,5 @@
 # General
+- [ ] get editor working with the triple slash directives
 - [ ] can we namespace the various APIs? (I think other libs do it using a dot)
 - [ ] make it take a startDate and endDate
 - [ ] does it update when you load the spreadsheet?
