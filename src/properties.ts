@@ -1,5 +1,20 @@
-// XXX create a function that can prompt the user for a value and save it
-function getProperty_({ key }:  { key: 'ETHERSCAN_API_KEY' }) {
+type GSPropertyKey = 'DEFI_ETHERSCAN_API_KEY';
+
+// XXX create a thing in the README that says how to set the relevant API keys for each service
+const HELP_URL = "https://github.com/patrickomatic/defi-google-sheets/" as const;
+function getProperty_({
+  key, 
+  caller,
+}:  {
+  key: GSPropertyKey;
+  caller: string; 
+}) {
   const properties = PropertiesService.getScriptProperties();
-  return properties.getProperty(key);
+
+  const value = properties.getProperty(key);
+  if (value == null) {
+    throw `You must set ${key} to call ${caller}`;
+  }
+
+  return value;
 }
