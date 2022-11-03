@@ -7,7 +7,6 @@ declare global {
   const Logger: any;
   const UrlFetchApp: any;
   const PropertiesService: any;
-  const SpreadsheetApp: any;
 
   /*
   interface Logger {
