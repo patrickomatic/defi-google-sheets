@@ -45,8 +45,9 @@ interface BeaconchainBlockResponse {
 // XXX docs
 function BLOCK(
   slotOrHash: SlotOrHash | 'latest',
+  // XXX make this string type better
   // fields: [keyof BeaconchainBlockResponse][] = [
-  fields: string[] = [
+  fields: string[] | AllFields = [
     'attestationscount',
     'attesterslashingscount',
     'blockroot',
@@ -84,11 +85,11 @@ function BLOCK(
     'syncaggregate_signature',
     'voluntaryexitscount',
   ],
-): BeaconchainBlockResponse {
+): SpreadsheetRow[] {
   // XXX validate slotOrHash
-  // XXX make a generic way to pick the fields
-  return bcRequest_<BeaconchainBlockResponse>({
-    apiPath: `block/${slotOrHash}`,
-    // XXX make pickStats_ more reusable
-  });
+  return [pickFields_({
+    row: bcRequest_<BeaconchainBlockResponse>({ apiPath: `block/${slotOrHash}` }),
+    // @ts-expect-error
+    fields,
+  })];
 }

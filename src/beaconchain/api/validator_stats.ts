@@ -74,9 +74,12 @@ const ALL_STATS: readonly BeaconchainValidatorStat[] = [
  */
 function VALIDATOR_STATS(
   validatorIndex: string,
-  stats: readonly BeaconchainValidatorStat[] = ALL_STATS,
+  fields: readonly BeaconchainValidatorStat[] | AllFields = ALL_STATS,
+  limit?: number,
 ): SpreadsheetRow[] {
   return bcRequest_<BeaconchainValidatorStats[]>({
     apiPath: `v1/validator/stats/${validatorIndex}`,
-  }).map((row) => pickStats_({row, stats}));
+    limit,
+    // @ts-expect-error
+  }).map((row) => pickFields_<BeaconchainValidatorStats>({row, fields}));
 }
