@@ -36,6 +36,13 @@ interface BeaconchainValidatorStats {
 type BeaconchainAllValidatorStats = BeaconchainValidatorStats & BeaconchainDerivedValidatorStats;
 type BeaconchainValidatorStat = keyof BeaconchainAllValidatorStats;
 
+// XXX this doesn't work (it calculates the date wrong)
+function dateFromEpic_(date: number): Date {
+  const statsDate = new Date(BEACON_CHAIN_EPOCH_DATE);
+  statsDate.setDate(statsDate.getDate() + date);
+  return statsDate;
+}
+
 const ALL_STATS: readonly BeaconchainValidatorStat[] = [
   'attester_slashings',
   'day',
@@ -74,12 +81,21 @@ const ALL_STATS: readonly BeaconchainValidatorStat[] = [
  */
 function VALIDATOR_STATS(
   validatorIndex: string,
-  fields: readonly BeaconchainValidatorStat[] | AllFields = ALL_STATS,
+  fields: FieldsOrAll<BeaconchainAllValidatorStats> = ALL_STATS,
+  offset?: number,
   limit?: number,
 ): SpreadsheetRow[] {
   return bcRequest_<BeaconchainValidatorStats[]>({
     apiPath: `v1/validator/stats/${validatorIndex}`,
+    offset,
     limit,
-    // @ts-expect-error
-  }).map((row) => pickFields_<BeaconchainValidatorStats>({row, fields}));
+  }).map((row) => 
+    pickFields_<BeaconchainValidatorStats, BeaconchainDerivedValidatorStats>({
+      row,
+      fields,
+      virtualFields: {
+        date: (row) => dateFromEpic_(row.day),
+      },
+    }),
+  );
 }

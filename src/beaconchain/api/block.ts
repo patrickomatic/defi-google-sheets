@@ -34,7 +34,7 @@ interface BeaconchainBlockResponse {
   signature: Hex;
   slot: number;
   stateroot: Hex;
-  status: "1";
+  status: string;
   syncaggregate_bits: number | null;
   syncaggregate_participation: number;
   syncaggregate_signature: string | null;
@@ -42,12 +42,13 @@ interface BeaconchainBlockResponse {
 }
 /* eslint-enable babel/camelcase */
 
+/**
+ * @customfunction
+ */
 // XXX docs
 function BLOCK(
   slotOrHash: SlotOrHash | 'latest',
-  // XXX make this string type better
-  // fields: [keyof BeaconchainBlockResponse][] = [
-  fields: string[] | AllFields = [
+  fields: FieldsOrAll<BeaconchainBlockResponse> = [
     'attestationscount',
     'attesterslashingscount',
     'blockroot',
@@ -89,7 +90,6 @@ function BLOCK(
   // XXX validate slotOrHash
   return [pickFields_({
     row: bcRequest_<BeaconchainBlockResponse>({ apiPath: `block/${slotOrHash}` }),
-    // @ts-expect-error
     fields,
   })];
 }

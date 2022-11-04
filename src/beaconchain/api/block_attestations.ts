@@ -22,9 +22,7 @@ interface BeaconchainBlockAttestationsResponse {
 
 function BLOCK_ATTESTATIONS(
   slot: number,
-  // XXX
-  // fields: (keyof BeaconchainBlockAttestationsResponse)[] = [
-  fields: string[] | AllFields = [
+  fields: FieldsOrAll<BeaconchainBlockAttestationsResponse> = [
     "aggregationbits",
     "beaconblockroot",
     "block_index",
@@ -41,10 +39,8 @@ function BLOCK_ATTESTATIONS(
   ],
   limit?: number,
 ): SpreadsheetRow[] {
-  // XXX implement limit
   return bcRequest_<BeaconchainBlockAttestationsResponse[]>({
-    apiPath: `block/${slot}/attestations`,
+    apiPath: `block/${asNumber_(slot)}/attestations`,
     limit,
-    // @ts-expect-error
   }).map((row) => pickFields_({ row, fields }));
 }
