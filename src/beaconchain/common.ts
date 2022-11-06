@@ -46,10 +46,6 @@ function pickFields_<
   fields: readonly (keyof (T & V))[] | AllFields;
   virtualFields?: {[k in keyof V]: (T) => SpreadsheetCell} | Record<string, never>;
 }): SpreadsheetRow {
-  const resolveField = (field) => field in virtualFields ? virtualFields[field] : row[field];
-  if (fields === '*') {
-    return Object.keys(row).concat(Object.keys(virtualFields)).sort().map(resolveField);
-  } else {
-    return fields.map(resolveField);
-  }
+  const fieldsToResolve = fields === '*' ? Object.keys(row).concat(Object.keys(virtualFields)).sort() : fields;
+  return fieldsToResolve.map((field) => field in virtualFields ? virtualFields[field] : row[field]);
 }
