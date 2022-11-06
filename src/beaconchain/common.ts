@@ -26,26 +26,9 @@ function bcRequest_<T>({
     throw new Error(`Error calling Beaconcha.in API: status=${status}`);
   }
 
-  Logger.log(`returning ${JSON.stringify(data)}`);
-
+  // XXX make a generic pagination function
   // @ts-expect-error
   return limit != null && Array.isArray(data) 
     ? data.slice(offset, limit)
     : data;
-}
-
-function pickFields_<
-  T extends object, 
-  V extends object,
->({
-  row,
-  fields,
-  virtualFields = {},
-}: {
-  row: T;
-  fields: readonly (keyof (T & V))[] | AllFields;
-  virtualFields?: {[k in keyof V]: (T) => SpreadsheetCell} | Record<string, never>;
-}): SpreadsheetRow {
-  const fieldsToResolve = fields === '*' ? Object.keys(row).concat(Object.keys(virtualFields)).sort() : fields;
-  return fieldsToResolve.map((field) => field in virtualFields ? virtualFields[field] : row[field]);
 }

@@ -4,5 +4,10 @@ type SpreadsheetRow = SpreadsheetCell[];
 type Hex = string;
 type EthereumAddress = Hex;
 
+type BitcoinAddress = string; // bitcoin addresses aren't hex
+
 type AllFields = "*";
-type FieldsOrAll<T> = readonly (keyof T)[] | AllFields
+type FieldsOrAll<T> = readonly (keyof T)[] | AllFields;
+
+type Satoshi = number;
+type Gwei = number;

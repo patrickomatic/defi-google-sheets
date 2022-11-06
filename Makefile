@@ -15,7 +15,7 @@ all: $(OUTPUT) README.md
 clean:
 	rm -rf $(BUILD_DIR) $(OUTPUT_DIR) README.md
 
-$(OUTPUT): $(SRC_DIR)/*.ts $(CONFIG_FILES)
+$(OUTPUT): $(SRC_DIR)/**.ts $(CONFIG_FILES)
 	@mkdir -p $(OUTPUT_DIR)
 	yarn tsc --out $@
 

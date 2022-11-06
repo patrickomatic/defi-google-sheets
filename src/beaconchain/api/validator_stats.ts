@@ -43,32 +43,6 @@ function dateFromEpic_(date: number): Date {
   return statsDate;
 }
 
-const ALL_STATS: readonly BeaconchainValidatorStat[] = [
-  'attester_slashings',
-  'day',
-  'date',
-  'deposits',
-  'deposits_amount',
-  'end_balance',
-  'end_effective_balance',
-  'max_balance',
-  'max_effective_balance',
-  'min_balance',
-  'min_effective_balance',
-  'missed_attestations',
-  'missed_blocks',
-  'missed_sync',
-  'orphaned_attestations',
-  'orphaned_blocks',
-  'orphaned_sync',
-  'participated_sync',
-  'proposed_blocks',
-  'proposer_slashings',
-  'start_balance',
-  'start_effective_balance',
-  'validatorindex',
-] as const;
-
 /**
  * Proxies: * https://beaconcha.in/api/v1/docs/index.html#/Validator/get_api_v1_validator_stats__index_
  *
@@ -81,7 +55,7 @@ const ALL_STATS: readonly BeaconchainValidatorStat[] = [
  */
 function VALIDATOR_STATS(
   validatorIndex: string,
-  fields: FieldsOrAll<BeaconchainAllValidatorStats> = ALL_STATS,
+  fields: FieldsOrAll<BeaconchainAllValidatorStats> = '*',
   offset?: number,
   limit?: number,
 ): SpreadsheetRow[] {
