@@ -20,7 +20,7 @@ interface BeaconchainBlockAttestationsResponse {
 }
 /* eslint-enable babel/camelcase */
 
-function BLOCK_ATTESTATIONS(
+function BC$BLOCK_ATTESTATIONS(
   slot: number,
   fields: FieldsOrAll<BeaconchainBlockAttestationsResponse> = [
     "aggregationbits",

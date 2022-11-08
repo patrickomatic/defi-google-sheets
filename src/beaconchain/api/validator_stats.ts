@@ -53,7 +53,7 @@ function dateFromEpic_(date: number): Date {
  *
  * @customfunction
  */
-function VALIDATOR_STATS(
+function BC$VALIDATOR_STATS(
   validatorIndex: string,
   fields: FieldsOrAll<BeaconchainAllValidatorStats> = '*',
   offset?: number,

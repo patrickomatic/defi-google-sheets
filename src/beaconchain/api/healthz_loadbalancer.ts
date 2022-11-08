@@ -6,7 +6,7 @@
  *
  * @customfunction
  */
-function HEALTHZ_LOADBALANCER(): string {
+function BC$HEALTHZ_LOADBALANCER(): string {
   return makeRequest_<string>({url: `${BEACONCHAIN_API}/api/healthz`});
 }
 

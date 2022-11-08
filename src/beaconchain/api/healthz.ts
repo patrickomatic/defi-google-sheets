@@ -5,8 +5,6 @@
  *
  * @customfunction
  */
-function HEALTHZ(): string {
+function BC$HEALTHZ(): string {
   return makeRequest_<string>({url: `${BEACONCHAIN_API}/api/healthz`});
 }
-
-

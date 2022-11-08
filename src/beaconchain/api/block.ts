@@ -46,7 +46,7 @@ interface BeaconchainBlockResponse {
  * @customfunction
  */
 // XXX docs
-function BLOCK(
+function BC$BLOCK(
   slotOrHash: SlotOrHash | 'latest',
   fields: FieldsOrAll<BeaconchainBlockResponse> = [
     'attestationscount',
