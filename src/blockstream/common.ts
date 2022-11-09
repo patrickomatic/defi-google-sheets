@@ -3,7 +3,9 @@
 /// <reference path="../pickFields.ts" />
 /// <reference path="../validators.ts" />
 /// <reference path="./types.ts" />
+// TODO from what I can tell they don't have a published rate limit
 
+// https://github.com/Blockstream/esplora/blob/master/API.md
 const BLOCKSTREAM_API_URL = "https://blockstream.info/api";
 
 function bsRequest_<T>({
@@ -23,8 +25,7 @@ function bsRequest_<T>({
 
   if (response == null) {
     // XXX how else to check error codes?
-    Logger.log(`Error making blocksteream.info API request url=${url}`);
-    throw new Error(`Error calling Beaconcha.in API: status=${response}`);
+    throw new Error(`Error calling Blockstream.info API: status=${response}`);
   }
 
   // XXX paginate

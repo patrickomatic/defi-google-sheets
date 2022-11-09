@@ -1,11 +1,13 @@
 /// <reference path="../network.ts" />
 /// <reference path="../properties.ts" />
+/// <reference path="../withRateLimit.ts" />
 /// <reference path="./types.ts" />
 
-// TODO create an optional property that can reference test APIs:
-// https://docs.etherscan.io/getting-started/endpoint-urls
 const ETHERSCAN_API_URL = 'https://api.etherscan.io/api';
 const ETHERSCAN_API_KEY_PROPERTY = 'DEFI_ETHERSCAN_API_KEY';
+// TODO document this property
+const ETHERSCAN_API_URL_PROPERTY = 'DEFI_ETHERSCAN_API_URL';
+const ETHERSCAN_REQUESTS_PER_SECOND = 5;
 
 // mutates obj! (for efficiency rather than allocating a new object)
 function stripUndefined_(obj: object) {
@@ -23,27 +25,31 @@ function esRequest_<T>({
   action: string;
   caller: string;
   module: string; 
-  params: object,
+  params: object, // TODO can I do a better type?
 }): T {
   const apikey = getProperty_({ caller, key: ETHERSCAN_API_KEY_PROPERTY });
+  const apiUrl = getProperty_({ 
+    caller, 
+    key: ETHERSCAN_API_URL_PROPERTY, 
+    defaultValue: ETHERSCAN_API_URL,
+  });
 
   stripUndefined_(params);
 
-  const { message, status, result } = makeRequest_<EtherscanResponse<T>>({
-    url: ETHERSCAN_API_URL,
-    params: {
-      action,
-      module,
-      apikey,
-      ...params,
+  return withRateLimit_<T>({
+    apiNamespace: 'es', 
+    requestsPerSecond: ETHERSCAN_REQUESTS_PER_SECOND,
+    fn: () => {
+      const { message, status, result } = makeRequest_<EtherscanResponse<T>>({
+        url: ETHERSCAN_API_URL,
+        params: { action, module, ...params },
+      });
+
+      if (status === "0") {
+        throw new Error(`etherscan.io API request failed: ${message}`);
+      }
+
+      return result;
     },
   });
-
-  if (status === "0") {
-    throw new Error(`etherscan.io API request failed: ${message}`);
-  }
-
-  return result;
 }
-
-

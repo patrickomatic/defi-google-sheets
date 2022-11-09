@@ -1,14 +1,12 @@
 # General
 - [ ] does it update when you load the spreadsheet? how do we reconcile changes?
-- [ ] handle rate limiting for each API
-- [ ] unit tests
-- [ ] CI
 - [ ] auto-generate docs for each function (and include stuff about additional params (in VALIDATOR\_STATS for example))
-- [ ] use validators in more places
 - [ ] have the tests as CSVs
-- [ ] polyfill the GS API
+- [ ] use validators in more places
+- [ ] fix global types and/or polyfill the GS API.  it doesn't really matter unless we can test
+- [ ] unit tests/CI
 
-# beaconcha.in
+# beaconcha.in - Ethereum
 - [ ] make all of them take a startDate and endDate even if the underlying API doesn't support it
 - [ ] implement: Block
 - [ ] implement: Charts
@@ -22,7 +20,7 @@
 - [ ] implement: SyncCommittee
 - [ ] implement: Validator
 
-# etherscan.io
+# etherscan.io - Ethereum
 - [ ] implement: Contracts
 - [ ] implement: Transactions
 - [ ] implement: Blocks
@@ -32,13 +30,11 @@
 - [ ] implement: Gas Tracker
 - [ ] implement: Stats
 
-# blockstream.info
+# blockstream.info - Bitcoin
 - [ ] implement: Addresses endpoints
 - [ ] implement: Blocks endpoints
 - [ ] implement: Mempool endpoints
 - [ ] implement: Assets endpoints
 
-
-# Other APIs
-
-- [ ] cardano: cardanoscan? blockchair?
+# blockfrost.io - Cardano
+- [ ] implement all of it 
