@@ -10,7 +10,5 @@ function makeRequest_<T>({
   marshallFn?: (arg: any) => T;
 }): T {
   const response = UrlFetchApp.fetch(url, params ?? {}).getContentText();
-  Logger.log(`got response[${response}]`);
-  Logger.log(`got marshallFn[${marshallFn}]`);
   return marshallFn == null ? response : marshallFn(response);
 }

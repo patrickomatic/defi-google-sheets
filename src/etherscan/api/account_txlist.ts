@@ -6,7 +6,7 @@
  *
  */
 // XXX full docs
-function ACCOUNT_TXLIST(
+function ES$ACCOUNT_TXLIST(
   address: EthereumAddress,
   startBlock?: number,
   endBlock?: number,
@@ -28,5 +28,3 @@ function ACCOUNT_TXLIST(
     },
   });
 }
-
-

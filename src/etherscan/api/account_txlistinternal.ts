@@ -7,7 +7,7 @@
  * @customfunction
  */
 // XXX full docs
-function ACCOUNT_TXLISTINTERNAL(
+function ES$ACCOUNT_TXLISTINTERNAL(
   address: EthereumAddress,
   startBlock?: number,
   endBlock?: number,

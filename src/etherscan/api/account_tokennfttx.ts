@@ -5,11 +5,11 @@
  * @customfunction
  */
 // XXX full docs
-function ACCOUNT_TOKENNFTTX(
+function ES$ACCOUNT_TOKENNFTTX(
   address: EthereumAddress,
-  contractAddress: EthereumAddress,
-  startBlock: number,
-  endBlock: number,
+  contractaddress: EthereumAddress,
+  startblock?: number,
+  endblock?: number,
   page?: number,
   offset?: number,
   sort?: EtherscanSort,
@@ -20,12 +20,12 @@ function ACCOUNT_TOKENNFTTX(
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),
-      contractaddress: contractAddress,
-      ...(startBlock == null ? {} : {startblock: startBlock}),
-      ...(endBlock == null ? {} : {endblock: endBlock}),
-      ...(page == null ? {} : {page}),
-      ...(offset == null ? {} : {offset}),
-      ...(sort == null ? {} : {sort}),
+      contractaddress,
+      startblock,
+      endblock,
+      page,
+      offset,
+      sort,
     },
   });
 }

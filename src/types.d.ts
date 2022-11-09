@@ -11,3 +11,4 @@ type FieldsOrAll<T> = readonly (keyof T)[] | AllFields;
 
 type Satoshi = number;
 type Gwei = number;
+type Wei = number;

@@ -1,6 +1,6 @@
 OUTPUT_DIR := dist
-SRC_DIR := src
 OUTPUT := $(OUTPUT_DIR)/defi.gs
+SRC_DIR := src
 
 CONFIG_FILES := tsconfig.json .eslintrc
 

@@ -3,21 +3,19 @@
 /**
  * https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-a-single-address
  *
+ * @customfunction
  */
-// XXX full docs
-function ACCOUNT_BALANCE(
+function ES$ACCOUNT_BALANCE(
   address: EthereumAddress,
   tag?: EtherscanTag,
-) {
-  return esRequest_({
+): SpreadsheetCell {
+  return esRequest_<Wei>({
     caller: 'ACCOUNT_BALANCE',
     action: 'balance',
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),
-      ...(tag == null ? {} : {tag}),
+      tag,
     },
   });
 }
-
-

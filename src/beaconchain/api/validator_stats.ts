@@ -59,17 +59,13 @@ function BC$VALIDATOR_STATS(
   offset?: number,
   limit?: number,
 ): SpreadsheetRow[] {
-  return bcRequest_<BeaconchainValidatorStats[]>({
-    apiPath: `v1/validator/stats/${validatorIndex}`,
-    offset,
-    limit,
-  }).map((row) => 
-    pickFields_<BeaconchainValidatorStats, BeaconchainDerivedValidatorStats>({
-      row,
-      fields,
-      virtualFields: {
-        date: (row) => dateFromEpic_(row.day),
-      },
+  return pickFields_<BeaconchainValidatorStats, BeaconchainDerivedValidatorStats>({
+    rows: bcRequest_<BeaconchainValidatorStats[]>({
+      apiPath: `v1/validator/stats/${validatorIndex}`,
+      offset,
+      limit,
     }),
-  );
+    fields,
+    virtualFields: { date: (row) => dateFromEpic_(row.day) },
+  });
 }

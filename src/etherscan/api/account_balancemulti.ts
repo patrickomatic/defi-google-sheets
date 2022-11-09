@@ -1,24 +1,31 @@
 /// <reference path="../common.ts" />
 /// <reference path="../../validators.ts" />
 
+interface EtherscanAccountBalanceMultiResponse {
+  account: EthereumAddress;
+  balance: Wei;
+}
+
 /**
  * https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-multiple-addresses-in-a-single-call
  *
+ * @customfunction
  */
-// XXX full docs
-function ACCOUNT_BALANCEMULTI(
+function ES$ACCOUNT_BALANCEMULTI(
   addresses: EthereumAddress[],
+  fields: FieldsOrAll<EtherscanAccountBalanceMultiResponse> = '*',
   tag?: EtherscanTag,
-) {
-  return esRequest_({
-    caller: 'ACCOUNT_BALANCEMULTI',
-    action: 'balancemulti',
-    module: 'account',
-    params: {
-      address: addresses.map(validateEthereumAddress_).join(','),
-      ...(tag == null ? {} : {tag}),
-    },
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountBalanceMultiResponse[]>({
+      caller: 'ACCOUNT_BALANCEMULTI',
+      action: 'balancemulti',
+      module: 'account',
+      params: {
+        address: addresses.map(validateEthereumAddress_).join(','),
+        tag,
+      },
+    }),
+    fields,
   });
 }
-
-

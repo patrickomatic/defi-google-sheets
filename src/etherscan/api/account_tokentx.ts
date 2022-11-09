@@ -5,7 +5,7 @@
  * @customfunction
  */
 // XXX full docs
-function ACCOUNT_TOKENTX(
+function ES$ACCOUNT_TOKENTX(
   address: EthereumAddress,
   contractAddress: EthereumAddress,
   startBlock: number,
