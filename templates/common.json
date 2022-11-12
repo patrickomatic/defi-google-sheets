@@ -1,0 +1,5 @@
+{
+  "fields": "*",
+  "limit": "Return at most this many results",
+  "offset": "Return records offset by this amount"
+}

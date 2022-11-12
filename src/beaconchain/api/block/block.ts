@@ -1,4 +1,4 @@
-/// <reference path="../common.ts" />
+/// <reference path="../../common.ts" />
 
 // TODO these types are still rough and the docs don't really define them
 /* eslint-disable babel/camelcase */

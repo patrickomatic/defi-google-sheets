@@ -1,6 +1,7 @@
 /// <reference path="../types.d.ts" />
 /// <reference path="../withRateLimit.ts" />
 /// <reference path="../validators.ts" />
+/// <reference path="../pickFields.ts" />
 /// <reference path="./types.ts" />
 
 const BEACONCHAIN_API = "https://beaconcha.in" as const;

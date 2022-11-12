@@ -3,3 +3,4 @@ lib/
 dist/
 bundle/
 src/**.js
+src/**/*.generated.ts

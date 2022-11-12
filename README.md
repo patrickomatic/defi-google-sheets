@@ -1,3 +1,7 @@
+# Spreadsheet API
+
+Once you've successfully added defi-google-sheets to your spreadsheet, you'll have access to the following functions:
+
 # defi-google-sheets
 
 A collection of functions that can be used in a Google Spreadsheet to pull DeFi/crypto asset prices. 
@@ -21,10 +25,6 @@ The key idea for this library is to provide a simple wrapper function around the
 1. On your spreadsheet click Extensions -> Apps Script
 1. Click the "+" next to Libraries
 1. Enter this libraries Script ID: 1hsL\_MpXDchOZcavD217yl7tmX19KzXRnNUtnWbKUv8u3r1alFtiXbBlh
-
-# Spreadsheet API
-
-Once you've successfully added defi-google-sheets to your spreadsheet, you'll have access to the following functions:
 
 # Contributing
 

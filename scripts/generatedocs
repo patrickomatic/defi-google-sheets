@@ -1,4 +1,10 @@
 #!/bin/bash
+set -e
+
+if [ "$#" == "0" ]; then
+  echo "Usage: $0 dir1 dir2 dir3 ... dirN" >&2
+  exit 1
+fi
 
 cat <<__EOF
 # Spreadsheet API
@@ -7,12 +13,7 @@ Once you've successfully added defi-google-sheets to your spreadsheet, you'll ha
 
 __EOF
 
-if [ "$#" == "0" ]; then
-  echo "Usage: $0 dir1 dir2 dir3 ... dirN" >&2
-  exit 1
-fi
-
 while (( "$#" )); do
-  # XXX parse the javadocs
+  # XXX parse out the 
   shift
 done

@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+if [ "$#" -eq "0" ]; then
+  echo "Usage: $0 input.j2 ...inputN.j2" >&2
+  exit 1
+fi
+
+if ! command -v jinja &> /dev/null; then
+  echo "You must install jinja CLI to build documentation" >&2
+  echo "Try running: pip install jinja-cli" >&2
+  exit 1
+fi
+
+beaconchain_docs_json=$(mktemp)
+curl -H "Accept: application/json" \
+  -o $beaconchain_docs_json \
+  https://beaconcha.in/api/v1/docs/doc.json 
+
+input_json=$(mktemp)
+# namespace the beaconchain docs with 'bc': { }
+jq '{ bc: $bc[0], common: . }' \
+  --slurpfile bc $beaconchain_docs_json \
+  templates/common.json > $input_json
+
+while (( "$#" )); do
+  output_file=`echo -n $1 | sed -e 's/\.ts\.j2/.generated.ts/g'`
+  jinja \
+    -d $input_json \
+    -o $output_file \
+    -f json \
+    $1
+
+  shift
+done
+
+rm -f $beaconchain_docs_json $input_json

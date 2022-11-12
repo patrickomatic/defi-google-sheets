@@ -1,0 +1,13 @@
+/// <reference path="../../common.ts" />
+/// <reference path="../../../network.ts" />
+
+/**
+ * {{bc.paths["/api/healthz"]["get"].summary}}
+ *
+ * @customfunction
+ */
+function BC$HEALTHZ(): SpreadsheetCell {
+  return makeRequest_<string>({
+    url: `${BEACONCHAIN_API}/api/healthz`,
+  });
+}

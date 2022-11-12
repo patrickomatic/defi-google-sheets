@@ -1,6 +1,4 @@
-/// <reference path="../common.ts" />
-/// <reference path="../../types.d.ts" />
-/// <reference path="../../validators.ts" />
+/// <reference path="../../common.ts" />
 
 interface BeaconchainBlockAttestationsResponse {
   aggregationbits: Hex;
@@ -18,10 +16,21 @@ interface BeaconchainBlockAttestationsResponse {
   validators: number[];
 }
 
+/**
+ * {{bc.paths["/api/v1/block/{slot}/attestations"]["get"].summary}}
+ *
+ * @param {slot} {{bc.paths["/api/v1/block/{slot}/attestations"]["get"].parameters[0].description}}
+ * @param {fields} {{common.fields}}
+ * @param {limit} {{common.limit}}
+ * @param {offset} {{common.offset}}
+ *
+ * @customfunction
+ */
 function BC$BLOCK_ATTESTATIONS(
   slot: number,
   fields: FieldsOrAll<BeaconchainBlockAttestationsResponse> = '*',
   limit?: number,
+  offset?: number,
 ): SpreadsheetRow[] {
   return pickFields_({
     rows: bcRequest_<BeaconchainBlockAttestationsResponse[]>({
