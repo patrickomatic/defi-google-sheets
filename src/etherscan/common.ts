@@ -4,8 +4,8 @@
 /// <reference path="./types.ts" />
 
 const ETHERSCAN_API_URL = 'https://api.etherscan.io/api';
+// TODO document these properties
 const ETHERSCAN_API_KEY_PROPERTY = 'DEFI_ETHERSCAN_API_KEY';
-// TODO document this property
 const ETHERSCAN_API_URL_PROPERTY = 'DEFI_ETHERSCAN_API_URL';
 const ETHERSCAN_REQUESTS_PER_SECOND = 5;
 

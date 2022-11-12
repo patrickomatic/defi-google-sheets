@@ -10,7 +10,7 @@ function ES$ACCOUNT_BALANCE(
   tag?: EtherscanTag,
 ): SpreadsheetCell {
   return esRequest_<Wei>({
-    caller: 'ACCOUNT_BALANCE',
+    caller: 'ES$ACCOUNT_BALANCE',
     action: 'balance',
     module: 'account',
     params: {

@@ -18,7 +18,7 @@ function ES$ACCOUNT_BALANCEMULTI(
 ): SpreadsheetRow[] {
   return pickFields_({
     rows: esRequest_<EtherscanAccountBalanceMultiResponse[]>({
-      caller: 'ACCOUNT_BALANCEMULTI',
+      caller: 'ES$ACCOUNT_BALANCEMULTI',
       action: 'balancemulti',
       module: 'account',
       params: {

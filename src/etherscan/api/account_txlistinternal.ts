@@ -9,23 +9,23 @@
 // XXX full docs
 function ES$ACCOUNT_TXLISTINTERNAL(
   address: EthereumAddress,
-  startBlock?: number,
-  endBlock?: number,
+  startblock?: number,
+  endblock?: number,
   page?: number,
   offset?: number,
   sort?: EtherscanSort,
 ) {
   return esRequest_({
-    caller: 'ACCOUNT_TXLISTINTERNAL',
+    caller: 'ES$ACCOUNT_TXLISTINTERNAL',
     action: 'txlistinternal',
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),
-      ...(startBlock == null ? {} : {startblock: startBlock}),
-      ...(endBlock == null ? {} : {endblock: endBlock}),
-      ...(page == null ? {} : {page}),
-      ...(offset == null ? {} : {offset}),
-      ...(sort == null ? {} : {sort}),
+      startblock,
+      endblock,
+      page,
+      offset,
+      sort,
     },
   });
 }
