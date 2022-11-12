@@ -1,19 +1,19 @@
 /// <reference path="./types.d.ts" />
 
-type Fields<T, V> = readonly (keyof (T & V))[] | AllFields;
-type VirtualFields<T, V> = {[k in keyof V]: (T) => SpreadsheetCell} | Record<string, never>;
+type Fields<T, V = void> = readonly (keyof (T & V))[] | AllFields;
+type VirtualFields<T, V = void> = {[k in keyof V]: (T) => SpreadsheetCell} | Record<string, never>;
 
-interface PickFieldsBaseArgs<T, V> {
+interface PickFieldsBaseArgs<T, V = void> {
   fields: Fields<T, V>;
   virtualFields?: VirtualFields<T, V>;
 }
 
-function pickFields_<T, V>(args: { row: T; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow;
-function pickFields_<T, V>(args: { rows: T[]; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow[];
-function pickFields_<T, V>(
+function pickFields_<T, V = void>(args: { row: T; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow;
+function pickFields_<T, V = void>(args: { rows: T[]; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow[];
+function pickFields_<T, V = void>(
   args: PickFieldsBaseArgs<T, V> & ({ row: T; } | { rows: T[]; })
 ): SpreadsheetRow | SpreadsheetRow[];
-function pickFields_<T, V>(
+function pickFields_<T, V = void>(
   args: PickFieldsBaseArgs<T, V> & ({ row: T; } | { rows: T[]; })
 ): SpreadsheetRow | SpreadsheetRow[] {
   const { fields, virtualFields = [] } = args;

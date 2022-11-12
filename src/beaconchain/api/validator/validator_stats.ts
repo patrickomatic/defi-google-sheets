@@ -1,5 +1,4 @@
-/// <reference path="../../network.ts" />
-/// <reference path="../common.ts" />
+/// <reference path="../../common.ts" />
 
 // these are calculated by code
 interface BeaconchainDerivedValidatorStats {
@@ -54,7 +53,7 @@ function dateFromEpic_(date: number): Date {
  * @customfunction
  */
 function BC$VALIDATOR_STATS(
-  validatorIndex: string,
+  validatorIndex: number,
   fields: FieldsOrAll<BeaconchainAllValidatorStats> = '*',
   offset?: number,
   limit?: number,
@@ -66,6 +65,8 @@ function BC$VALIDATOR_STATS(
       limit,
     }),
     fields,
-    virtualFields: { date: (row) => dateFromEpic_(row.day) },
+    virtualFields: {
+      date: (row) => dateFromEpic_(row.day),
+    },
   });
 }

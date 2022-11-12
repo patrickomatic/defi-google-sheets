@@ -50,3 +50,12 @@ function validateEthereumAddress_(input: string): EthereumAddress {
 function asEthereumAddress_(input: GSInput): EthereumAddress | EthereumAddress[] {
   return mapOrSingle_(input, validateEthereumAddress_);
 }
+
+// 0, O, I and l are omitted. 26 to 35 characters and begins with 1, 3 or bc1
+const BITCOIN_ADDRESS_REGEX = /^(bc1|[13])[a-zA-HJ-NP-Z1-9]{25,39}$/;
+function validateBitcoinAddress_(input: string): BitcoinAddress {
+  if (!input.match(BITCOIN_ADDRESS_REGEX)) {
+    throw new Error(`DEFI: ${input} is not a valid Bitcoin address`);
+  }
+  return input as BitcoinAddress;
+}

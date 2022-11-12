@@ -11,5 +11,4 @@ interface BeaconchainErrorResponse {
 type BeaconchainAPIResponse<T> = BeaconchainOkResponse<T> | BeaconchainErrorResponse;
 
 type SlotOrHash = number | Hex;
-
-
+type IndexOrPubkey = number | Hex;

@@ -3,7 +3,7 @@
 - [ ] auto-generate docs for each function (and include stuff about additional params (in VALIDATOR\_STATS for example))
 - [ ] have the tests as CSVs
 - [ ] use validators in more places
-- [ ] fix global types and/or polyfill the GS API.  it doesn't really matter unless we can test
+- [ ] fix global types and/or polyfill the GS API.  (though it doesn't really matter unless we can test)
 - [ ] unit tests/CI
 
 # beaconcha.in - Ethereum
