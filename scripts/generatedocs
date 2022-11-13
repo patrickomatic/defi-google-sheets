@@ -14,6 +14,6 @@ Once you've successfully added defi-google-sheets to your spreadsheet, you'll ha
 __EOF
 
 while (( "$#" )); do
-  # XXX parse out the 
+  # XXX use jsdoc
   shift
 done

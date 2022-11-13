@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "201577b3-00e6-4d83-a943-4a0045ddc215",
+		"name": "Stats",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "Get Total Supply of Ether",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=ethsupply&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "ethsupply"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Total Supply of Ether 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=ethsupply2&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "ethsupply2"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ether Last Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "ethprice"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ethereum Nodes Size",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=chainsize&startdate=2019-02-01&enddate=2019-02-28&clienttype=geth&syncmode=default&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "chainsize"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "clienttype",
+							"value": "geth"
+						},
+						{
+							"key": "syncmode",
+							"value": "default"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Total Nodes Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=nodecount&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "nodecount"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Network Transaction Fee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailytxnfee&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailytxnfee"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily New Address Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailynewaddress&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailynewaddress"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Network Utilization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailynetutilization&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailynetutilization"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Average Network Hash Rate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailyavghashrate&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailyavghashrate"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Transaction Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailytx&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailytx"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Average Network Difficulty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailyavgnetdifficulty&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailyavgnetdifficulty"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ether Historical Daily Market Cap",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=ethdailymarketcap&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "ethdailymarketcap"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ether Historical Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=ethdailyprice&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "ethdailyprice"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

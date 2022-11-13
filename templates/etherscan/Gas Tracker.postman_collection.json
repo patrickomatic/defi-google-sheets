@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "bf3b0fc6-01f2-4f2c-846f-4e2a99d59d7a",
+		"name": "Gas Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "Get Estimation of Confirmation Time",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice=2000000000&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "gastracker"
+						},
+						{
+							"key": "action",
+							"value": "gasestimate"
+						},
+						{
+							"key": "gasprice",
+							"value": "2000000000"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Gas Oracle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "gastracker"
+						},
+						{
+							"key": "action",
+							"value": "gasoracle"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Average Gas Limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailyavggaslimit&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailyavggaslimit"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ethereum Daily Total Gas Used",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailygasused&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailygasused"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily Average Gas Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=stats&action=dailyavggasprice&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "stats"
+						},
+						{
+							"key": "action",
+							"value": "dailyavggasprice"
+						},
+						{
+							"key": "startdate",
+							"value": "2019-02-01"
+						},
+						{
+							"key": "enddate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "sort",
+							"value": "asc"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

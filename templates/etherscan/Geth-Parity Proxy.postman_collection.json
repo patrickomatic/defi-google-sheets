@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "258a9a7b-3f71-4d80-ac4a-b6a23c48bd2d",
+		"name": "Geth/Parity Proxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "eth_blockNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_blockNumber"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getBlockByNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x10d4f&boolean=true&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getBlockByNumber"
+						},
+						{
+							"key": "tag",
+							"value": "0x10d4f"
+						},
+						{
+							"key": "boolean",
+							"value": "true"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getUncleByBlockNumberAndIndex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getUncleByBlockNumberAndIndex&tag=0xC63276&index=0x0&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getUncleByBlockNumberAndIndex"
+						},
+						{
+							"key": "tag",
+							"value": "0xC63276"
+						},
+						{
+							"key": "index",
+							"value": "0x0"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getBlockTransactionCountByNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getBlockTransactionCountByNumber&tag=0x10FB78&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getBlockTransactionCountByNumber"
+						},
+						{
+							"key": "tag",
+							"value": "0x10FB78"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getTransactionByHash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=0xbc78ab8a9e9a0bca7d0321a27b2c03addeae08ba81ea98b03cd3dd237eabed44&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getTransactionByHash"
+						},
+						{
+							"key": "txhash",
+							"value": "0xbc78ab8a9e9a0bca7d0321a27b2c03addeae08ba81ea98b03cd3dd237eabed44"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getTransactionByBlockNumberAndIndex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByBlockNumberAndIndex&tag=0xC6331D&index=0x11A&apikey=YourApiKeyTokens",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getTransactionByBlockNumberAndIndex"
+						},
+						{
+							"key": "tag",
+							"value": "0xC6331D"
+						},
+						{
+							"key": "index",
+							"value": "0x11A"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyTokens"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getTransactionCount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionCount&address=0x4bd5900Cb274ef15b153066D736bf3e83A9ba44e&tag=latest&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getTransactionCount"
+						},
+						{
+							"key": "address",
+							"value": "0x4bd5900Cb274ef15b153066D736bf3e83A9ba44e"
+						},
+						{
+							"key": "tag",
+							"value": "latest"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_sendRawTransaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_sendRawTransaction&hex=0xf904808000831cfde080&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_sendRawTransaction"
+						},
+						{
+							"key": "hex",
+							"value": "0xf904808000831cfde080"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getTransactionReceipt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionReceipt&txhash=0xadb8aec59e80db99811ac4a0235efa3e45da32928bcff557998552250fa672eb&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getTransactionReceipt"
+						},
+						{
+							"key": "txhash",
+							"value": "0xadb8aec59e80db99811ac4a0235efa3e45da32928bcff557998552250fa672eb"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_call",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_call&to=0xAEEF46DB4855E25702F8237E8f403FddcaF931C0&data=0x70a08231000000000000000000000000e16359506c028e51f16be38986ec5746251e9724&tag=latest&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_call"
+						},
+						{
+							"key": "to",
+							"value": "0xAEEF46DB4855E25702F8237E8f403FddcaF931C0"
+						},
+						{
+							"key": "data",
+							"value": "0x70a08231000000000000000000000000e16359506c028e51f16be38986ec5746251e9724"
+						},
+						{
+							"key": "tag",
+							"value": "latest"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getCode&address=0xf75e354c5edc8efed9b59ee9f67a80845ade7d0c&tag=latest&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getCode"
+						},
+						{
+							"key": "address",
+							"value": "0xf75e354c5edc8efed9b59ee9f67a80845ade7d0c"
+						},
+						{
+							"key": "tag",
+							"value": "latest"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_getStorageAt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_getStorageAt&address=0x6e03d9cce9d60f3e9f2597e13cd4c54c55330cfd&position=0x0&tag=latest&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_getStorageAt"
+						},
+						{
+							"key": "address",
+							"value": "0x6e03d9cce9d60f3e9f2597e13cd4c54c55330cfd"
+						},
+						{
+							"key": "position",
+							"value": "0x0"
+						},
+						{
+							"key": "tag",
+							"value": "latest"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_gasPrice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_gasPrice"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_estimateGas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=proxy&action=eth_estimateGas&data=0x4e71d92d&to=0xf0160428a8552ac9bb7e050d90eeade4ddd52843&value=0xff22&gasPrice=0x51da038cc&gas=0x5f5e0ff&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "proxy"
+						},
+						{
+							"key": "action",
+							"value": "eth_estimateGas"
+						},
+						{
+							"key": "data",
+							"value": "0x4e71d92d"
+						},
+						{
+							"key": "to",
+							"value": "0xf0160428a8552ac9bb7e050d90eeade4ddd52843"
+						},
+						{
+							"key": "value",
+							"value": "0xff22"
+						},
+						{
+							"key": "gasPrice",
+							"value": "0x51da038cc"
+						},
+						{
+							"key": "gas",
+							"value": "0x5f5e0ff"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

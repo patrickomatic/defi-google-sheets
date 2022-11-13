@@ -17,21 +17,44 @@ curl -H "Accept: application/json" \
   -o $beaconchain_docs_json \
   https://beaconcha.in/api/v1/docs/doc.json 
 
+documentation_schema=$(mktemp)
+cat <<'__EOF' > $documentation_schema
+{ 
+  common: ., 
+  bc: $bc[0], 
+  es: {
+    accounts: $esAccount[0],
+    gasTracker: $esGasTracker[0],
+    stats: $esStats[0],
+    blocks: $esBlocks[0],
+    gethParityProxy: $esGethParityProxy[0],
+    tokens: $esTokens[0],
+    contracts: $esContracts[0],
+    logs: $esLogs[0],
+    transactions: $esTransactions[0],
+  },
+}
+__EOF
+
 input_json=$(mktemp)
-# namespace the beaconchain docs with 'bc': { }
-jq '{ bc: $bc[0], common: . }' \
+jq -f $documentation_schema \
   --slurpfile bc $beaconchain_docs_json \
+  --slurpfile esAccount templates/etherscan/"Accounts.postman_collection.json" \
+  --slurpfile esGasTracker templates/etherscan/"Gas Tracker.postman_collection.json" \
+  --slurpfile esStats templates/etherscan/"Stats.postman_collection.json" \
+  --slurpfile esBlocks templates/etherscan/"Blocks.postman_collection.json" \
+  --slurpfile esGethParityProxy templates/etherscan/"Geth-Parity Proxy.postman_collection.json" \
+  --slurpfile esTokens templates/etherscan/"Tokens.postman_collection.json" \
+  --slurpfile esContracts templates/etherscan/"Contracts.postman_collection.json" \
+  --slurpfile esLogs templates/etherscan/"Logs.postman_collection.json" \
+  --slurpfile esTransactions templates/etherscan/"Transactions.postman_collection.json" \
   templates/common.json > $input_json
 
 while (( "$#" )); do
   output_file=`echo -n $1 | sed -e 's/\.ts\.j2/.generated.ts/g'`
-  jinja \
-    -d $input_json \
-    -o $output_file \
-    -f json \
-    $1
+  jinja -d $input_json -o $output_file -f json $1
 
   shift
 done
 
-rm -f $beaconchain_docs_json $input_json
+rm -f $beaconchain_docs_json $documentation_schema $input_json

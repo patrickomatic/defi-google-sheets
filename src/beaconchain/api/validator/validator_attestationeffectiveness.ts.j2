@@ -8,15 +8,12 @@ interface BeaconchainValidatorAttestationeffectiveness {
 }
 
 /**
+ * {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestationeffectiveness"]["get"].summary}}
  *
- * https://beaconcha.in/api/v1/docs/index.html#/Validator/get_api_v1_validator__indexOrPubkey__attestationeffectiveness
- *
- * Get the current attestation-effectiveness of up to 100 validators.  1 = all attestations are included in the next possible block, < 1 some attestations have been included after the next possible block.
- *
- * @param {indexOrPubkey} Up to 100 validator indicesOrPubkeys
- * @param {fields} 
- * @param {offset} 
- * @param {limit} 
+ * @param {indexOrPubkey} {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestationeffectiveness"]["get"].parameters[0].description}}
+ * @param {fields} {{common.fields}}
+ * @param {offset} {{common.offset}}
+ * @param {limit} {{common.limit}}
  *
  * @customfunction
  */

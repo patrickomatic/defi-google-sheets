@@ -1,13 +1,19 @@
-/// <reference path="../common.ts" />
-/// <reference path="../../validators.ts" />
+/// <reference path="../../common.ts" />
 
 /**
+ * {{es.accounts.item[2].name}}
+ *
+ * @param {address} 
+ * @param {startblock} 
+ * @param {endblock} 
+ * @param {page} 
+ * @param {offset} 
+ * @param {sort} 
+ *
  * @customfunction
  */
-// XXX full docs
-function ES$ACCOUNT_TOKENNFTTX(
+function ES$ACCOUNT_TXLIST(
   address: EthereumAddress,
-  contractaddress: EthereumAddress,
   startblock?: number,
   endblock?: number,
   page?: number,
@@ -15,12 +21,11 @@ function ES$ACCOUNT_TOKENNFTTX(
   sort?: EtherscanSort,
 ) {
   return esRequest_({
-    caller: 'ES$ACCOUNT_TOKENNFTTX',
-    action: 'tokennfttx',
+    caller: 'ES$ACCOUNT_TXLIST',
+    action: 'txlist',
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),
-      contractaddress,
       startblock,
       endblock,
       page,

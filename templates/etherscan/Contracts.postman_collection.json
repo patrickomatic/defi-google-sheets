@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "c1207e41-bb5b-426f-9507-f8ca588cf900",
+		"name": "Contracts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "Get Contract ABI for Verified Contract Source Codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "getabi"
+						},
+						{
+							"key": "address",
+							"value": "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract Source Code for Verified Contract Source Codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=getsourcecode&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "getsourcecode"
+						},
+						{
+							"key": "address",
+							"value": "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Source Code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=verifysourcecode&contractaddress=0x2A1D1C87d18dd13d7a1e91A42C9fFEc486EB6433&sourceCode=// SPDX-License-Identifier: MIT\n// compiler version must be greater than or equal to 0.8.10 and less than 0.9.0\npragma solidity ^0.8.10;\ncontract HelloWorld {\n    string public greet = \"Hello World!\";\n}\n&codeformat=solidity-single-file&contractname=HelloWorld&compilerversion=v0.8.10+commit.fc410830&optimizationUsed=0&runs=200&licenseType=1&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "verifysourcecode"
+						},
+						{
+							"key": "contractaddress",
+							"value": "0x2A1D1C87d18dd13d7a1e91A42C9fFEc486EB6433"
+						},
+						{
+							"key": "sourceCode",
+							"value": "// SPDX-License-Identifier: MIT\n// compiler version must be greater than or equal to 0.8.10 and less than 0.9.0\npragma solidity ^0.8.10;\ncontract HelloWorld {\n    string public greet = \"Hello World!\";\n}\n"
+						},
+						{
+							"key": "codeformat",
+							"value": "solidity-single-file"
+						},
+						{
+							"key": "contractname",
+							"value": "HelloWorld"
+						},
+						{
+							"key": "compilerversion",
+							"value": "v0.8.10+commit.fc410830"
+						},
+						{
+							"key": "optimizationUsed",
+							"value": "0"
+						},
+						{
+							"key": "runs",
+							"value": "200"
+						},
+						{
+							"key": "licenseType",
+							"value": "1"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Source Code Verification Submission Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=checkverifystatus&guid=ezq878u486pzijkvvmerl6a9mzwhv6sefgvqi5tkwceejc7tvn&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "checkverifystatus"
+						},
+						{
+							"key": "guid",
+							"value": "ezq878u486pzijkvvmerl6a9mzwhv6sefgvqi5tkwceejc7tvn"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Proxy Contract",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=verifyproxycontract&address=0xbc46363a7669f6e12353fa95bb067aead3675c29&expectedimplementation=0xe45a5176bc0f2c1198e2451c4e4501d4ed9b65a6&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "verifyproxycontract"
+						},
+						{
+							"key": "address",
+							"value": "0xbc46363a7669f6e12353fa95bb067aead3675c29"
+						},
+						{
+							"key": "expectedimplementation",
+							"value": "0xe45a5176bc0f2c1198e2451c4e4501d4ed9b65a6"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Proxy Contract Verification Submission Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=contract&action=checkproxyverification&guid=gwgrrnfy56zf6vc1fljuejwg6pelnc5yns6fg6y2i6zfpgzquz&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "contract"
+						},
+						{
+							"key": "action",
+							"value": "checkproxyverification"
+						},
+						{
+							"key": "guid",
+							"value": "gwgrrnfy56zf6vc1fljuejwg6pelnc5yns6fg6y2i6zfpgzquz"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

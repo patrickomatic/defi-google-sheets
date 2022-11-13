@@ -1,12 +1,18 @@
-/// <reference path="../common.ts" />
-/// <reference path="../../validators.ts" />
+/// <reference path="../../common.ts" />
 
 /**
- * https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address
+ * {{es.accounts.item[3].name}}
  *
+ * @param {address} 
+ * @param {startblock} 
+ * @param {endblock} 
+ * @param {page} 
+ * @param {offset} 
+ * @param {sort} 
+ *
+ * @customfunction
  */
-// XXX full docs
-function ES$ACCOUNT_TXLIST(
+function ES$ACCOUNT_TXLISTINTERNAL(
   address: EthereumAddress,
   startblock?: number,
   endblock?: number,
@@ -15,8 +21,8 @@ function ES$ACCOUNT_TXLIST(
   sort?: EtherscanSort,
 ) {
   return esRequest_({
-    caller: 'ES$ACCOUNT_TXLIST',
-    action: 'txlist',
+    caller: 'ES$ACCOUNT_TXLISTINTERNAL',
+    action: 'txlistinternal',
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),

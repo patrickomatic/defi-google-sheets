@@ -1,14 +1,20 @@
-/// <reference path="../common.ts" />
-/// <reference path="../../validators.ts" />
+/// <reference path="../../common.ts" />
 
 /**
- * https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-internal-transactions-by-address
+ * {{es.accounts.item[5].name}}
+ *
+ * @param {address} 
+ * @param {startblock} 
+ * @param {endblock} 
+ * @param {page} 
+ * @param {offset} 
+ * @param {sort} 
  *
  * @customfunction
  */
-// XXX full docs
-function ES$ACCOUNT_TXLISTINTERNAL(
+function ES$ACCOUNT_TOKENNFTTX(
   address: EthereumAddress,
+  contractaddress: EthereumAddress,
   startblock?: number,
   endblock?: number,
   page?: number,
@@ -16,11 +22,12 @@ function ES$ACCOUNT_TXLISTINTERNAL(
   sort?: EtherscanSort,
 ) {
   return esRequest_({
-    caller: 'ES$ACCOUNT_TXLISTINTERNAL',
-    action: 'txlistinternal',
+    caller: 'ES$ACCOUNT_TOKENNFTTX',
+    action: 'tokennfttx',
     module: 'account',
     params: {
       address: validateEthereumAddress_(address),
+      contractaddress,
       startblock,
       endblock,
       page,

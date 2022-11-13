@@ -1,6 +1,8 @@
 /// <reference path="../network.ts" />
 /// <reference path="../properties.ts" />
 /// <reference path="../withRateLimit.ts" />
+/// <reference path="../validators.ts" />
+/// <reference path="../pickFields.ts" />
 /// <reference path="./types.ts" />
 
 const ETHERSCAN_API_URL = 'https://api.etherscan.io/api';

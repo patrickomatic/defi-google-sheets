@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "fdac8db1-28c4-4fa0-a45d-fee2cd795273",
+		"name": "Logs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "Get Event Logs by Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=logs&action=getLogs&apikey=YourApiKeyToken&address=0xbd3531da5cf5857e7cfaa92426877b022e612cf8&fromBlock=12878196&toBlock=12878196&page=1&offset=1000",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "logs"
+						},
+						{
+							"key": "action",
+							"value": "getLogs"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						},
+						{
+							"key": "address",
+							"value": "0xbd3531da5cf5857e7cfaa92426877b022e612cf8"
+						},
+						{
+							"key": "fromBlock",
+							"value": "12878196"
+						},
+						{
+							"key": "toBlock",
+							"value": "12878196"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event Logs by Topics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=12878196&toBlock=12879196&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&topic0_1_opr=and&topic1=0x0000000000000000000000000000000000000000000000000000000000000000&page=1&offset=1000&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "logs"
+						},
+						{
+							"key": "action",
+							"value": "getLogs"
+						},
+						{
+							"key": "fromBlock",
+							"value": "12878196"
+						},
+						{
+							"key": "toBlock",
+							"value": "12879196"
+						},
+						{
+							"key": "topic0",
+							"value": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+						},
+						{
+							"key": "topic0_1_opr",
+							"value": "and"
+						},
+						{
+							"key": "topic1",
+							"value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "1000"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event Logs by Address filtered by Topics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=15073139&toBlock=15074139&address=0x59728544b08ab483533076417fbbb2fd0b17ce3a&topic0=0x27c4f0403323142b599832f26acd21c74a9e5b809f2215726e244a4ac588cd7d&topic0_1_opr=and&topic1=0x00000000000000000000000023581767a106ae21c074b2276d25e5c3e136a68b&page=1&offset=1000&apikey=YourApiKeyToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"etherscan",
+						"io"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "logs"
+						},
+						{
+							"key": "action",
+							"value": "getLogs"
+						},
+						{
+							"key": "fromBlock",
+							"value": "15073139"
+						},
+						{
+							"key": "toBlock",
+							"value": "15074139"
+						},
+						{
+							"key": "address",
+							"value": "0x59728544b08ab483533076417fbbb2fd0b17ce3a"
+						},
+						{
+							"key": "topic0",
+							"value": "0x27c4f0403323142b599832f26acd21c74a9e5b809f2215726e244a4ac588cd7d"
+						},
+						{
+							"key": "topic0_1_opr",
+							"value": "and"
+						},
+						{
+							"key": "topic1",
+							"value": "0x00000000000000000000000023581767a106ae21c074b2276d25e5c3e136a68b"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "1000"
+						},
+						{
+							"key": "apikey",
+							"value": "YourApiKeyToken"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
