@@ -1,41 +1,36 @@
 OUTPUT_DIR := dist
-OUTPUT := $(OUTPUT_DIR)/defi.gs
+OUTPUT := $(OUTPUT_DIR)/defi.js
+GS_OUTPUT := $(OUTPUT_DIR)/defi.gs
 SRC_DIR := src
 
 CONFIG_FILES := tsconfig.json .eslintrc
 
-# order is important - they'll be catted together into a single README.md
-DOC_FILES := INTRO.md INSTALL.md API.md CONTRIBUTING.md
-GENERATED_DOC_FILES := API.md README.md
-
 JINJA_FILES := $(shell find src -type f -name '*.ts.j2')
+TS_FILES := $(shell find src -type f -name '*.ts')
 GENERATED_TS_FILES := $(shell find src -type f -name '*.generated.ts')
 
-# XXX do the api check better
-API_FILES := $(shell find src -type f -name '*.ts' | grep api)
-
-all: $(OUTPUT) README.md
+all: $(OUTPUT) API.md
 
 .PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR) \
-		$(OUTPUT_DIR) \
+	rm -rf $(OUTPUT_DIR) \
 		$(GENERATED_TS_FILES) \
-		$(GENERATED_DOC_FILES)
+		API.md
 
 %.generated.ts: $(JINJA_FILES)
 	./scripts/processj2 $^
 
-$(OUTPUT): $(SRC_DIR)/**.ts $(SRC_DIR)/**.generated.ts $(CONFIG_FILES) 
+$(OUTPUT): $(TS_FILES) %.generated.ts $(CONFIG_FILES) 
 	@mkdir -p $(OUTPUT_DIR)
 	yarn tsc --out $@
 
-API.md: $(API_FILES)
-	./scripts/generatedocs $(API_FILES) > $@
+$(GS_OUTPUT): $(OUTPUT)
+	cp $(OUTPUT) $(GS_OUTPUT)
 
-README.md: API.md $(DOC_FILES)
-	cat $^ > $@
+API.md: $(OUTPUT)
+	# skip the first 3 lines because it's all yarn output
+	yarn jsdoc2md -f $(OUTPUT) | tail -n +3 > $@
 
 .PHONY: t
-t: $(OUTPUT)
-	@cat $(OUTPUT) | pbcopy
+t: $(GS_OUTPUT)
+	@cat $(GS_OUTPUT) | pbcopy

@@ -19,9 +19,9 @@ curl -H "Accept: application/json" \
 
 documentation_schema=$(mktemp)
 cat <<'__EOF' > $documentation_schema
-{ 
-  common: ., 
-  bc: $bc[0], 
+{
+  common: .,
+  bc: $bc[0],
   es: {
     accounts: $esAccount[0],
     gasTracker: $esGasTracker[0],

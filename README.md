@@ -20,11 +20,12 @@ There are several similar libraries, but IMO they had the following downsides:
 * Specific to a spreadsheet.  There are several "net worth" tracker type apps which are nice, but they work by supplying a pre-canned spreadsheet and you fill in the data.  
 
 The key idea for this library is to provide a simple wrapper function around the underlying API calls.  We don't want to be tied heavily to the Google Sheet's API or any underlying assumptions about the spreadsheet using it.
+
 # How to use on your Google Spreadsheet
 
 1. On your spreadsheet click Extensions -> Apps Script
 1. Click the "+" next to Libraries
-1. Enter this libraries Script ID: 1hsL\_MpXDchOZcavD217yl7tmX19KzXRnNUtnWbKUv8u3r1alFtiXbBlh
+1. Enter this libraries Script ID: `1hsL\_MpXDchOZcavD217yl7tmX19KzXRnNUtnWbKUv8u3r1alFtiXbBlh`
 
 # Contributing
 
