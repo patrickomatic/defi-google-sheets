@@ -24,6 +24,7 @@ cat <<'__EOF' > $documentation_schema
   bc: $bc[0],
   es: {
     accounts: $esAccount[0],
+    common: $esCommon[0],
     gasTracker: $esGasTracker[0],
     stats: $esStats[0],
     blocks: $esBlocks[0],
@@ -39,6 +40,7 @@ __EOF
 input_json=$(mktemp)
 jq -f $documentation_schema \
   --slurpfile bc $beaconchain_docs_json \
+  --slurpfile esCommon templates/etherscan/common.json \
   --slurpfile esAccount templates/etherscan/"Accounts.postman_collection.json" \
   --slurpfile esGasTracker templates/etherscan/"Gas Tracker.postman_collection.json" \
   --slurpfile esStats templates/etherscan/"Stats.postman_collection.json" \

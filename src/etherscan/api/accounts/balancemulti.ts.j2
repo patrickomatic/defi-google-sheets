@@ -8,13 +8,15 @@ interface EtherscanAccountBalanceMultiResponse {
 /**
  * {{es.accounts.item[1].name}}
  *
- * @param {addresses} 
+ * @param {EthereumAddress[]} addresses - A range or comma separated Ethereum addresses
+ * {{common.params.fields}}
  * @param {fields} 
  * @param {tag} 
  *
  * @customfunction
  */
 function ES$ACCOUNT_BALANCEMULTI(
+  // XXX addresses can also be a comma-separated string
   addresses: EthereumAddress[],
   fields: FieldsOrAll<EtherscanAccountBalanceMultiResponse> = '*',
   tag?: EtherscanTag,

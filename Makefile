@@ -28,7 +28,7 @@ $(GS_OUTPUT): $(OUTPUT)
 	cp $(OUTPUT) $(GS_OUTPUT)
 
 API.md: $(OUTPUT)
-	# skip the first 3 lines because it's all yarn output
+# skip the first 3 lines because it's all yarn output
 	yarn jsdoc2md -f $(OUTPUT) | tail -n +3 > $@
 
 .PHONY: t

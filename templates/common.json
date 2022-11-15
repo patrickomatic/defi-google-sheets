@@ -1,5 +1,7 @@
 {
-  "fields": "*",
-  "limit": "Return at most this many results",
-  "offset": "Return records offset by this amount"
+  "params": {
+    "fields": "@param {FieldsOrAll} fields - *",
+    "limit": "@param {number} limit - Return at most this many results",
+    "offset": "@param {number} [offset = 0] - Return records offset by this amount"
+  }
 }
