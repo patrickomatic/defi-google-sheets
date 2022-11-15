@@ -28,6 +28,8 @@ $(GS_OUTPUT): $(OUTPUT)
 	cp $(OUTPUT) $(GS_OUTPUT)
 
 API.md: $(OUTPUT)
+	# TODO strip out @customfunction
+	# TODO split into a file for each API
 # skip the first 3 lines because it's all yarn output
 	yarn jsdoc2md -f $(OUTPUT) | tail -n +3 > $@
 

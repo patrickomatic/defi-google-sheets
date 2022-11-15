@@ -1,0 +1,30 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[6].name}}
+ *
+ * {{es.common.params.startdate}}
+ * {{es.common.params.enddate}}
+ * {{es.common.params.sort}}
+ *
+ * @example
+ * =ES$BLOCK_DAILYAVGBLOCKTIME("2019-02-01", "2019-02-28")
+ *
+ * @customfunction
+ */
+function ES$BLOCK_DAILYAVGBLOCKTIME(
+  startdate: string,
+  enddate: string,
+  sort: EtherscanSort,
+) {
+  return esRequest_({
+    caller: 'ES$BLOCK_DAILYAVGBLOCKTIME',
+    action: 'dailyavgblocktime',
+    module: 'stats',
+    params: { 
+      enddate,
+      startdate,
+      sort,
+    },
+  });
+}

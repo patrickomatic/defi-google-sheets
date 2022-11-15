@@ -1,0 +1,30 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[5].name}}
+ *
+ * {{es.common.params.startdate}}
+ * {{es.common.params.enddate}}
+ * {{es.common.params.sort}}
+ *
+ * @example
+ * =ES$BLOCK_DAILYBLOCKREWARDS("2019-02-01", "2019-02-28")
+ *
+ * @customfunction
+ */
+function ES$BLOCK_DAILYBLOCKREWARDS(
+  startdate: string,
+  enddate: string,
+  sort: EtherscanSort,
+) {
+  return esRequest_({
+    caller: 'ES$BLOCK_DAILYBLOCKREWARDS',
+    action: 'dailyblockrewards',
+    module: 'stats',
+    params: { 
+      enddate,
+      startdate,
+      sort,
+    },
+  });
+}

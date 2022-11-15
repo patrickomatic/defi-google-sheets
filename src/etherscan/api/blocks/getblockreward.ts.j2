@@ -1,0 +1,20 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[0].name}}
+ *
+ * {{es.common.params.blockno}}
+ *
+ * @example
+ * =ES$BLOCK_GETBLOCKREWARD(1)
+ *
+ * @customfunction
+ */
+function ES$BLOCK_GETBLOCKREWARD(blockno: number) {
+  return esRequest_({
+    caller: 'ES$BLOCK_GETBLOCKREWARD',
+    action: 'getblockreward',
+    module: 'block',
+    params: { address: asNumber_(blockno) },
+  });
+}

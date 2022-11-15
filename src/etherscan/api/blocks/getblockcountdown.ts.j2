@@ -1,0 +1,20 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[1].name}}
+ *
+ * {{es.common.params.blockno}}
+ *
+ * @example
+ * =ES$BLOCK_GETBLOCKCOUNTDOWN(16701588)
+ *
+ * @customfunction
+ */
+function ES$BLOCK_GETBLOCKCOUNTDOWN(blockno: number) {
+  return esRequest_({
+    caller: 'ES$BLOCK_GETBLOCKCOUNTDOWN',
+    action: 'getblockcountdown',
+    module: 'block',
+    params: { blockno },
+  });
+}

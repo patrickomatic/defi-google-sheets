@@ -1,0 +1,27 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[2].name}}
+ *
+ * @param {number} timestamp - the integer representing the Unix timestamp in seconds
+ * @param {"before" | "after"} closest - the closest available block to the provided timestamp, either "before" or "after"
+ *
+ * @example
+ * =ES$BLOCK_GETBLOCKNOBYTIME(1578638524, "before")
+ *
+ * @customfunction
+ */
+function ES$BLOCK_GETBLOCKNOBYTIME(
+  timestamp: number,
+  closest: EtherscanClosest,
+) {
+  return esRequest_({
+    caller: 'ES$BLOCK_GETBLOCKNOBYTIME',
+    action: 'getblocknobytime',
+    module: 'block',
+    params: { 
+      timestamp,
+      closest,
+    },
+  });
+}

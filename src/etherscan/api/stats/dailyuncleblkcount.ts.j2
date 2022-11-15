@@ -1,0 +1,30 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.blocks.item[7].name}}
+ *
+ * {{es.common.params.startdate}}
+ * {{es.common.params.enddate}}
+ * {{es.common.params.sort}}
+ *
+ * @example
+ * =ES$BLOCK_DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
+ *
+ * @customfunction
+ */
+function ES$BLOCK_DAILYUNCLEBLKCOUNT(
+  startdate: string,
+  enddate: string,
+  sort: EtherscanSort,
+) {
+  return esRequest_({
+    caller: 'ES$BLOCK_DAILYUNCLEBLKCOUNT',
+    action: 'dailyuncleblkcount',
+    module: 'stats',
+    params: { 
+      enddate,
+      startdate,
+      sort,
+    },
+  });
+}

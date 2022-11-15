@@ -1,3 +1,4 @@
+type EtherscanClosest = 'before' | 'after';
 type EtherscanTag = 'earliest' | 'latest' | 'pending';
 type EtherscanSort = 'asc' | 'desc';
 

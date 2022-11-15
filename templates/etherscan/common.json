@@ -1,0 +1,13 @@
+{
+  "params": {
+    "address": "@param {EthereumAddress} address",
+    "blockno": "@param {number} blockno - the integer block number",
+    "endblock": "@param {number} endblock",
+    "enddate": "@param {string} enddate - the ending date in yyyy-MM-dd format, eg. 2019-02-28",
+    "offset": "@param {number} [offset = 0]",
+    "page": "@param {number} page",
+    "sort": "@param {\"asc\" | \"desc\"} sort - the sorting preference, use \"asc\" to sort by ascending and \"desc\" to sort by descending",
+    "startblock": "@param {number} startblock",
+    "startdate": "@param {string} startdate - the starting date in yyyy-MM-dd format, eg. 2019-02-01"
+  }
+}
