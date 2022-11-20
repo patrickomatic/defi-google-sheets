@@ -22,8 +22,8 @@ clean:
 		$(BEACONCHAIN_API_DOCS_JSON) \
 		scripts/generatedocs.js
 
-$(GENERATED_TS_FILES): $(JINJA_FILES)
-	./scripts/processj2 $^
+%.generated.ts: %.ts.j2
+	./scripts/processj2 $<
 
 $(OUTPUT): $(BEACONCHAIN_API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
 	@mkdir -p $(OUTPUT_DIR)

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-if [ "$#" -eq "0" ]; then
-  echo "Usage: $0 input.j2 ...inputN.j2" >&2
+if [ "$#" -ne "1" ]; then
+  echo "Usage: $0 input.j2" >&2
   exit 1
 fi
 
@@ -47,11 +47,7 @@ jq -f $documentation_schema \
   --slurpfile esTransactions templates/etherscan/"Transactions.postman_collection.json" \
   templates/common.json > $input_json
 
-while (( "$#" )); do
-  output_file=`echo -n $1 | sed -e 's/\.ts\.j2/.generated.ts/g'`
-  jinja -d $input_json -o $output_file -f json $1
-
-  shift
-done
+output_file=`echo -n $1 | sed -e 's/\.ts\.j2/.generated.ts/g'`
+jinja -d $input_json -o $output_file -f json $1
 
 rm -f $documentation_schema $input_json
