@@ -1,0 +1,40 @@
+#!/bin/bash
+set -e
+
+# we pull documentation from various locations (wherever I can find it) and
+# assemble it into a JSON document that can be used by jinja in the next step
+jq_doc=$(mktemp)
+cat <<'__EOF' > $jq_doc
+{
+  common: .,
+  bc: $bc[0],
+  es: {
+    accounts: $esAccount[0],
+    common: $esCommon[0],
+    gasTracker: $esGasTracker[0],
+    stats: $esStats[0],
+    blocks: $esBlocks[0],
+    gethParityProxy: $esGethParityProxy[0],
+    tokens: $esTokens[0],
+    contracts: $esContracts[0],
+    logs: $esLogs[0],
+    transactions: $esTransactions[0],
+  },
+}
+__EOF
+
+jq -f $jq_doc \
+  --slurpfile bc .external_docs_cache/beaconchaindocs.json \
+  --slurpfile esCommon templates/etherscan/common.json \
+  --slurpfile esAccount templates/etherscan/"Accounts.postman_collection.json" \
+  --slurpfile esGasTracker templates/etherscan/"Gas Tracker.postman_collection.json" \
+  --slurpfile esStats templates/etherscan/"Stats.postman_collection.json" \
+  --slurpfile esBlocks templates/etherscan/"Blocks.postman_collection.json" \
+  --slurpfile esGethParityProxy templates/etherscan/"Geth-Parity Proxy.postman_collection.json" \
+  --slurpfile esTokens templates/etherscan/"Tokens.postman_collection.json" \
+  --slurpfile esContracts templates/etherscan/"Contracts.postman_collection.json" \
+  --slurpfile esLogs templates/etherscan/"Logs.postman_collection.json" \
+  --slurpfile esTransactions templates/etherscan/"Transactions.postman_collection.json" \
+  templates/common.json
+
+rm -f $jq_doc

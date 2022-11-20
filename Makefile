@@ -11,6 +11,7 @@ GENERATED_TS_FILES := $(shell find src -type f -name '*.ts.j2' | sed -e 's/\.ts\
 
 EXTERNAL_DOCS_DIR := .external_docs_cache
 BEACONCHAIN_API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/beaconchaindocs.json
+API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/docvars.json
 
 all: $(OUTPUT) API.md scripts/generatedocs.js
 
@@ -20,12 +21,13 @@ clean:
 		$(GENERATED_TS_FILES) \
 		API.md \
 		$(BEACONCHAIN_API_DOCS_JSON) \
+		$(API_DOCS_JSON) \
 		scripts/generatedocs.js
 
-%.generated.ts: %.ts.j2
-	./scripts/processj2 $<
+%.generated.ts: %.ts.j2 $(API_DOCS_JSON)
+	./scripts/processj2 $< $(API_DOCS_JSON)
 
-$(OUTPUT): $(BEACONCHAIN_API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
+$(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
 	@mkdir -p $(OUTPUT_DIR)
 	yarn tsc --out $@
 
@@ -33,8 +35,11 @@ $(BEACONCHAIN_API_DOCS_JSON):
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	curl -H "Accept: application/json" -o $@ https://beaconcha.in/api/v1/docs/doc.json 
 
-# TODO figure out the URL to download the etherscan docs too
-
+$(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON)
+	@mkdir -p $(EXTERNAL_DOCS_DIR)
+	./scripts/builddocvars > $(API_DOCS_JSON)
+	
+# XXX do I need this...?
 scripts/generatedocs.js: scripts/generatedocs.ts
 	yarn tsc $^
 

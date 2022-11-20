@@ -600,4 +600,4 @@ Get Daily Uncle Block Count and Rewards
 ```js
 =ES$BLOCK_DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
 ```
-Done in 0.41s.
+Done in 0.25s.
