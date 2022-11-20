@@ -1,6 +1,6 @@
-node_modules
-lib/
+node_modules/
 dist/
-bundle/
-src/**.js
-src/**/*.generated.ts
+.external_docs_cache/
+**.js
+**/*.generated.ts
+**/*.generated.js

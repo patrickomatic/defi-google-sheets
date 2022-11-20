@@ -12,11 +12,6 @@ if ! command -v jinja &> /dev/null; then
   exit 1
 fi
 
-beaconchain_docs_json=$(mktemp)
-curl -H "Accept: application/json" \
-  -o $beaconchain_docs_json \
-  https://beaconcha.in/api/v1/docs/doc.json 
-
 documentation_schema=$(mktemp)
 cat <<'__EOF' > $documentation_schema
 {
@@ -39,7 +34,7 @@ __EOF
 
 input_json=$(mktemp)
 jq -f $documentation_schema \
-  --slurpfile bc $beaconchain_docs_json \
+  --slurpfile bc .external_docs_cache/beaconchaindocs.json \
   --slurpfile esCommon templates/etherscan/common.json \
   --slurpfile esAccount templates/etherscan/"Accounts.postman_collection.json" \
   --slurpfile esGasTracker templates/etherscan/"Gas Tracker.postman_collection.json" \
@@ -59,4 +54,4 @@ while (( "$#" )); do
   shift
 done
 
-rm -f $beaconchain_docs_json $documentation_schema $input_json
+rm -f $documentation_schema $input_json
