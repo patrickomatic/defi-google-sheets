@@ -1,6 +1,7 @@
 OUTPUT_DIR := dist
 OUTPUT := $(OUTPUT_DIR)/defi.js
 GS_OUTPUT := $(OUTPUT_DIR)/defi.gs
+DOC_OUTPUT := $(OUTPUT_DIR)/defiDoc.js
 SRC_DIR := src
 
 CONFIG_FILES := tsconfig.json .eslintrc
@@ -33,6 +34,9 @@ $(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
 $(GS_OUTPUT): $(OUTPUT)
 	cp $(OUTPUT) $(GS_OUTPUT)
 
+$(DOC_OUTPUT): $(OUTPUT)
+	fgrep -v '@customfunction' $(OUTPUT) > $(DOC_OUTPUT)
+
 $(BEACONCHAIN_API_DOCS_JSON): 
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	curl -H "Accept: application/json" -o $@ https://beaconcha.in/api/v1/docs/doc.json 
@@ -44,14 +48,14 @@ $(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/
 scripts/generatedocs.js: scripts/generatedocs.ts
 	yarn tsc $^
  
-docs/BEACONCHAIN.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
-	node ./scripts/generatedocs.js $(OUTPUT) BC > $@
+docs/BEACONCHAIN.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(DOC_OUTPUT) BC > $@
 
-docs/ETHERSCAN.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
-	node ./scripts/generatedocs.js $(OUTPUT) ES > $@
+docs/ETHERSCAN.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(DOC_OUTPUT) ES > $@
 
-docs/BLOCKSTREAM.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
-	node ./scripts/generatedocs.js $(OUTPUT) BS > $@
+docs/BLOCKSTREAM.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(DOC_OUTPUT) BS > $@
 
-docs/BLOCKFROST.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
-	node ./scripts/generatedocs.js $(OUTPUT) BF > $@
+docs/BLOCKFROST.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(DOC_OUTPUT) BF > $@

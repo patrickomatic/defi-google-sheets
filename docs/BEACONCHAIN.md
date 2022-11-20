@@ -69,7 +69,6 @@
 Get block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -82,7 +81,6 @@ Get block
 Get the attestations included in a specific block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -97,7 +95,6 @@ Get the attestations included in a specific block
 Get the attester slashings included in a specific block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -116,7 +113,6 @@ Get the attester slashings included in a specific block
 Get the deposits included in a specific block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -135,7 +131,6 @@ Get the deposits included in a specific block
 Get the proposer slashings included in a specific block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -154,7 +149,6 @@ Get the proposer slashings included in a specific block
 Get the voluntary exits included in a specific block
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -173,7 +167,6 @@ Get the voluntary exits included in a specific block
 Get the current validator queue
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -189,7 +182,6 @@ Get the current validator queue
 Get epoch by number
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -206,7 +198,6 @@ Get epoch by number
 Get epoch blocks by epoch number
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -225,7 +216,6 @@ Get epoch blocks by epoch number
 Get an eth1 deposit by its eth1 transaction hash
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -244,21 +234,18 @@ Get an eth1 deposit by its eth1 transaction hash
 Health of the explorer
 
 **Kind**: global function  
-**Customfunction**:   
 <a name="BC$HEALTHZ_LOADBALANCER"></a>
 
 ## BC$HEALTHZ\_LOADBALANCER()
 Health of the explorer-api regarding having a healthy connection to the database
 
 **Kind**: global function  
-**Customfunction**:   
 <a name="BC$VALIDATOR"></a>
 
 ## BC$VALIDATOR(indexOrPubkey, [fields], [offset], [limit])
 Get up to 100 validators
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -273,7 +260,6 @@ Get up to 100 validators
 Get the current attestation-effectiveness of up to 100 validators. 1 = all attestations are included in the next possible block, < 1 some attestations have been included after the next possible block.
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -288,7 +274,6 @@ Get the current attestation-effectiveness of up to 100 validators. 1 = all attes
 Get the current performance of up to 100 validators
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -303,7 +288,6 @@ Get the current performance of up to 100 validators
 Get all attestations during the last 10 epochs for up to 100 validators
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -318,7 +302,6 @@ Get all attestations during the last 10 epochs for up to 100 validators
 Get the balance history (last 100 epochs) of up to 100 validators
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -333,7 +316,6 @@ Get the balance history (last 100 epochs) of up to 100 validators
 Get all validators that belong to an eth1 address
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -348,7 +330,6 @@ Get all validators that belong to an eth1 address
 Get the current top 100 performing validators (using the income over the last 7 days)
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -362,7 +343,6 @@ Get the current top 100 performing validators (using the income over the last 7 
 Get the daily validator stats by the validator index
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

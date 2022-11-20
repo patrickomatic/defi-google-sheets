@@ -51,7 +51,6 @@
 Get Ether Balance for a Single Address
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type |
 | --- | --- |
@@ -64,7 +63,6 @@ Get Ether Balance for a Single Address
 Get Ether Balance for Multiple Addresses in a Single Call
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -79,7 +77,6 @@ Get Ether Balance for Multiple Addresses in a Single Call
 Get "Internal Transactions" by Block Range
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -97,7 +94,6 @@ Get "Internal Transactions" by Block Range
 Get 'Internal Transactions' by Transaction Hash
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -114,7 +110,6 @@ Get 'Internal Transactions' by Transaction Hash
 Get a list of 'Normal' Transactions By Address
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -131,7 +126,6 @@ Get a list of 'Normal' Transactions By Address
 Get a list of 'Internal' Transactions by Address
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -148,7 +142,6 @@ Get a list of 'Internal' Transactions by Address
 Get Estimated Block Countdown Time by BlockNo
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -164,7 +157,6 @@ Get Estimated Block Countdown Time by BlockNo
 Get Block Number by Timestamp
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -181,7 +173,6 @@ Get Block Number by Timestamp
 Get Block And Uncle Rewards by BlockNo
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -197,7 +188,6 @@ Get Block And Uncle Rewards by BlockNo
 Get Daily Average Block Size
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -215,7 +205,6 @@ Get Daily Average Block Size
 Get Daily Average Time for A Block to be Included in the Ethereum Blockchain
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -233,7 +222,6 @@ Get Daily Average Time for A Block to be Included in the Ethereum Blockchain
 Get Daily Block Count and Rewards
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -251,7 +239,6 @@ Get Daily Block Count and Rewards
 Get Daily Block Rewards
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -269,7 +256,6 @@ Get Daily Block Rewards
 Get Daily Uncle Block Count and Rewards
 
 **Kind**: global function  
-**Customfunction**:   
 
 | Param | Type | Description |
 | --- | --- | --- |
