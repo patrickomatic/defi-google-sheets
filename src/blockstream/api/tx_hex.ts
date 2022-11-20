@@ -3,6 +3,6 @@
 /**
  * @customfunction
  */
-function BSTX_HEX(txid: Hex): SpreadsheetCell {
+function BS$TX_HEX(txid: Hex): SpreadsheetCell {
   return bsRequest_<Hex>({ apiPath: `tx/${validateHex_(txid)}/hex` });
 }

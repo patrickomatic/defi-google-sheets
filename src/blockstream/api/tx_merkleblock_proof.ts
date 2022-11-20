@@ -3,7 +3,7 @@
 /**
  * @customfunction
  */
-function BSTX_MERKLEBLOCK_PROOF(txid: Hex): SpreadsheetCell {
+function BS$TX_MERKLEBLOCK_PROOF(txid: Hex): SpreadsheetCell {
   return bsRequest_<Hex>({
     apiPath: `tx/${validateHex_(txid)}/merkleblock-proof`,
   });

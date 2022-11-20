@@ -5,7 +5,6 @@ SRC_DIR := src
 
 CONFIG_FILES := tsconfig.json .eslintrc
 
-JINJA_FILES := $(shell find src -type f -name '*.ts.j2')
 TS_FILES := $(shell find src -type f -name '*.ts')
 GENERATED_TS_FILES := $(shell find src -type f -name '*.ts.j2' | sed -e 's/\.ts\.j2$$/.generated.ts/')
 
@@ -13,16 +12,16 @@ EXTERNAL_DOCS_DIR := .external_docs_cache
 BEACONCHAIN_API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/beaconchaindocs.json
 API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/docvars.json
 
-all: $(OUTPUT) API.md scripts/generatedocs.js
+MD_DOCS := docs/BEACONCHAIN.md docs/ETHERSCAN.md docs/BLOCKSTREAM.md docs/BLOCKFROST.md
+
+all: $(OUTPUT) $(MD_DOCS)
 
 .PHONY: clean
 clean:
 	rm -rf $(OUTPUT_DIR) \
+		$(EXTERNAL_DOCS_DIR) \
 		$(GENERATED_TS_FILES) \
-		API.md \
-		$(BEACONCHAIN_API_DOCS_JSON) \
-		$(API_DOCS_JSON) \
-		scripts/generatedocs.js
+		scripts/*.js
 
 %.generated.ts: %.ts.j2 $(API_DOCS_JSON) 
 	./scripts/processj2 $< $(API_DOCS_JSON)
@@ -31,6 +30,9 @@ $(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
 	@mkdir -p $(OUTPUT_DIR)
 	yarn tsc --out $@
 
+$(GS_OUTPUT): $(OUTPUT)
+	cp $(OUTPUT) $(GS_OUTPUT)
+
 $(BEACONCHAIN_API_DOCS_JSON): 
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	curl -H "Accept: application/json" -o $@ https://beaconcha.in/api/v1/docs/doc.json 
@@ -38,20 +40,18 @@ $(BEACONCHAIN_API_DOCS_JSON):
 $(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/common.json
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	./scripts/builddocvars > $(API_DOCS_JSON)
-	
-# XXX do I need this...?
+
 scripts/generatedocs.js: scripts/generatedocs.ts
 	yarn tsc $^
+ 
+docs/BEACONCHAIN.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(OUTPUT) BC > $@
 
-$(GS_OUTPUT): $(OUTPUT)
-	cp $(OUTPUT) $(GS_OUTPUT)
+docs/ETHERSCAN.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(OUTPUT) ES > $@
 
-API.md: $(OUTPUT)
-	# TODO strip out @customfunction
-	# TODO split into a file for each API
-# skip the first 3 lines because it's all yarn output
-	yarn jsdoc2md -f $(OUTPUT) | tail -n +3 > $@
+docs/BLOCKSTREAM.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(OUTPUT) BS > $@
 
-.PHONY: t
-t: $(GS_OUTPUT)
-	@cat $(GS_OUTPUT) | pbcopy
+docs/BLOCKFROST.md: scripts/generatedocs.js $(OUTPUT) $(API_DOCS_JSON)
+	node ./scripts/generatedocs.js $(OUTPUT) BF > $@

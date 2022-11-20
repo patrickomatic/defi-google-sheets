@@ -3,7 +3,7 @@
 /**
  * @customfunction
  */
-function BSTX_STATUS(
+function BS$TX_STATUS(
   txid: Hex,
   fields: FieldsOrAll<BlockstreamTxStatus> = '*',
 ): SpreadsheetRow {

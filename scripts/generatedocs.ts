@@ -1,9 +1,23 @@
 import * as jsdoc2md from 'jsdoc-to-markdown';
+import * as jsdocParse from 'jsdoc-parse';
 
-console.warn('jsdoc', jsdoc2md);
-if (process.argv.length != 3) {
-  console.warn(`Usage: node ${process.argv[1]} source_directory`);
+const [, scriptName, file, functionNamespace] = process.argv;
+
+if (process.argv.length != 4) {
+  console.warn(`Usage: node ${scriptName} file namespace`);
   process.exit(1);
 }
 
-jsdoc2md.render({ files: `../src/${process.argv[2]}/api/**.ts` }).then((output) => console.log(output));
+
+jsdoc2md.getJsdocData({ files: [file] }).then((allJsdocData) => {
+  const someData = allJsdocData.filter((entry) => {
+    return entry.name == null || (
+      // return either non-namespaced things, or only things that match our namespace
+      !entry.name.includes('$') || entry.name.startsWith(`${functionNamespace}$`)
+    );
+  });
+
+  jsdoc2md.render({ 
+    data: jsdocParse(someData),
+  }).then((output) => process.stdout.write(output));
+});

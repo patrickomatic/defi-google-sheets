@@ -9,11 +9,9 @@
     "url": "https://paypal.me/patrickomatic"
   },
   "devDependencies": {
-    "@ava/typescript": "^3.0.1",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.36.1",
-    "ava": "^4.3.3",
     "eslint": "*",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-n": "^15.0.0",
@@ -21,17 +19,7 @@
     "jsdoc-to-markdown": "^7.1.1",
     "typescript": "*"
   },
-  "ava": {
-    "typescript": {
-      "extensions": {
-        "test.ts": "module"
-      },
-      "compile": "tsc"
-    }
-  },
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "generatedocs": "node ./scripts/generatedocs.js",
-    "test": "ava"
+    "lint": "eslint . --ext .ts"
   }
 }

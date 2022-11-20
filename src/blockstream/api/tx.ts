@@ -3,7 +3,7 @@
 /**
  * @customfunction
  */
-function BSTX(
+function BS$TX(
   txid: Hex,
   fields: FieldsOrAll<BlockstreamTx> = '*',
 ): SpreadsheetRow {
