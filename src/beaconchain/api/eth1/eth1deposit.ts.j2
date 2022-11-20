@@ -1,0 +1,44 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainEth1DepositResponse {
+  amount: Gwei;
+  block_number: number;
+  block_ts: number;
+  from_address: Hex;
+  merkletree_index: Hex;
+  publickey: Hex; 
+  removed: false,
+  signature: Hex;
+  tx_hash: Hex;
+  tx_index: number;
+  tx_input: Hex;
+  valid_signature: boolean;
+  withdrawal_credentials: Hex;
+}
+
+/**
+ * {{bc.paths["/api/v1/eth1deposit/{txhash}"]["get"].summary}}
+ *
+ * @param {txhash } txhash - {{bc.paths["/api/v1/eth1deposit/{txhash}"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ * {{common.params.offset}}
+ * {{common.params.limit}}
+ *
+ * @example
+ * =BC$ETH1DEPOSIT("0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487", "*", 0, 5)
+ *
+ * @customfunction
+ */
+function BC$ETH1DEPOSIT(
+  txhash: Hex,
+  fields: FieldsOrAll<BeaconchainEth1DepositResponse> = '*',
+  offset?: number,
+  limit?: number,
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: bcRequest_<BeaconchainEth1DepositResponse[]>({
+      apiPath: `eth1deposit/${txhash}`,
+    }),
+    fields,
+  });
+}

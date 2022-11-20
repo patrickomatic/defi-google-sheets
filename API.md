@@ -7,6 +7,15 @@
 <dt><a href="#BC$BLOCK_ATTESTATIONS">BC$BLOCK_ATTESTATIONS(slot, fields, [offset], limit)</a></dt>
 <dd><p>Get the attestations included in a specific block</p>
 </dd>
+<dt><a href="#BC$EPOCH">BC$EPOCH(epoch, fields)</a></dt>
+<dd><p>Get epoch by number</p>
+</dd>
+<dt><a href="#BC$EPOCH_BLOCKS">BC$EPOCH_BLOCKS(epoch, fields, [offset], limit)</a></dt>
+<dd><p>Get epoch blocks by epoch number</p>
+</dd>
+<dt><a href="#BC$ETH1DEPOSIT">BC$ETH1DEPOSIT(txhash, fields, [offset], limit)</a></dt>
+<dd><p>Get an eth1 deposit by its eth1 transaction hash</p>
+</dd>
 <dt><a href="#BC$HEALTHZ">BC$HEALTHZ()</a></dt>
 <dd><p>Health of the explorer</p>
 </dd>
@@ -127,6 +136,61 @@ Get the attestations included in a specific block
 | [offset] | <code>number</code> | <code>0</code> | Return records offset by this amount |
 | limit | <code>number</code> |  | Return at most this many results |
 
+<a name="BC$EPOCH"></a>
+
+## BC$EPOCH(epoch, fields)
+Get epoch by number
+
+**Kind**: global function  
+**Customfunction**:   
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| epoch | <code>number</code> \| <code>&#x27;latest&#x27;</code> |  | Epoch number or the string latest |
+| fields | <code>FieldsOrAll</code> | <code>*</code> | * |
+
+**Example**  
+```js
+=BC$EPOCH("latest", "*")
+```
+<a name="BC$EPOCH_BLOCKS"></a>
+
+## BC$EPOCH\_BLOCKS(epoch, fields, [offset], limit)
+Get epoch blocks by epoch number
+
+**Kind**: global function  
+**Customfunction**:   
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| epoch | <code>number</code> \| <code>&#x27;latest&#x27;</code> |  | Epoch number or the string latest |
+| fields | <code>FieldsOrAll</code> | <code>*</code> | * |
+| [offset] | <code>number</code> | <code>0</code> | Return records offset by this amount |
+| limit | <code>number</code> |  | Return at most this many results |
+
+**Example**  
+```js
+=BC$EPOCH_BLOCKS("latest", "*")
+```
+<a name="BC$ETH1DEPOSIT"></a>
+
+## BC$ETH1DEPOSIT(txhash, fields, [offset], limit)
+Get an eth1 deposit by its eth1 transaction hash
+
+**Kind**: global function  
+**Customfunction**:   
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| txhash | <code>txhash</code> |  | Eth1 transaction hash |
+| fields | <code>FieldsOrAll</code> | <code>*</code> | * |
+| [offset] | <code>number</code> | <code>0</code> | Return records offset by this amount |
+| limit | <code>number</code> |  | Return at most this many results |
+
+**Example**  
+```js
+=BC$ETH1DEPOSIT("0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487", "*", 0, 5)
+```
 <a name="BC$HEALTHZ"></a>
 
 ## BC$HEALTHZ()
@@ -536,4 +600,4 @@ Get Daily Uncle Block Count and Rewards
 ```js
 =ES$BLOCK_DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
 ```
-Done in 0.24s.
+Done in 0.41s.

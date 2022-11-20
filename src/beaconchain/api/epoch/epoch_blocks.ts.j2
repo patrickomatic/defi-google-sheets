@@ -1,0 +1,69 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainEpochBlocksResponse {
+  attestationscount: number;
+  attesterslashingscount: number;
+  blockroot: Hex;
+  depositscount: number;
+  epoch: number;
+  eth1data_blockhash: Hex;
+  eth1data_depositcount: number;
+  eth1data_depositroot: Hex
+  exec_base_fee_per_gas: number;
+  exec_block_hash: Hex;
+  exec_block_number: number;
+  exec_extra_data: Hex;
+  exec_fee_recipient: Hex;
+  exec_gas_limit: number;
+  exec_gas_used: number;
+  exec_logs_bloom: Hex;
+  exec_parent_hash: Hex;
+  exec_random: Hex;
+  exec_receipts_root: Hex;
+  exec_state_root: Hex;
+  exec_timestamp: number;
+  exec_transactions_count: number;
+  graffiti: Hex;
+  graffiti_text: string;
+  parentroot: Hex;
+  proposer: number;
+  proposerslashingscount: number;
+  randaoreveal: Hex;
+  signature: Hex;
+  slot: number;
+  stateroot: Hex;
+  status: number;
+  syncaggregate_bits: Hex;
+  syncaggregate_participation: number;
+  syncaggregate_signature: Hex;
+  voluntaryexitscount: number;
+}
+
+/**
+ * {{bc.paths["/api/v1/epoch/{epoch}/blocks"]["get"].summary}}
+ *
+ * @param {number | 'latest'} epoch - {{bc.paths["/api/v1/epoch/{epoch}/blocks"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ * {{common.params.offset}}
+ * {{common.params.limit}}
+ *
+ * @example
+ * =BC$EPOCH_BLOCKS("latest", "*")
+ *
+ * @customfunction
+ */
+function BC$EPOCH_BLOCKS(
+  epoch: number | 'latest',
+  fields: FieldsOrAll<BeaconchainEpochBlocksResponse> = '*',
+  offset?: number,
+  limit?: number,
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: bcRequest_<BeaconchainEpochBlocksResponse[]>({
+      apiPath: `epoch/${epoch}/blocks`,
+      offset,
+      limit,
+    }),
+    fields,
+  });
+}

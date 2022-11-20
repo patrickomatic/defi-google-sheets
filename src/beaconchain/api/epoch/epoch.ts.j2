@@ -1,0 +1,45 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainEpochResponse {
+  attestationscount: number,
+  attesterslashingscount: number,
+  averagevalidatorbalance: Gwei,
+  blockscount: number,
+  depositscount: number,
+  eligibleether: number,
+  epoch: number,
+  finalized: boolean,
+  globalparticipationrate: number,
+  missedblocks: number,
+  orphanedblocks: number,
+  proposedblocks: number,
+  proposerslashingscount: number,
+  scheduledblocks: number,
+  totalvalidatorbalance: Gwei,
+  validatorscount: number,
+  voluntaryexitscount: number,
+  votedether: number
+}
+
+/**
+ * {{bc.paths["/api/v1/epoch/{epoch}"]["get"].summary}}
+ *
+ * @param {number | 'latest'} epoch - {{bc.paths["/api/v1/epoch/{epoch}"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ *
+ * @example
+ * =BC$EPOCH("latest", "*")
+ *
+ * @customfunction
+ */
+function BC$EPOCH(
+  epoch: number | 'latest',
+  fields: FieldsOrAll<BeaconchainEpochResponse> = '*',
+): SpreadsheetRow {
+  return pickFields_({
+    row: bcRequest_<BeaconchainEpochResponse>({
+      apiPath: `epoch/${epoch}`,
+    }),
+    fields,
+  });
+}
