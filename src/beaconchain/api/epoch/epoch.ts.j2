@@ -35,11 +35,11 @@ interface BeaconchainEpochResponse {
 function BC$EPOCH(
   epoch: number | 'latest',
   fields: FieldsOrAll<BeaconchainEpochResponse> = '*',
-): SpreadsheetRow {
-  return pickFields_({
+): SpreadsheetRow[] {
+  return [pickFields_({
     row: bcRequest_<BeaconchainEpochResponse>({
       apiPath: `epoch/${epoch}`,
     }),
     fields,
-  });
+  })];
 }

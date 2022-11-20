@@ -123,7 +123,7 @@ Get the deposits included in a specific block
 
 **Example**  
 ```js
-=BC$BLOCK_DEPOSITS(3148827, "*", 1)
+=BC$BLOCK_DEPOSITS(3148827, "*", 0, 5)
 ```
 <a name="BC$BLOCK_PROPOSERSLASHINGS"></a>
 
@@ -141,7 +141,7 @@ Get the proposer slashings included in a specific block
 
 **Example**  
 ```js
-=BC$BLOCK_PROPOSERSLASHINGS(4758973, "*", 1)
+=BC$BLOCK_PROPOSERSLASHINGS(4758973, "*", 0, 5)
 ```
 <a name="BC$BLOCK_VOLUNTARYEXITS"></a>
 
@@ -159,7 +159,7 @@ Get the voluntary exits included in a specific block
 
 **Example**  
 ```js
-=BC$BLOCK_VOLUNTARYEXITS(1234, "*", 1)
+=BC$BLOCK_VOLUNTARYEXITS(1234, "*", 0, 5)
 ```
 <a name="BC$VALIDATORS_QUEUE"></a>
 
@@ -208,7 +208,7 @@ Get epoch blocks by epoch number
 
 **Example**  
 ```js
-=BC$EPOCH_BLOCKS("latest", "*")
+=BC$EPOCH_BLOCKS("latest", "*", 0, 5)
 ```
 <a name="BC$ETH1DEPOSIT"></a>
 

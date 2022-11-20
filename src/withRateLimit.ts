@@ -31,18 +31,24 @@ function consumeToken_({
     const takenTokens = cache.getAll(allAvailableTokens);
 
     // loop through all available and find the first that isn't taken
-    availableToken = allAvailableTokens.find((t) => !takenTokens.includes(t));
-
-    // if we got one, claim it for a second
-    if (availableToken != null) {
-      cache.put(availableToken, 1, 1000);
+    //availableToken = allAvailableTokens.find((t) => !(t in takenTokens));
+    for (const token in allAvailableTokens) {
+      if (!(token in takenTokens)) {
+        cache.put(token, 1, 1000);
+        return token;
+      }
     }
+
+    // no tokens available
+    return null;
   });
 }
 
 function releaseToken_(token: string) {
   const cache = CacheService.getScriptCache();
-  withLock_(() => cache.remove(token));
+  withLock_(() => {
+    cache.remove(token);
+  });
 }
 
 function withRateLimit_<T>({

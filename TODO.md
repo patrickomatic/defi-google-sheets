@@ -1,5 +1,5 @@
 # General
-- [ ] make fields also work if it's a range
+- [ ] make `fields` work consistently if it's an array of strings, single value or comma-joined string 
 - [ ] use more eslint best practices (no unused vars, etc)
 - [ ] use validators in more places
 - [ ] fix global types and/or polyfill the GS API.  (though it doesn't really matter unless we can test)
@@ -7,9 +7,9 @@
 - [ ] I can probably simplify/modernize my tsconfig
 
 # Documentation
-- [ ] looks like "Done in 1.72s" is being added to the bottom of the generated file...
-- [ ] split up the docs by API
-- [ ] generate test CSVs from @example jsdocs
+- [x] looks like "Done in 1.72s" is being added to the bottom of the generated file...
+- [x] generate test CSVs from @example jsdocs
+- [x] split up the docs by API
 
 # beaconcha.in - Ethereum
 - [ ] make all of them take a startDate and endDate even if the underlying API doesn't support it

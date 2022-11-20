@@ -38,6 +38,8 @@ function BC$ETH1DEPOSIT(
   return pickFields_({
     rows: bcRequest_<BeaconchainEth1DepositResponse[]>({
       apiPath: `eth1deposit/${txhash}`,
+      offset,
+      limit,
     }),
     fields,
   });

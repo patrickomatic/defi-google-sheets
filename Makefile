@@ -1,21 +1,16 @@
 OUTPUT_DIR := dist
 OUTPUT := $(OUTPUT_DIR)/defi.js
 GS_OUTPUT := $(OUTPUT_DIR)/defi.gs
-DOC_OUTPUT := $(OUTPUT_DIR)/defiDoc.js
-SRC_DIR := src
-
-CONFIG_FILES := tsconfig.json .eslintrc
+DOC_OUTPUT := $(OUTPUT_DIR)/defi-doc.js
 
 TS_FILES := $(shell find src -type f -name '*.ts')
 GENERATED_TS_FILES := $(shell find src -type f -name '*.ts.j2' | sed -e 's/\.ts\.j2$$/.generated.ts/')
 
-EXTERNAL_DOCS_DIR := .external_docs_cache
+EXTERNAL_DOCS_DIR := .externaldocscache
 BEACONCHAIN_API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/beaconchaindocs.json
 API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/docvars.json
 
 MD_DOCS := docs/BEACONCHAIN.md docs/ETHERSCAN.md docs/BLOCKSTREAM.md docs/BLOCKFROST.md
-
-TEST_DIR := test/
 TEST_CSVS := test/etherscan.csv test/beaconchain.csv test/blockstream.csv test/blockfrost.csv
 
 all: $(GS_OUTPUT) $(MD_DOCS) $(TEST_CSVS)
@@ -31,7 +26,7 @@ clean:
 %.generated.ts: %.ts.j2 $(API_DOCS_JSON) 
 	./scripts/processj2 $< $(API_DOCS_JSON)
 
-$(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
+$(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) 
 	@mkdir -p $(OUTPUT_DIR)
 	yarn tsc --out $@
 
@@ -78,3 +73,7 @@ test/blockstream.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
 
 test/blockfrost.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
 	node ./scripts/generatetestcsv.js $(DOC_OUTPUT) BF > $@
+
+.PHONY: dev
+dev: $(GS_OUTPUT)
+	cat $(GS_OUTPUT) | pbcopy
