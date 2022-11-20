@@ -15,12 +15,16 @@ API_DOCS_JSON := $(EXTERNAL_DOCS_DIR)/docvars.json
 
 MD_DOCS := docs/BEACONCHAIN.md docs/ETHERSCAN.md docs/BLOCKSTREAM.md docs/BLOCKFROST.md
 
-all: $(OUTPUT) $(MD_DOCS)
+TEST_DIR := test/
+TEST_CSVS := test/etherscan.csv test/beaconchain.csv test/blockstream.csv test/blockfrost.csv
+
+all: $(OUTPUT) $(MD_DOCS) $(TEST_CSVS)
 
 .PHONY: clean
 clean:
 	rm -rf $(OUTPUT_DIR) \
 		$(EXTERNAL_DOCS_DIR) \
+		$(TEST_CSVS) \
 		$(GENERATED_TS_FILES) \
 		scripts/*.js
 
@@ -48,14 +52,29 @@ $(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/
 scripts/generatedocs.js: scripts/generatedocs.ts
 	yarn tsc $^
  
-docs/BEACONCHAIN.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+docs/BEACONCHAIN.md: scripts/generatedocs.js $(DOC_OUTPUT) 
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) BC > $@
 
-docs/ETHERSCAN.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+docs/ETHERSCAN.md: scripts/generatedocs.js $(DOC_OUTPUT) 
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) ES > $@
 
-docs/BLOCKSTREAM.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+docs/BLOCKSTREAM.md: scripts/generatedocs.js $(DOC_OUTPUT) 
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) BS > $@
 
-docs/BLOCKFROST.md: scripts/generatedocs.js $(DOC_OUTPUT) $(API_DOCS_JSON)
+docs/BLOCKFROST.md: scripts/generatedocs.js $(DOC_OUTPUT) 
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) BF > $@
+
+scripts/generatetestcsv.js: scripts/generatetestcsv.ts
+	yarn tsc $^
+
+test/beaconchain.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
+	node ./scripts/generatetestcsv.js $(DOC_OUTPUT) BC > $@
+
+test/etherscan.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
+	node ./scripts/generatetestcsv.js $(DOC_OUTPUT) ES > $@
+
+test/blockstream.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
+	node ./scripts/generatetestcsv.js $(DOC_OUTPUT) BS > $@
+
+test/blockfrost.csv: scripts/generatetestcsv.js $(DOC_OUTPUT)
+	node ./scripts/generatetestcsv.js $(DOC_OUTPUT) BF > $@
