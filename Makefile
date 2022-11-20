@@ -18,7 +18,7 @@ MD_DOCS := docs/BEACONCHAIN.md docs/ETHERSCAN.md docs/BLOCKSTREAM.md docs/BLOCKF
 TEST_DIR := test/
 TEST_CSVS := test/etherscan.csv test/beaconchain.csv test/blockstream.csv test/blockfrost.csv
 
-all: $(OUTPUT) $(MD_DOCS) $(TEST_CSVS)
+all: $(GS_OUTPUT) $(MD_DOCS) $(TEST_CSVS)
 
 .PHONY: clean
 clean:

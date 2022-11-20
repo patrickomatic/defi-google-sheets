@@ -14,7 +14,7 @@ jsdoc2md.getJsdocData({ files: [file] }).then((allJsdocData) => {
         && entry.name.startsWith(`${functionNamespace}$`)
         && entry.examples != null) {
       entry.examples.forEach((example) => {
-        process.stdout.write(`"=${entry.name}",${example}\n`);
+        process.stdout.write(`"${entry.name}","${example.replaceAll('"', '""')}"\n`);
       });
     }
   });
