@@ -1,0 +1,45 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainBlockProposerslashingsResponse {
+  attestationnumber_beaconblockroot: Hex;
+  attestationnumber_index: number;
+  attestationnumber_indices: number[];
+  attestationnumber_signature: Hex;
+  attestationnumber_slot: number;
+  attestationnumber_source_epoch: number;
+  attestationnumber_source_root: Hex;
+  attestationnumber_target_epoch: number;
+  attestationnumber_target_root: Hex;
+  block_index: number;
+  block_root: Hex;
+  block_slot: number;
+}
+
+/**
+ * {{bc.paths["/api/v1/block/{slot}/proposerslashings"]["get"].summary}}
+ *
+ * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/proposerslashings"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ * {{common.params.offset}}
+ * {{common.params.limit}}
+ *
+ * @example
+ * =BC$BLOCK_PROPOSERSLASHINGS(4758973, "*", 1)
+ *
+ * @customfunction
+ */
+function BC$BLOCK_PROPOSERSLASHINGS(
+  slot: number,
+  fields: FieldsOrAll<BeaconchainBlockProposerslashingsResponse> = '*',
+  offset?: number,
+  limit?: number,
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: bcRequest_<BeaconchainBlockProposerslashingsResponse[]>({
+      apiPath: `block/${asNumber_(slot)}/proposerslashings`,
+      limit,
+      offset,
+    }),
+    fields,
+  });
+}

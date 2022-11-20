@@ -1,0 +1,41 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainBlockDepositsResponse {
+  amount: Gwei;
+  block_index: number;
+  block_root: Hex;
+  block_slot: number;
+  proof: Hex | null;
+  publickey: Hex;
+  signature: Hex;
+  withdrawalcredentials: Hex;
+}
+
+/**
+ * {{bc.paths["/api/v1/block/{slot}/deposits"]["get"].summary}}
+ *
+ * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/deposits"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ * {{common.params.offset}}
+ * {{common.params.limit}}
+ *
+ * @example
+ * =BC$BLOCK_DEPOSITS(3148827, "*", 1)
+ *
+ * @customfunction
+ */
+function BC$BLOCK_DEPOSITS(
+  slot: number,
+  fields: FieldsOrAll<BeaconchainBlockDepositsResponse> = '*',
+  offset?: number,
+  limit?: number,
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: bcRequest_<BeaconchainBlockDepositsResponse[]>({
+      apiPath: `block/${asNumber_(slot)}/deposits`,
+      limit,
+      offset,
+    }),
+    fields,
+  });
+}

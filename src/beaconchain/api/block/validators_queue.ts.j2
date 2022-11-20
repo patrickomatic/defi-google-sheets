@@ -1,0 +1,28 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainValidatorsQueueResponse {
+  beaconchain_entering: number;
+  beaconchain_exiting: number;
+  validatorscount: number;
+}
+
+/**
+ * {{bc.paths["/api/v1/validators/queue"]["get"].summary}}
+ *
+ * {{common.params.fields}}
+ *
+ * @example
+ * =BC$VALIDATORS_QUEUE()
+ *
+ * @customfunction
+ */
+function BC$VALIDATORS_QUEUE(
+  fields: FieldsOrAll<BeaconchainValidatorsQueueResponse> = '*',
+): SpreadsheetRow {
+  return pickFields_({
+    row: bcRequest_<BeaconchainValidatorsQueueResponse>({
+      apiPath: `validators/queue`,
+    }),
+    fields,
+  });
+}

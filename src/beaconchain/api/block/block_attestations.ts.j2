@@ -29,13 +29,14 @@ interface BeaconchainBlockAttestationsResponse {
 function BC$BLOCK_ATTESTATIONS(
   slot: number,
   fields: FieldsOrAll<BeaconchainBlockAttestationsResponse> = '*',
-  limit?: number,
   offset?: number,
+  limit?: number,
 ): SpreadsheetRow[] {
   return pickFields_({
     rows: bcRequest_<BeaconchainBlockAttestationsResponse[]>({
       apiPath: `block/${asNumber_(slot)}/attestations`,
       limit,
+      offset,
     }),
     fields,
   });

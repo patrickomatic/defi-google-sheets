@@ -1,13 +1,18 @@
 # General
-- [ ] split up the docs by API
-- [ ] generate test CSVs from @example jsdocs
+- [ ] make fields also work if it's a range
+- [ ] use more eslint best practices (no unused vars, etc)
 - [ ] use validators in more places
 - [ ] fix global types and/or polyfill the GS API.  (though it doesn't really matter unless we can test)
 - [ ] unit tests/CI
+- [ ] I can probably simplify/modernize my tsconfig
+
+# Documentation
+- [ ] looks like "Done in 1.72s" is being added to the bottom of the generated file...
+- [ ] split up the docs by API
+- [ ] generate test CSVs from @example jsdocs
 
 # beaconcha.in - Ethereum
 - [ ] make all of them take a startDate and endDate even if the underlying API doesn't support it
-- [ ] implement: Block
 - [ ] implement: Charts
 - [ ] implement: User
 - [ ] implement: ETH.STORE
@@ -16,8 +21,10 @@
 - [ ] implement: Rocketpool
 - [ ] implement: SyncCommittee
 - [ ] implement: Validator
+- [x] implement: Block
 - [x] implement: Epoch
 - [x] implement: Eth1
+- [x] implement: Health
 
 # etherscan.io - Ethereum
 - [ ] implement: Contracts

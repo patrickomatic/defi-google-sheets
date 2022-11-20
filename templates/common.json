@@ -1,7 +1,7 @@
 {
   "params": {
-    "fields": "@param {FieldsOrAll} fields - *",
-    "limit": "@param {number} limit - Return at most this many results",
-    "offset": "@param {number} [offset = 0] - Return records offset by this amount"
+    "fields": "@param {FieldsOrAll} [fields=\"*\"] - Which fields to return from the API response. By default all will be returned (in sorted order)",
+    "limit": "@param {number} [limit] - Return at most this many results",
+    "offset": "@param {number} [offset] - Return results starting at this offset"
   }
 }

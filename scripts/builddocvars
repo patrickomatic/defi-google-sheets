@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if ! command -v jq &> /dev/null; then
+  echo "You must install jq to build documentation" >&2
+  exit 1
+fi
+
 # we pull documentation from various locations (wherever I can find it) and
 # assemble it into a JSON document that can be used by jinja in the next step
 jq_doc=$(mktemp)

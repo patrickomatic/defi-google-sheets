@@ -1,0 +1,45 @@
+/// <reference path="../../common.ts" />
+
+interface BeaconchainBlockAttesterslashingsResponse {
+  attestationnumber_beaconblockroot: Hex;
+  attestationnumber_index: number;
+  attestationnumber_indices: number[];
+  attestationnumber_signature: Hex;
+  attestationnumber_slot: number;
+  attestationnumber_source_epoch: number;
+  attestationnumber_source_root: Hex;
+  attestationnumber_target_epoch: number;
+  attestationnumber_target_root: Hex;
+  block_index: number;
+  block_root: Hex;
+  block_slot: number;
+}
+
+/**
+ * {{bc.paths["/api/v1/block/{slot}/attesterslashings"]["get"].summary}}
+ *
+ * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/attesterslashings"]["get"].parameters[0].description}}
+ * {{common.params.fields}}
+ * {{common.params.offset}}
+ * {{common.params.limit}}
+ *
+ * @example
+ * =BC$BLOCK_ATTESTERSLASHINGS(4758973, "*", 1)
+ *
+ * @customfunction
+ */
+function BC$BLOCK_ATTESTERSLASHINGS(
+  slot: number,
+  fields: FieldsOrAll<BeaconchainBlockAttesterslashingsResponse> = '*',
+  limit?: number,
+  offset?: number,
+): SpreadsheetRow[] {
+  return pickFields_({
+    rows: bcRequest_<BeaconchainBlockAttesterslashingsResponse[]>({
+      apiPath: `block/${asNumber_(slot)}/attesterslashings`,
+      limit,
+      offset,
+    }),
+    fields,
+  });
+}

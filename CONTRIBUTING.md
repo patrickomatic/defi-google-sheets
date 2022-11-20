@@ -1,6 +1,16 @@
 # Contributing
 
-There are several design decisions to keep in mind when working on this codebase. 
+## Design Considerations
+
+1. In order to work with Google Sheets, the resultant code must compile to plain JS, without a reliance on a module loading system operating with `global` vars
+  * More details on this below
+2. Rely heavily on jsdoc
+  * It gives us documentation that will show up in the GS UI
+  * Can generate markdown for github documentation
+  * Can generate tests from the @examples
+3. Use jinja to avoid duplication
+  * Most of the underlying APIs provide some kind of JSON documentation, so rely on jinja injecting that rather than copying and pasting it into our jsdocs
+4. A preference for Makefile and unix build philosophies over a bunch of node dependencies
 
 ## Imports & Dependencies
 

@@ -24,7 +24,7 @@ clean:
 		$(API_DOCS_JSON) \
 		scripts/generatedocs.js
 
-%.generated.ts: %.ts.j2 $(API_DOCS_JSON)
+%.generated.ts: %.ts.j2 $(API_DOCS_JSON) 
 	./scripts/processj2 $< $(API_DOCS_JSON)
 
 $(OUTPUT): $(API_DOCS_JSON) $(TS_FILES) $(GENERATED_TS_FILES) $(CONFIG_FILES)
@@ -35,7 +35,7 @@ $(BEACONCHAIN_API_DOCS_JSON):
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	curl -H "Accept: application/json" -o $@ https://beaconcha.in/api/v1/docs/doc.json 
 
-$(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON)
+$(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/common.json
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	./scripts/builddocvars > $(API_DOCS_JSON)
 	
