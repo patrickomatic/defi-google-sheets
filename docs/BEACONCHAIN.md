@@ -75,6 +75,10 @@ Get block
 | slotOrHash | <code>SlotOrHash</code> \| <code>&#x27;latest&#x27;</code> |  | Block slot or root hash or the string latest |
 | [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
 
+**Example**  
+```js
+=BC$BLOCK("latest", "*")
+```
 <a name="BC$BLOCK_ATTESTATIONS"></a>
 
 ## BC$BLOCK\_ATTESTATIONS(slot, [fields], [offset], [limit])
@@ -89,6 +93,10 @@ Get the attestations included in a specific block
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$BLOCK_ATTESTATIONS(15316933, "*", 0, 5)
+```
 <a name="BC$BLOCK_ATTESTERSLASHINGS"></a>
 
 ## BC$BLOCK\_ATTESTERSLASHINGS(slot, [fields], [offset], [limit])
@@ -234,12 +242,20 @@ Get an eth1 deposit by its eth1 transaction hash
 Health of the explorer
 
 **Kind**: global function  
+**Example**  
+```js
+=BC$HEALTHZ()
+```
 <a name="BC$HEALTHZ_LOADBALANCER"></a>
 
 ## BC$HEALTHZ\_LOADBALANCER()
 Health of the explorer-api regarding having a healthy connection to the database
 
 **Kind**: global function  
+**Example**  
+```js
+=BC$HEALTHZ_LOADBALANCER()
+```
 <a name="BC$VALIDATOR"></a>
 
 ## BC$VALIDATOR(indexOrPubkey, [fields], [offset], [limit])
@@ -254,6 +270,10 @@ Get up to 100 validators
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR(209732, "*", 0, 5)
+```
 <a name="BC$VALIDATOR_ATTESTATIONEFFECTIVENESS"></a>
 
 ## BC$VALIDATOR\_ATTESTATIONEFFECTIVENESS(indexOrPubkey, [fields], [offset], [limit])
@@ -268,6 +288,10 @@ Get the current attestation-effectiveness of up to 100 validators. 1 = all attes
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(209732, "*", 0, 5)
+```
 <a name="BC$VALIDATOR_ATTESTATIONEFFICIENCY"></a>
 
 ## BC$VALIDATOR\_ATTESTATIONEFFICIENCY(indexOrPubkey, [fields], [offset], [limit])
@@ -282,6 +306,10 @@ Get the current performance of up to 100 validators
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, "*", 0, 5)
+```
 <a name="BC$VALIDATOR_ATTESTATIONS"></a>
 
 ## BC$VALIDATOR\_ATTESTATIONS(indexOrPubkey, [fields], [offset], [limit])
@@ -296,6 +324,10 @@ Get all attestations during the last 10 epochs for up to 100 validators
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_ATTESTATIONS(209732, "*", 0, 5)
+```
 <a name="BC$VALIDATOR_BALANCEHISTORY"></a>
 
 ## BC$VALIDATOR\_BALANCEHISTORY(indexOrPubkey, [fields], [offset], [limit])
@@ -310,6 +342,10 @@ Get the balance history (last 100 epochs) of up to 100 validators
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 5)
+```
 <a name="BC$VALIDATOR_ETH1"></a>
 
 ## BC$VALIDATOR\_ETH1(eth1address, [fields], [offset], [limit])
@@ -324,6 +360,10 @@ Get all validators that belong to an eth1 address
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_ETH1("0xf1b1a29331602f44d4f3921271596ca73e2dbf3c", "*", 0, 5)
+```
 <a name="BC$VALIDATOR_LEADERBOARD"></a>
 
 ## BC$VALIDATOR\_LEADERBOARD([fields], [offset], [limit])
@@ -337,6 +377,10 @@ Get the current top 100 performing validators (using the income over the last 7 
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_LEADERBOARD("*", 0, 5)
+```
 <a name="BC$VALIDATOR_STATS"></a>
 
 ## BC$VALIDATOR\_STATS(validatorIndex, [fields], [offset], [limit])
@@ -351,3 +395,7 @@ Get the daily validator stats by the validator index
 | [offset] | <code>number</code> |  | Return results starting at this offset |
 | [limit] | <code>number</code> |  | Return at most this many results |
 
+**Example**  
+```js
+=BC$VALIDATOR_STATS(209732, '*', 0, 5)
+```

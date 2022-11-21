@@ -24,6 +24,9 @@ interface BeaconchainValidator {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR(209732, "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR(
@@ -31,15 +34,24 @@ function BC$VALIDATOR(
   fields: FieldsOrAll<BeaconchainValidator> = '*',
   offset?: number,
   limit?: number,
-): SpreadsheetRow[] {
-  // XXX validate indexOrPubkey
-  // XXX indexOrPubkey can also be an array (join it together)
-  return pickFields_<BeaconchainValidator>({
-    rows: bcRequest_<BeaconchainValidator[]>({
-      apiPath: `v1/validator/${indexOrPubkey}`,
-      offset,
-      limit,
-    }),
-    fields,
-  });
+) {
+  const indexesOrPubkeys = validateIndexOrPubkey_(indexOrPubkey);
+
+  if (indexesOrPubkeys.includes(",")) {
+    return pickFields_<BeaconchainValidator>({
+      rows: bcRequest_<BeaconchainValidator[]>({
+        apiPath: `validator/${indexesOrPubkeys}`,
+        offset,
+        limit,
+      }),
+      fields,
+    });
+  } else {
+    return pickFields_<BeaconchainValidator>({
+      row: bcRequest_<BeaconchainValidator>({
+        apiPath: `validator/${indexesOrPubkeys}`,
+      }),
+      fields,
+    });
+  }
 }

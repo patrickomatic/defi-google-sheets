@@ -47,12 +47,15 @@ interface BeaconchainBlockResponse {
  * @param {SlotOrHash | 'latest'} slotOrHash - {{bc.paths["/api/v1/block/{slotOrHash}"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  *
+ * @example
+ * =BC$BLOCK("latest", "*")
+ *
  * @customfunction
  */
 function BC$BLOCK(
   slotOrHash: SlotOrHash | 'latest',
   fields: FieldsOrAll<BeaconchainBlockResponse> = '*',
-): SpreadsheetRow {
+)  {
   // XXX validate slotOrHash
   return pickFields_({
     row: bcRequest_<BeaconchainBlockResponse>({

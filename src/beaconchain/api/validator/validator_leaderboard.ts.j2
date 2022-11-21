@@ -17,6 +17,9 @@ interface BeaconchainValidatorLeaderboard {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_LEADERBOARD("*", 0, 5)
+ * 
  * @customfunction
  */
 function BC$VALIDATOR_LEADERBOARD(
@@ -26,7 +29,7 @@ function BC$VALIDATOR_LEADERBOARD(
 ): SpreadsheetRow[] {
   return pickFields_<BeaconchainValidatorLeaderboard>({
     rows: bcRequest_<BeaconchainValidatorLeaderboard[]>({
-      apiPath: `v1/validator/leaderboard`,
+      apiPath: `validator/leaderboard`,
       offset,
       limit,
     }),

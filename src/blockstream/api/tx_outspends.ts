@@ -10,9 +10,10 @@ function BS$TX_OUTSPENDS(
   txid: Hex,
   fields: FieldsOrAll<BlockstreamTxVout> = '*',
 ): SpreadsheetRow[] {
-  return bsRequest_<BlockstreamTxVout[]>({
-    apiPath: `tx/${validateHex_(txid)}/outspends`,
-  }).map((row) => 
-    pickFields_({ row, fields }),
-  );
+  return pickFields_({
+    rows: bsRequest_<BlockstreamTxVout[]>({
+      apiPath: `tx/${validateHex_(txid)}/outspends`,
+    }),
+    fields,
+  });
 }

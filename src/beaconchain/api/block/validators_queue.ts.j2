@@ -18,11 +18,11 @@ interface BeaconchainValidatorsQueueResponse {
  */
 function BC$VALIDATORS_QUEUE(
   fields: FieldsOrAll<BeaconchainValidatorsQueueResponse> = '*',
-): SpreadsheetRow[] {
-  return [pickFields_({
+) {
+  return pickFields_({
     row: bcRequest_<BeaconchainValidatorsQueueResponse>({
       apiPath: `validators/queue`,
     }),
     fields,
-  })];
+  });
 }

@@ -8,14 +8,9 @@ interface PickFieldsBaseArgs<T, V = void> {
   virtualFields?: VirtualFields<T, V>;
 }
 
-function pickFields_<T, V = void>(args: { row: T; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow;
-function pickFields_<T, V = void>(args: { rows: T[]; } & PickFieldsBaseArgs<T, V>): SpreadsheetRow[];
 function pickFields_<T, V = void>(
   args: PickFieldsBaseArgs<T, V> & ({ row: T; } | { rows: T[]; })
-): SpreadsheetRow | SpreadsheetRow[];
-function pickFields_<T, V = void>(
-  args: PickFieldsBaseArgs<T, V> & ({ row: T; } | { rows: T[]; })
-): SpreadsheetRow | SpreadsheetRow[] {
+): SpreadsheetRow[] {
   const { fields, virtualFields = [] } = args;
 
   function processRow_(row) {
@@ -25,9 +20,11 @@ function pickFields_<T, V = void>(
       ? Object.keys(row).concat(Object.keys(virtualFields)).sort() 
       : fields;
     return fieldsToResolve.map((field) => 
-      field in virtualFields ? virtualFields[field] : row[field]
+      field in virtualFields ? virtualFields[field](row) : row[field]
     );
   }
 
-  return 'rows' in args ? args.rows.map(processRow_) : processRow_(args.row);
+  return 'rows' in args 
+    ? args.rows.map(processRow_) 
+    : [processRow_(args.row)];
 }

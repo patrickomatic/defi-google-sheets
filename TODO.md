@@ -7,6 +7,7 @@
 - [ ] I can probably simplify/modernize my tsconfig
 
 # Documentation
+- [ ] have them include a header of fields
 - [x] looks like "Done in 1.72s" is being added to the bottom of the generated file...
 - [x] generate test CSVs from @example jsdocs
 - [x] split up the docs by API

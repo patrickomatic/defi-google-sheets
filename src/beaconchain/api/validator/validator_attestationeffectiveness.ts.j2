@@ -15,6 +15,9 @@ interface BeaconchainValidatorAttestationeffectiveness {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(209732, "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(
@@ -27,7 +30,7 @@ function BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(
   // XXX indexOrPubkey can also be an array (join it together)
   return pickFields_<BeaconchainValidatorAttestationeffectiveness>({
     rows: bcRequest_<BeaconchainValidatorAttestationeffectiveness[]>({
-      apiPath: `v1/validator/${indexOrPubkey}/attestationeffectiveness`,
+      apiPath: `validator/${indexOrPubkey}/attestationeffectiveness`,
       offset,
       limit,
     }),

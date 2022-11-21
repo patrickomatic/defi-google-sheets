@@ -16,6 +16,9 @@ interface BeaconchainValidatorBalancehistory {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR_BALANCEHISTORY(
@@ -28,7 +31,7 @@ function BC$VALIDATOR_BALANCEHISTORY(
   // XXX indexOrPubkey can also be an array (join it together)
   return pickFields_<BeaconchainValidatorBalancehistory>({
     rows: bcRequest_<BeaconchainValidatorBalancehistory[]>({
-      apiPath: `v1/validator/${indexOrPubkey}/balancehistory`,
+      apiPath: `validator/${indexOrPubkey}/balancehistory`,
       offset,
       limit,
     }),

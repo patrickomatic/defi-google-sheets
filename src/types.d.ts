@@ -1,6 +1,6 @@
 type SpreadsheetCell = number | string | Date;
 type SpreadsheetRow = SpreadsheetCell[];
-type EmptySpreadsheetRow = ["No results"];
+type EmptySpreadsheetRow = [["No results"]];
 
 type Hex = string;
 type EthereumAddress = Hex;

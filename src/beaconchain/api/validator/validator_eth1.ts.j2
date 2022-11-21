@@ -14,6 +14,9 @@ interface BeaconchainValidatorEth1 {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_ETH1("0xf1b1a29331602f44d4f3921271596ca73e2dbf3c", "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR_ETH1(
@@ -21,13 +24,22 @@ function BC$VALIDATOR_ETH1(
   fields: FieldsOrAll<BeaconchainValidatorEth1> = '*',
   offset?: number,
   limit?: number,
-): SpreadsheetRow[] {
-  return pickFields_<BeaconchainValidatorEth1>({
-    rows: bcRequest_<BeaconchainValidatorEth1[]>({
-      apiPath: `v1/validator/eth1/${eth1address}`,
-      offset,
-      limit,
-    }),
-    fields,
-  });
+) {
+  if (eth1address.includes(",")) {
+    return pickFields_<BeaconchainValidatorEth1>({
+      rows: bcRequest_<BeaconchainValidatorEth1[]>({
+        apiPath: `validator/eth1/${eth1address}`,
+        offset,
+        limit,
+      }),
+      fields,
+    });
+  } else {
+    return pickFields_<BeaconchainValidatorEth1>({
+      row: bcRequest_<BeaconchainValidatorEth1>({
+        apiPath: `validator/eth1/${eth1address}`,
+      }),
+      fields,
+    });
+  }
 }

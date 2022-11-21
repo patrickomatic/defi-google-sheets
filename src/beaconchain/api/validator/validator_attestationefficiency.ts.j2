@@ -13,6 +13,9 @@ interface BeaconchainValidatorAttestationefficiency {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR_ATTESTATIONEFFICIENCY(
@@ -21,11 +24,10 @@ function BC$VALIDATOR_ATTESTATIONEFFICIENCY(
   offset?: number,
   limit?: number,
 ): SpreadsheetRow[] {
-  // XXX validate indexOrPubkey
-  // XXX indexOrPubkey can also be an array (join it together)
+  const indexesOrPubkeys = validateIndexOrPubkey_(indexOrPubkey);
   return pickFields_<BeaconchainValidatorAttestationefficiency>({
     rows: bcRequest_<BeaconchainValidatorAttestationefficiency[]>({
-      apiPath: `v1/validator/${indexOrPubkey}/attestationefficiency`,
+      apiPath: `validator/${indexOrPubkey}/attestationefficiency`,
       offset,
       limit,
     }),

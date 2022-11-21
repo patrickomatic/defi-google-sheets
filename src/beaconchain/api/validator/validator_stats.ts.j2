@@ -35,7 +35,6 @@ interface BeaconchainValidatorStats {
 type BeaconchainAllValidatorStats = BeaconchainValidatorStats & BeaconchainDerivedValidatorStats;
 type BeaconchainValidatorStat = keyof BeaconchainAllValidatorStats;
 
-// XXX this doesn't work (it calculates the date wrong)
 function dateFromEpic_(date: number): Date {
   const statsDate = new Date(BEACON_CHAIN_EPOCH_DATE);
   statsDate.setDate(statsDate.getDate() + date);
@@ -50,6 +49,9 @@ function dateFromEpic_(date: number): Date {
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
+ * @example
+ * =BC$VALIDATOR_STATS(209732, "*", 0, 5)
+ *
  * @customfunction
  */
 function BC$VALIDATOR_STATS(
@@ -60,7 +62,7 @@ function BC$VALIDATOR_STATS(
 ): SpreadsheetRow[] {
   return pickFields_<BeaconchainValidatorStats, BeaconchainDerivedValidatorStats>({
     rows: bcRequest_<BeaconchainValidatorStats[]>({
-      apiPath: `v1/validator/stats/${validatorIndex}`,
+      apiPath: `validator/stats/${validatorIndex}`,
       offset,
       limit,
     }),

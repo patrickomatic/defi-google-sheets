@@ -59,3 +59,13 @@ function validateBitcoinAddress_(input: string): BitcoinAddress {
   }
   return input as BitcoinAddress;
 }
+
+function validateIndexOrPubkey_(input: IndexOrPubkey | IndexOrPubkey[]): string {
+  const atoms = input.toString().split(',');
+  atoms.forEach((atom) => {
+    if (isNaN(Number(atom)) && !atom.match(HEX_REGEX)) {
+      throw new Error(`DEFI: ${input} has invalid value (must be an index or pubkey): ${atom}`);
+    }
+  });
+  return atoms.join(',');
+}

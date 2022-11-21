@@ -15,7 +15,7 @@ jsdoc2md.getJsdocData({ files: [file] }).then((allJsdocData) => {
         && entry.examples != null) {
       entry.examples.forEach((example) => {
         process.stdout.write(`"${entry.name}","${example.replaceAll('"', '""')}"\n`);
-        process.stdout.write(`,\n`.repeat(5));
+        process.stdout.write(`,\n`.repeat(5)); // 5 blank lines for each example to overflow into
       });
     }
   });
