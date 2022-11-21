@@ -1,120 +1,99 @@
-"BC$BLOCK","=BC$BLOCK(""latest"", ""*"")"
+"",attestationscount,attesterslashingscount,blockroot,depositscount,epoch,eth1data_blockhash,eth1data_depositcount,eth1data_depositroot,exec_base_fee_per_gas,exec_block_hash,exec_block_number,exec_extra_data,exec_fee_recipient,exec_gas_limit,exec_gas_used,exec_logs_bloom,exec_parent_hash,exec_random,exec_receipts_root,exec_state_root,exec_timestamp,exec_transactions_count,graffiti,graffiti_text,parentroot,proposer,proposerslashingscount,randaoreveal,signature,slot,stateroot,status,syncaggregate_bits,syncaggregate_participation,syncaggregate_signature,voluntaryexitscount
+"BC$BLOCK(""latest"", ""*"")","=BC$BLOCK(""latest"", ""*"")"
 ,
 ,
 ,
+"",aggregationbits,beaconblockroot,block_index,block_root,block_slot,committeeindex,signature,slot,source_epoch,source_root,target_epoch,target_root,validators
+"BC$BLOCK_ATTESTATIONS(15316933, ""*"", 0, 3)","=BC$BLOCK_ATTESTATIONS(15316933, ""*"", 0, 3)"
 ,
 ,
-"BC$BLOCK_ATTESTATIONS","=BC$BLOCK_ATTESTATIONS(15316933, ""*"", 0, 5)"
 ,
+"",attestationnumber_beaconblockroot,attestationnumber_index,attestationnumber_indices,attestationnumber_signature,attestationnumber_slot,attestationnumber_source_epoch,attestationnumber_source_root,attestationnumber_target_epoch,attestationnumber_target_root,block_index,block_root,block_slot
+"BC$BLOCK_ATTESTERSLASHINGS(4758973, ""*"", 1)","=BC$BLOCK_ATTESTERSLASHINGS(4758973, ""*"", 1)"
 ,
 ,
 ,
+"",amount,block_index,block_root,block_slot,proof,publickey,signature,withdrawalcredentials
+"BC$BLOCK_DEPOSITS(3148827, ""*"", 0, 3)","=BC$BLOCK_DEPOSITS(3148827, ""*"", 0, 3)"
 ,
-"BC$BLOCK_ATTESTERSLASHINGS","=BC$BLOCK_ATTESTERSLASHINGS(4758973, ""*"", 1)"
 ,
 ,
+"",attestationnumber_beaconblockroot,attestationnumber_index,attestationnumber_indices,attestationnumber_signature,attestationnumber_slot,attestationnumber_source_epoch,attestationnumber_source_root,attestationnumber_target_epoch,attestationnumber_target_root,block_index,block_root,block_slot
+"BC$BLOCK_PROPOSERSLASHINGS(4758973, ""*"", 0, 3)","=BC$BLOCK_PROPOSERSLASHINGS(4758973, ""*"", 0, 3)"
 ,
 ,
 ,
-"BC$BLOCK_DEPOSITS","=BC$BLOCK_DEPOSITS(3148827, ""*"", 0, 5)"
+"",unknown
+"BC$BLOCK_VOLUNTARYEXITS(1234, ""*"", 0, 3)","=BC$BLOCK_VOLUNTARYEXITS(1234, ""*"", 0, 3)"
 ,
 ,
 ,
+"",beaconchain_entering,beaconchain_exiting,validatorscount
+"BC$VALIDATORS_QUEUE()","=BC$VALIDATORS_QUEUE()"
 ,
 ,
-"BC$BLOCK_PROPOSERSLASHINGS","=BC$BLOCK_PROPOSERSLASHINGS(4758973, ""*"", 0, 5)"
 ,
+"BC$EPOCH(""latest"", ""*"")","=BC$EPOCH(""latest"", ""*"")"
 ,
 ,
 ,
+"",attestationscount,attesterslashingscount,blockroot,depositscount,epoch,eth1data_blockhash,eth1data_depositcount,eth1data_depositroot:,Hex,exec_base_fee_per_gas,exec_block_hash,exec_block_number,exec_extra_data,exec_fee_recipient,exec_gas_limit,exec_gas_used,exec_logs_bloom,exec_parent_hash,exec_random,exec_receipts_root,exec_state_root,exec_timestamp,exec_transactions_count,graffiti,graffiti_text,parentroot,proposer,proposerslashingscount,randaoreveal,signature,slot,stateroot,status,syncaggregate_bits,syncaggregate_participation,syncaggregate_signature,voluntaryexitscount
+"BC$EPOCH_BLOCKS(""latest"", ""*"", 0, 3)","=BC$EPOCH_BLOCKS(""latest"", ""*"", 0, 3)"
 ,
-"BC$BLOCK_VOLUNTARYEXITS","=BC$BLOCK_VOLUNTARYEXITS(1234, ""*"", 0, 5)"
 ,
 ,
+"",amount,block_number,block_ts,from_address,merkletree_index,publickey,removed:,false,,signature,tx_hash,tx_index,tx_input,valid_signature,withdrawal_credentials
+"BC$ETH1DEPOSIT(""0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487"", ""*"", 0, 3)","=BC$ETH1DEPOSIT(""0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487"", ""*"", 0, 3)"
 ,
 ,
 ,
-"BC$VALIDATORS_QUEUE","=BC$VALIDATORS_QUEUE()"
+"",description
+"BC$HEALTHZ()","=BC$HEALTHZ()"
 ,
 ,
 ,
+"",description
+"BC$HEALTHZ_LOADBALANCER()","=BC$HEALTHZ_LOADBALANCER()"
 ,
 ,
-"BC$EPOCH","=BC$EPOCH(""latest"", ""*"")"
 ,
+"",activationeligibilityepoch,activationepoch,balance,effectivebalance,exitepoch,lastattestationslot,name,pubkey,slashed,status,validatorindex,withdrawableepoch,withdrawalcredentials
+"BC$VALIDATOR(209732, ""*"", 0, 3)","=BC$VALIDATOR(209732, ""*"", 0, 3)"
 ,
 ,
 ,
+"",validatorindex,attestation_efficiency
+"BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(209732, ""*"", 0, 3)","=BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(209732, ""*"", 0, 3)"
 ,
-"BC$EPOCH_BLOCKS","=BC$EPOCH_BLOCKS(""latest"", ""*"", 0, 5)"
 ,
 ,
+"",attestationefficiency,validatorindex
+"BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, ""*"", 0, 3)","=BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, ""*"", 0, 3)"
 ,
 ,
 ,
-"BC$ETH1DEPOSIT","=BC$ETH1DEPOSIT(""0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487"", ""*"", 0, 5)"
+"",attesterslot,committeeindex,epoch,inclusionslot,status,validatorindex,week
+"BC$VALIDATOR_ATTESTATIONS(209732, ""*"", 0, 3)","=BC$VALIDATOR_ATTESTATIONS(209732, ""*"", 0, 3)"
 ,
 ,
 ,
+"",balance,effectivebalance,epoch,validatorindex,week
+"BC$VALIDATOR_BALANCEHISTORY(209732, ""*"", 0, 5)","=BC$VALIDATOR_BALANCEHISTORY(209732, ""*"", 0, 5)"
 ,
 ,
-"BC$HEALTHZ","=BC$HEALTHZ()"
 ,
+"",publickey,valid_signature,validatorindex
+"BC$VALIDATOR_ETH1(""0xf1b1a29331602f44d4f3921271596ca73e2dbf3c"", ""*"", 0, 3)","=BC$VALIDATOR_ETH1(""0xf1b1a29331602f44d4f3921271596ca73e2dbf3c"", ""*"", 0, 3)"
 ,
 ,
 ,
+"",balance,performance1d,performance31d,performance365d,performance7d,rank7d,validatorIndex
+"BC$VALIDATOR_LEADERBOARD(""*"", 0, 3)","=BC$VALIDATOR_LEADERBOARD(""*"", 0, 3)"
 ,
-"BC$HEALTHZ_LOADBALANCER","=BC$HEALTHZ_LOADBALANCER()"
 ,
 ,
-,
-,
-,
-"BC$VALIDATOR","=BC$VALIDATOR(209732, ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_ATTESTATIONEFFECTIVENESS","=BC$VALIDATOR_ATTESTATIONEFFECTIVENESS(209732, ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_ATTESTATIONEFFICIENCY","=BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_ATTESTATIONS","=BC$VALIDATOR_ATTESTATIONS(209732, ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_BALANCEHISTORY","=BC$VALIDATOR_BALANCEHISTORY(209732, ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_ETH1","=BC$VALIDATOR_ETH1(""0xf1b1a29331602f44d4f3921271596ca73e2dbf3c"", ""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_LEADERBOARD","=BC$VALIDATOR_LEADERBOARD(""*"", 0, 5)"
-,
-,
-,
-,
-,
-"BC$VALIDATOR_STATS","=BC$VALIDATOR_STATS(209732, '*', 0, 5)"
-,
-,
+"",attester_slashings,day,deposits,deposits_amount,end_balance,end_effective_balance,max_balance,max_effective_balance,min_balance,min_effective_balance,missed_attestations,missed_blocks,missed_sync,orphaned_attestations,orphaned_blocks,orphaned_sync,participated_sync,proposed_blocks,proposer_slashings,start_balance,start_effective_balance,validatorindex
+"BC$VALIDATOR_STATS(209732, ""*"", 0, 3)","=BC$VALIDATOR_STATS(209732, ""*"", 0, 3)"
 ,
 ,
 ,

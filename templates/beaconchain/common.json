@@ -1,0 +1,5 @@
+{
+  "params": {
+    "indexOrPubkey": "@param {IndexOrPubkey | IndexOrPubkey[]} indexOrPubkey -"
+  }
+}

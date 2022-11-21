@@ -15,17 +15,18 @@ interface BeaconchainValidator {
   withdrawableepoch: number;
   withdrawalcredentials: Hex;
 }
-
 /**
- * {{bc.paths["/api/v1/validator/{indexOrPubkey}"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/{indexOrPubkey}"]["get"].summary}}
  *
- * @param {IndexOrPubkey | IndexOrPubkey[]} indexOrPubkey - {{bc.paths["/api/v1/validator/{indexOrPubkey}"]["get"].parameters[0].description}}
+ * {{bc.common.params.indexOrPubkey}} {{bc.api.paths["/api/v1/validator/{indexOrPubkey}"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR(209732, "*", 0, 5)
+ * =BC$VALIDATOR(209732, "*", 0, 3)
+ *
+ * @returns {string[]} activationeligibilityepoch,activationepoch,balance,effectivebalance,exitepoch,lastattestationslot,name,pubkey,slashed,status,validatorindex,withdrawableepoch,withdrawalcredentials
  *
  * @customfunction
  */

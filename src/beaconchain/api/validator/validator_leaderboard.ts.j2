@@ -11,22 +11,24 @@ interface BeaconchainValidatorLeaderboard {
 }
 
 /**
- * {{bc.paths["/api/v1/validator/leaderboard"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/leaderboard"]["get"].summary}}
  *
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR_LEADERBOARD("*", 0, 5)
+ * =BC$VALIDATOR_LEADERBOARD("*", 0, 3)
  * 
+ * @returns {string[]} balance,performance1d,performance31d,performance365d,performance7d,rank7d,validatorIndex
+ *
  * @customfunction
  */
 function BC$VALIDATOR_LEADERBOARD(
   fields: FieldsOrAll<BeaconchainValidatorLeaderboard> = '*',
   offset?: number,
   limit?: number,
-): SpreadsheetRow[] {
+) {
   return pickFields_<BeaconchainValidatorLeaderboard>({
     rows: bcRequest_<BeaconchainValidatorLeaderboard[]>({
       apiPath: `validator/leaderboard`,

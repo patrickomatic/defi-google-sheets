@@ -12,15 +12,17 @@ interface BeaconchainBlockDepositsResponse {
 }
 
 /**
- * {{bc.paths["/api/v1/block/{slot}/deposits"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/block/{slot}/deposits"]["get"].summary}}
  *
- * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/deposits"]["get"].parameters[0].description}}
+ * @param {number} slot - {{bc.api.paths["/api/v1/block/{slot}/deposits"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$BLOCK_DEPOSITS(3148827, "*", 0, 5)
+ * =BC$BLOCK_DEPOSITS(3148827, "*", 0, 3)
+ *
+ * @returns {string[]} amount,block_index,block_root,block_slot,proof,publickey,signature,withdrawalcredentials
  *
  * @customfunction
  */

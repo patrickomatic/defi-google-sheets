@@ -6,15 +6,17 @@ interface BeaconchainValidatorAttestationefficiency {
 }
 
 /**
- * {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestationefficiency"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/attestationefficiency"]["get"].summary}}
  *
- * @param {IndexOrPubkey | IndexOrPubkey[]} indexOrPubkey - {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestationefficiency"]["get"].parameters[0].description}}
+ * {{bc.common.params.indexOrPubkey}} {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/attestationefficiency"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, "*", 0, 5)
+ * =BC$VALIDATOR_ATTESTATIONEFFICIENCY(209732, "*", 0, 3)
+ *
+ * @returns {string[]} attestationefficiency,validatorindex
  *
  * @customfunction
  */

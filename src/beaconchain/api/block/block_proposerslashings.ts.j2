@@ -14,17 +14,18 @@ interface BeaconchainBlockProposerslashingsResponse {
   block_root: Hex;
   block_slot: number;
 }
-
 /**
- * {{bc.paths["/api/v1/block/{slot}/proposerslashings"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/block/{slot}/proposerslashings"]["get"].summary}}
  *
- * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/proposerslashings"]["get"].parameters[0].description}}
+ * @param {number} slot - {{bc.api.paths["/api/v1/block/{slot}/proposerslashings"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$BLOCK_PROPOSERSLASHINGS(4758973, "*", 0, 5)
+ * =BC$BLOCK_PROPOSERSLASHINGS(4758973, "*", 0, 3)
+ *
+ * @returns {string[]} attestationnumber_beaconblockroot,attestationnumber_index,attestationnumber_indices,attestationnumber_signature,attestationnumber_slot,attestationnumber_source_epoch,attestationnumber_source_root,attestationnumber_target_epoch,attestationnumber_target_root,block_index,block_root,block_slot
  *
  * @customfunction
  */

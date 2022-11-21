@@ -7,15 +7,17 @@ interface BeaconchainValidatorEth1 {
 }
 
 /**
- * {{bc.paths["/api/v1/validator/eth1/{eth1address}"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/eth1/{eth1address}"]["get"].summary}}
  *
- * @param {EthereumAddress} eth1address - {{bc.paths["/api/v1/validator/eth1/{eth1address}"]["get"].parameters[0].description}}
+ * @param {EthereumAddress} eth1address - {{bc.api.paths["/api/v1/validator/eth1/{eth1address}"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR_ETH1("0xf1b1a29331602f44d4f3921271596ca73e2dbf3c", "*", 0, 5)
+ * =BC$VALIDATOR_ETH1("0xf1b1a29331602f44d4f3921271596ca73e2dbf3c", "*", 0, 3)
+ *
+ * @returns {string[]} publickey,valid_signature,validatorindex
  *
  * @customfunction
  */

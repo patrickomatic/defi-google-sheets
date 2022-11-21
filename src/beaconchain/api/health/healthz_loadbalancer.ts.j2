@@ -2,14 +2,16 @@
 /// <reference path="../../../network.ts" />
 
 /**
- * {{bc.paths["/api/healthz-loadbalancer"]["get"].summary}}
+ * {{bc.api.paths["/api/healthz-loadbalancer"]["get"].summary}}
  *
  * @example
  * =BC$HEALTHZ_LOADBALANCER()
  *
+ * @returns {string[]} description
+ *
  * @customfunction
  */
-function BC$HEALTHZ_LOADBALANCER(): string {
+function BC$HEALTHZ_LOADBALANCER() {
   return makeRequest_<string>({
     url: `${BEACONCHAIN_API}/api/healthz`,
   });

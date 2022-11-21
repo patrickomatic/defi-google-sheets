@@ -14,8 +14,11 @@ jsdoc2md.getJsdocData({ files: [file] }).then((allJsdocData) => {
         && entry.name.startsWith(`${functionNamespace}$`)
         && entry.examples != null) {
       entry.examples.forEach((example) => {
-        process.stdout.write(`"${entry.name}","${example.replaceAll('"', '""')}"\n`);
-        process.stdout.write(`,\n`.repeat(5)); // 5 blank lines for each example to overflow into
+        if (entry.returns != null) {
+          process.stdout.write(`"",${entry.returns[0].description}\n`);
+        }
+        process.stdout.write(`"${example.replace('=', '').replaceAll('"', '""')}","${example.replaceAll('"', '""')}"\n`);
+        process.stdout.write(`,\n`.repeat(3));
       });
     }
   });

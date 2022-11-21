@@ -17,15 +17,17 @@ interface BeaconchainBlockAttestationsResponse {
 }
 
 /**
- * {{bc.paths["/api/v1/block/{slot}/attestations"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/block/{slot}/attestations"]["get"].summary}}
  *
- * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/attestations"]["get"].parameters[0].description}}
+ * @param {number} slot - {{bc.api.paths["/api/v1/block/{slot}/attestations"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$BLOCK_ATTESTATIONS(15316933, "*", 0, 5)
+ * =BC$BLOCK_ATTESTATIONS(15316933, "*", 0, 3)
+ *
+ * @returns {string[]} aggregationbits,beaconblockroot,block_index,block_root,block_slot,committeeindex,signature,slot,source_epoch,source_root,target_epoch,target_root,validators
  *
  * @customfunction
  */

@@ -11,15 +11,17 @@ interface BeaconchainValidatorAttestations {
 }
 
 /**
- * {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestations"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/attestations"]["get"].summary}}
  *
- * @param {IndexOrPubkey | IndexOrPubkey[]} indexOrPubkey - {{bc.paths["/api/v1/validator/{indexOrPubkey}/attestations"]["get"].parameters[0].description}}
+ * {{bc.common.params.indexOrPubkey}} {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/attestations"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR_ATTESTATIONS(209732, "*", 0, 5)
+ * =BC$VALIDATOR_ATTESTATIONS(209732, "*", 0, 3)
+ *
+ * @returns {string[]} attesterslot,committeeindex,epoch,inclusionslot,status,validatorindex,week
  *
  * @customfunction
  */
@@ -28,12 +30,10 @@ function BC$VALIDATOR_ATTESTATIONS(
   fields: FieldsOrAll<BeaconchainValidatorAttestations> = '*',
   offset?: number,
   limit?: number,
-): SpreadsheetRow[] {
-  // XXX validate indexOrPubkey
-  // XXX indexOrPubkey can also be an array (join it together)
+)  {
   return pickFields_<BeaconchainValidatorAttestations>({
     rows: bcRequest_<BeaconchainValidatorAttestations[]>({
-      apiPath: `validator/${indexOrPubkey}/attestations`,
+      apiPath: `validator/${validateIndexOrPubkey_(indexOrPubkey)}/attestations`,
       offset,
       limit,
     }),

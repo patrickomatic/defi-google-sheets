@@ -9,15 +9,17 @@ interface BeaconchainValidatorBalancehistory {
 }
 
 /**
- * {{bc.paths["/api/v1/validator/{indexOrPubkey}/balancehistory"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/balancehistory"]["get"].summary}}
  *
- * @param {IndexOrPubkey | IndexOrPubkey[]} indexOrPubkey - {{bc.paths["/api/v1/validator/{indexOrPubkey}/balancehistory"]["get"].parameters[0].description}}
+ * {{bc.common.params.indexOrPubkey}} {{bc.api.paths["/api/v1/validator/{indexOrPubkey}/balancehistory"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 5)
+ * =BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 3)
+ *
+ * @returns {string[]} balance,effectivebalance,epoch,validatorindex,week
  *
  * @customfunction
  */
@@ -26,12 +28,10 @@ function BC$VALIDATOR_BALANCEHISTORY(
   fields: FieldsOrAll<BeaconchainValidatorBalancehistory> = '*',
   offset?: number,
   limit?: number,
-): SpreadsheetRow[] {
-  // XXX validate indexOrPubkey
-  // XXX indexOrPubkey can also be an array (join it together)
+) {
   return pickFields_<BeaconchainValidatorBalancehistory>({
     rows: bcRequest_<BeaconchainValidatorBalancehistory[]>({
-      apiPath: `validator/${indexOrPubkey}/balancehistory`,
+      apiPath: `validator/${validateIndexOrPubkey_(indexOrPubkey)}/balancehistory`,
       offset,
       limit,
     }),

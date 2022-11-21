@@ -5,15 +5,17 @@ interface BeaconchainBlockVoluntaryexitsResponse {
 }
 
 /**
- * {{bc.paths["/api/v1/block/{slot}/voluntaryexits"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/block/{slot}/voluntaryexits"]["get"].summary}}
  *
- * @param {number} slot - {{bc.paths["/api/v1/block/{slot}/voluntaryexits"]["get"].parameters[0].description}}
+ * @param {number} slot - {{bc.api.paths["/api/v1/block/{slot}/voluntaryexits"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$BLOCK_VOLUNTARYEXITS(1234, "*", 0, 5)
+ * =BC$BLOCK_VOLUNTARYEXITS(1234, "*", 0, 3)
+ *
+ * @returns {string[]} unknown
  *
  * @customfunction
  */

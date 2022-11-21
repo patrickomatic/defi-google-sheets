@@ -12,7 +12,10 @@ jq_doc=$(mktemp)
 cat <<'__EOF' > $jq_doc
 {
   common: .,
-  bc: $bc[0],
+  bc: {
+    common: $bcCommon[0],
+    api: $bc[0],
+  },
   es: {
     accounts: $esAccount[0],
     common: $esCommon[0],
@@ -29,7 +32,8 @@ cat <<'__EOF' > $jq_doc
 __EOF
 
 jq -f $jq_doc \
-  --slurpfile bc .external_docs_cache/beaconchaindocs.json \
+  --slurpfile bc .externaldocscache/beaconchaindocs.json \
+  --slurpfile bcCommon templates/beaconchain/common.json \
   --slurpfile esCommon templates/etherscan/common.json \
   --slurpfile esAccount templates/etherscan/"Accounts.postman_collection.json" \
   --slurpfile esGasTracker templates/etherscan/"Gas Tracker.postman_collection.json" \

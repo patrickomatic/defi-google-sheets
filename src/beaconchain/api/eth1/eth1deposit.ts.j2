@@ -17,15 +17,17 @@ interface BeaconchainEth1DepositResponse {
 }
 
 /**
- * {{bc.paths["/api/v1/eth1deposit/{txhash}"]["get"].summary}}
+ * {{bc.api.paths["/api/v1/eth1deposit/{txhash}"]["get"].summary}}
  *
- * @param {txhash } txhash - {{bc.paths["/api/v1/eth1deposit/{txhash}"]["get"].parameters[0].description}}
+ * @param {txhash } txhash - {{bc.api.paths["/api/v1/eth1deposit/{txhash}"]["get"].parameters[0].description}}
  * {{common.params.fields}}
  * {{common.params.offset}}
  * {{common.params.limit}}
  *
  * @example
- * =BC$ETH1DEPOSIT("0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487", "*", 0, 5)
+ * =BC$ETH1DEPOSIT("0x57f1b63337b12133d4b36e4d2fbb4f0b0599140ec18f531e58ca1aaacffd3487", "*", 0, 3)
+ *
+ * @returns {string[]} amount,block_number,block_ts,from_address,merkletree_index,publickey,removed:,false,,signature,tx_hash,tx_index,tx_input,valid_signature,withdrawal_credentials
  *
  * @customfunction
  */
