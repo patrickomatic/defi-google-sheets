@@ -213,7 +213,7 @@ Get epoch by number
 Get epoch blocks by epoch number
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - attestationscount,attesterslashingscount,blockroot,depositscount,epoch,eth1data_blockhash,eth1data_depositcount,eth1data_depositroot:,Hex,exec_base_fee_per_gas,exec_block_hash,exec_block_number,exec_extra_data,exec_fee_recipient,exec_gas_limit,exec_gas_used,exec_logs_bloom,exec_parent_hash,exec_random,exec_receipts_root,exec_state_root,exec_timestamp,exec_transactions_count,graffiti,graffiti_text,parentroot,proposer,proposerslashingscount,randaoreveal,signature,slot,stateroot,status,syncaggregate_bits,syncaggregate_participation,syncaggregate_signature,voluntaryexitscount  
+**Returns**: <code>Array.&lt;string&gt;</code> - attestationscount,attesterslashingscount,blockroot,depositscount,epoch,eth1data_blockhash,eth1data_depositcount,eth1data_depositroot,exec_base_fee_per_gas,exec_block_hash,exec_block_number,exec_extra_data,exec_fee_recipient,exec_gas_limit,exec_gas_used,exec_logs_bloom,exec_parent_hash,exec_random,exec_receipts_root,exec_state_root,exec_timestamp,exec_transactions_count,graffiti,graffiti_text,parentroot,proposer,proposerslashingscount,randaoreveal,signature,slot,stateroot,status,syncaggregate_bits,syncaggregate_participation,syncaggregate_signature,voluntaryexitscount  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -232,7 +232,7 @@ Get epoch blocks by epoch number
 Get an eth1 deposit by its eth1 transaction hash
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - amount,block_number,block_ts,from_address,merkletree_index,publickey,removed:,false,,signature,tx_hash,tx_index,tx_input,valid_signature,withdrawal_credentials  
+**Returns**: <code>Array.&lt;string&gt;</code> - amount,block_number,block_ts,from_address,merkletree_index,publickey,removed,signature,tx_hash,tx_index,tx_input,valid_signature,withdrawal_credentials  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -360,7 +360,7 @@ Get the balance history (last 100 epochs) of up to 100 validators
 
 **Example**  
 ```js
-=BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 5)
+=BC$VALIDATOR_BALANCEHISTORY(209732, "*", 0, 3)
 ```
 <a name="BC$VALIDATOR_ETH1"></a>
 
