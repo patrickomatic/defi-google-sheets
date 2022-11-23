@@ -1,36 +1,69 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanTxlistResponse {
+  blockHash: string;
+  blockNumber: string;
+  confirmations: string;
+  contractAddress: string;
+  cumulativeGasUsed: string;
+  from: string;
+  functionName: string;
+  gas: string;
+  gasPrice: string;
+  gasUsed: string;
+  hash: string;
+  input: string;
+  isError: string;
+  methodId: string;
+  nonce: string;
+  timeStamp: string;
+  to: string;  
+  transactionIndex: string;
+  txreceipt_status: string;
+  value: string;
+}
+
 /**
  * {{es.accounts.item[2].name}}
  *
  * {{es.common.params.address}}
- * {{es.common.params.startblock}}
- * {{es.common.params.endblock}}
+ * {{es.common.params.fields}}
  * {{es.common.params.page}}
  * {{es.common.params.offset}}
  * {{es.common.params.sort}}
+ * {{es.common.params.startblock}}
+ * {{es.common.params.endblock}}
+ *
+ * @example
+ * =ES$ACCOUNT_TXLIST("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+ *
+*@returns {string[]} blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,functionName,gas,gasPrice,gasUsed,hash,input,isError,methodId,nonce,timeStamp,to,transactionIndex,txreceipt_status,value
  *
  * @customfunction
  */
 function ES$ACCOUNT_TXLIST(
   address: EthereumAddress,
-  startblock?: number,
-  endblock?: number,
+  fields: FieldsOrAll<EtherscanTxlistResponse> = '*',
   page?: number,
   offset?: number,
   sort?: EtherscanSort,
+  startblock?: number,
+  endblock?: number,
 ) {
-  return esRequest_({
-    caller: 'ES$ACCOUNT_TXLIST',
-    action: 'txlist',
-    module: 'account',
-    params: {
-      address: validateEthereumAddress_(address),
-      startblock,
-      endblock,
-      page,
-      offset,
-      sort,
-    },
+  return pickFields_({
+    rows: esRequest_<EtherscanTxlistResponse[]>({
+      caller: 'ES$ACCOUNT_TXLIST',
+      action: 'txlist',
+      module: 'account',
+      params: {
+        address: validateEthereumAddress_(address),
+        startblock,
+        endblock,
+        page,
+        offset,
+        sort,
+      },
+    }),
+    fields,
   });
 }

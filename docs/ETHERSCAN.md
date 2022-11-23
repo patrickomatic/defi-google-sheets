@@ -1,19 +1,19 @@
 ## Functions
 
 <dl>
-<dt><a href="#ES$ACCOUNT_BALANCE">ES$ACCOUNT_BALANCE(address, tag)</a></dt>
+<dt><a href="#ES$ACCOUNT_BALANCE">ES$ACCOUNT_BALANCE(address)</a> ⇒ <code>Wei</code></dt>
 <dd><p>Get Ether Balance for a Single Address</p>
 </dd>
-<dt><a href="#ES$ACCOUNT_BALANCEMULTI">ES$ACCOUNT_BALANCEMULTI(addresses, [fields], tag)</a></dt>
+<dt><a href="#ES$ACCOUNT_BALANCEMULTI">ES$ACCOUNT_BALANCEMULTI(addresses, [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get Ether Balance for Multiple Addresses in a Single Call</p>
 </dd>
 <dt><a href="#ES$ACCOUNT_TOKENNFTTX">ES$ACCOUNT_TOKENNFTTX(address, contractaddress, startblock, endblock, page, [offset], sort)</a></dt>
 <dd><p>Get &quot;Internal Transactions&quot; by Block Range</p>
 </dd>
-<dt><a href="#ES$ACCOUNT_TOKENTX">ES$ACCOUNT_TOKENTX(address, startblock, endblock, page, [offset], sort)</a></dt>
+<dt><a href="#ES$ACCOUNT_TOKENTX">ES$ACCOUNT_TOKENTX(address, startblock, endblock, page, [offset], sort)</a> ⇒</dt>
 <dd><p>Get &#39;Internal Transactions&#39; by Transaction Hash</p>
 </dd>
-<dt><a href="#ES$ACCOUNT_TXLIST">ES$ACCOUNT_TXLIST(address, startblock, endblock, page, [offset], sort)</a></dt>
+<dt><a href="#ES$ACCOUNT_TXLIST">ES$ACCOUNT_TXLIST(address, page, [offset], sort, startblock, endblock)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get a list of &#39;Normal&#39; Transactions By Address</p>
 </dd>
 <dt><a href="#ES$ACCOUNT_TXLISTINTERNAL">ES$ACCOUNT_TXLISTINTERNAL(address, startblock, endblock, page, [offset], sort)</a></dt>
@@ -47,7 +47,7 @@
 
 <a name="ES$ACCOUNT_BALANCE"></a>
 
-## ES$ACCOUNT\_BALANCE(address, tag)
+## ES$ACCOUNT\_BALANCE(address) ⇒ <code>Wei</code>
 Get Ether Balance for a Single Address
 
 **Kind**: global function  
@@ -55,22 +55,28 @@ Get Ether Balance for a Single Address
 | Param | Type |
 | --- | --- |
 | address | <code>EthereumAddress</code> | 
-| tag | <code>&quot;earliest&quot;</code> \| <code>&quot;pending&quot;</code> \| <code>&quot;latest&quot;</code> | 
 
+**Example**  
+```js
+=ES$ACCOUNT_BALANCE("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "latest")
+```
 <a name="ES$ACCOUNT_BALANCEMULTI"></a>
 
-## ES$ACCOUNT\_BALANCEMULTI(addresses, [fields], tag)
+## ES$ACCOUNT\_BALANCEMULTI(addresses, [fields]) ⇒ <code>Array.&lt;string&gt;</code>
 Get Ether Balance for Multiple Addresses in a Single Call
 
 **Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - account,balance  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | addresses | <code>Array.&lt;EthereumAddress&gt;</code> |  | A range or comma separated Ethereum addresses |
 | [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
-| tag | <code>fields</code> |  |  |
-|  | <code>tag</code> |  |  |
 
+**Example**  
+```js
+=ES$ACCOUNT_BALANCEMULTI("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B,0x71C7656EC7ab88b098defB751B7401B5f6d8976F", "*", "latest")
+```
 <a name="ES$ACCOUNT_TOKENNFTTX"></a>
 
 ## ES$ACCOUNT\_TOKENNFTTX(address, contractaddress, startblock, endblock, page, [offset], sort)
@@ -90,10 +96,11 @@ Get "Internal Transactions" by Block Range
 
 <a name="ES$ACCOUNT_TOKENTX"></a>
 
-## ES$ACCOUNT\_TOKENTX(address, startblock, endblock, page, [offset], sort)
+## ES$ACCOUNT\_TOKENTX(address, startblock, endblock, page, [offset], sort) ⇒
 Get 'Internal Transactions' by Transaction Hash
 
 **Kind**: global function  
+**Returns**: XXX  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -104,22 +111,31 @@ Get 'Internal Transactions' by Transaction Hash
 | [offset] | <code>number</code> | <code>0</code> |  |
 | sort | <code>&quot;asc&quot;</code> \| <code>&quot;desc&quot;</code> |  | the sorting preference, use "asc" to sort by ascending and "desc" to sort by descending |
 
+**Example**  
+```js
+=ES$ACCOUNT_TOKENTX()
+```
 <a name="ES$ACCOUNT_TXLIST"></a>
 
-## ES$ACCOUNT\_TXLIST(address, startblock, endblock, page, [offset], sort)
+## ES$ACCOUNT\_TXLIST(address, page, [offset], sort, startblock, endblock) ⇒ <code>Array.&lt;string&gt;</code>
 Get a list of 'Normal' Transactions By Address
 
 **Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,functionName,gas,gasPrice,gasUsed,hash,input,isError,methodId,nonce,timeStamp,to,transactionIndex,txreceipt_status,value  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | address | <code>EthereumAddress</code> |  |  |
-| startblock | <code>number</code> |  |  |
-| endblock | <code>number</code> |  |  |
 | page | <code>number</code> |  |  |
 | [offset] | <code>number</code> | <code>0</code> |  |
 | sort | <code>&quot;asc&quot;</code> \| <code>&quot;desc&quot;</code> |  | the sorting preference, use "asc" to sort by ascending and "desc" to sort by descending |
+| startblock | <code>number</code> |  |  |
+| endblock | <code>number</code> |  |  |
 
+**Example**  
+```js
+=ES$ACCOUNT_TXLIST("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+```
 <a name="ES$ACCOUNT_TXLISTINTERNAL"></a>
 
 ## ES$ACCOUNT\_TXLISTINTERNAL(address, startblock, endblock, page, [offset], sort)

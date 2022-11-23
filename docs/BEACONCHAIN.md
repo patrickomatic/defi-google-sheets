@@ -78,7 +78,7 @@ Get block
 
 **Example**  
 ```js
-=BC$BLOCK("latest", "*")
+=BC$BLOCK("latest")
 ```
 <a name="BC$BLOCK_ATTESTATIONS"></a>
 
@@ -205,7 +205,7 @@ Get epoch by number
 
 **Example**  
 ```js
-=BC$EPOCH("latest", "*")
+=BC$EPOCH("latest")
 ```
 <a name="BC$EPOCH_BLOCKS"></a>
 

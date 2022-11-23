@@ -1,5 +1,6 @@
 {
   "params": {
+    "tag": "@param {number | \"earliest\" | \"pending\" | \"latest\"} tag - the integer pre-defined block parameter, either earliest, pending or latest",
     "address": "@param {EthereumAddress} address",
     "blockno": "@param {number} blockno - the integer block number",
     "endblock": "@param {number} endblock",
