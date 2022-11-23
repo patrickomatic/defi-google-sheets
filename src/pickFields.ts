@@ -1,6 +1,6 @@
 /// <reference path="./types.d.ts" />
 
-type Fields<T, V = void> = readonly (keyof (T & V))[] | AllFields;
+type Fields<T, V = void> = readonly (keyof (T & V))[] | string | AllFields;
 type VirtualFields<T, V = void> = {[k in keyof V]: (T) => SpreadsheetCell} | Record<string, never>;
 
 interface PickFieldsBaseArgs<T, V = void> {
@@ -8,17 +8,40 @@ interface PickFieldsBaseArgs<T, V = void> {
   virtualFields?: VirtualFields<T, V>;
 }
 
+function getFieldsToResolve_<T, V>({ 
+  fields, 
+  virtualFields,
+  firstRow,
+}: PickFieldsBaseArgs<T, V> & { firstRow: T }): readonly (string | number | symbol)[] {
+  // we use '*' as shorthand that we want to return everything - that means
+  // all keys provided by the API and all virtual values (sorted for consistency)
+  if (fields === '*') {
+    return Object.keys(firstRow).concat(Object.keys(virtualFields)).sort();
+  } else if (typeof fields === 'string' || fields instanceof String) {
+    // it must be a string, so split it on comma since that doesn't hurt
+    return fields.split(/\s*,\s*/);
+  } else {
+    // the user already supplied a range of fields
+    return fields;
+  }
+}
+
 function pickFields_<T, V = void>(
   args: PickFieldsBaseArgs<T, V> & ({ row: T; } | { rows: T[]; })
 ): SpreadsheetRow[] {
-  const { fields, virtualFields = [] } = args;
+  const { fields, virtualFields = {} } = args;
+  const firstRow = 'rows' in args ? args.rows[0] : args.row;
+  if (firstRow == null) {
+    return [[]];
+  }
+
+  const fieldsToResolve = getFieldsToResolve_({ 
+    fields, 
+    virtualFields,
+    firstRow,
+  });
 
   function processRow_(row) {
-    // we use '*' as shorthand that we want to return everything - that means
-    // all keys provided by the API and all virtual values (sorted for consistency)
-    const fieldsToResolve = fields === '*' 
-      ? Object.keys(row).concat(Object.keys(virtualFields)).sort() 
-      : fields;
     return fieldsToResolve.map((field) => 
       field in virtualFields ? virtualFields[field](row) : row[field]
     );
