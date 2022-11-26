@@ -9,8 +9,8 @@ interface EtherscanDailyavgblocksizeResponse {
 /**
  * {{es.blocks.item[3].name}}
  *
- * {{es.common.params.startdate}}
- * {{es.common.params.enddate}}
+ * {{es.common.params.startdateRequired}}
+ * {{es.common.params.enddateRequired}}
  * {{es.common.params.sort}}
  * {{common.params.fields}}
  *
@@ -24,7 +24,7 @@ interface EtherscanDailyavgblocksizeResponse {
 function ES$DAILYAVGBLOCKSIZE(
   startdate: string,
   enddate: string,
-  sort: EtherscanSort,
+  sort?: EtherscanSort,
   fields: FieldsOrAll<EtherscanDailyavgblocksizeResponse> = '*',
 ) {
   return pickFields_({

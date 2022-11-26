@@ -1,0 +1,46 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.accounts.item[6].name}}
+ *
+ * {{es.common.params.address}}
+ * {{common.params.fields}}
+ * {{es.common.params.startblock}}
+ * {{es.common.params.endblock}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.sort}}
+ *
+ * @example
+ * =ES$TOKENTX_BYADDRESS("0x4e83362442b8d1bec281594cea3050c8eb01311c", "*", 0, 27925780, 1, 3, "asc")
+ *
+ * @returns {string[]} blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value
+ *
+ * @customfunction
+ */
+function ES$TOKENTX_BYADDRESS(
+  address: EthereumAddress,
+  fields: FieldsOrAll<EtherscanAccountTokentxResponse> = '*',
+  startblock?: number,
+  endblock?: number,
+  page?: number,
+  offset?: number,
+  sort?: EtherscanSort,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountTokentxResponse[]>({
+      caller: 'ES$TOKENTX_BYADDRESS',
+      action: 'tokentx',
+      module: 'account',
+      params: {
+        address: validateEthereumAddress_(address),
+        startblock,
+        endblock,
+        page,
+        offset,
+        sort,
+      },
+    }),
+    fields,
+  });
+}

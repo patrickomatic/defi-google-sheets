@@ -1,40 +1,38 @@
 /// <reference path="../../common.ts" />
 
-interface EtherscanAccountTokennftxResponse {
-
-}
-
 /**
- * {{es.accounts.item[5].name}}
+ * {{es.accounts.item[7].name}}
  *
  * {{es.common.params.address}}
- * @param {EthereumAddress} contractaddress
  * {{es.common.params.page}}
  * {{es.common.params.offset}}
  * {{es.common.params.sort}}
  * {{es.common.params.startblock}}
  * {{es.common.params.endblock}}
  *
+ * @example
+ * =ES$TOKENNFTTX_BYADDRESS("0x6975be450864c02b4613023c2152ee0743572325", "*", 1, 3)
+ *
+ * @returns {string[]} blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value
+ *
  * @customfunction
  */
-function ES$TOKENNFTTX(
+function ES$TOKENNFTTX_BYADDRESS(
   address: EthereumAddress,
-  contractaddress: EthereumAddress,
-  fields: FieldsOrAll<EtherscanAccountTokennftxResponse> = '*',
+  fields: FieldsOrAll<EtherscanAccountTokentxResponse> = '*',
   page?: number,
   offset?: number,
   sort?: EtherscanSort,
   startblock?: number,
   endblock?: number,
 ) {
-  return pickFields_<EtherscanAccountTokennftxResponse>({
-    rows: esRequest_({
-      caller: 'ES$TOKENNFTTX',
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountTokentxResponse[]>({
+      caller: 'ES$TOKENNFTTX_BYADDRESS',
       action: 'tokennfttx',
       module: 'account',
       params: {
         address: validateEthereumAddress_(address),
-        contractaddress,
         startblock,
         endblock,
         page,

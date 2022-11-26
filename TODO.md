@@ -30,7 +30,6 @@
 
 # etherscan.io - Ethereum
 - [ ] it sucks that their API just returns strings... I can apply reverse validators I guess
-- [ ] implement: Accounts
 - [ ] implement: Contracts
 - [ ] implement: Transactions
 - [ ] implement: Blocks
@@ -39,6 +38,7 @@
 - [ ] implement: Tokens
 - [ ] implement: Gas Tracker
 - [ ] Figure out a URL to download the Postman JSON so I don't have it stored in templates/etherscan/
+- [x] implement: Accounts
 - [x] implement: Stats
 
 # blockstream.info - Bitcoin

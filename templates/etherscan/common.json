@@ -1,17 +1,21 @@
 {
   "params": {
     "tag": "@param {number | \"earliest\" | \"pending\" | \"latest\"} tag - the integer pre-defined block parameter, either earliest, pending or latest",
-    "address": "@param {EthereumAddress} address",
+    "address": "@param {EthereumAddress} address - the string representing the address to check for balance",
+    "contractaddress": "@param {EthereumAddress} contractaddress - the string representing the token contract address to check for balance",
     "blockno": "@param {number} [blockno] - the integer block number",
-    "endblock": "@param {number} [endblock]",
-    "endblockRequired": "@param {number} endblock",
+    "blocknoRequired": "@param {number} blockno - the integer block number",
+    "endblock": "@param {number} [endblock] - the integer block number to stop searching for transactions",
+    "endblockRequired": "@param {number} endblock - the integer block number to stop searching for transactions",
     "enddate": "@param {string} [enddate] - the ending date in yyyy-MM-dd format, eg. 2019-02-28",
+    "enddateRequired": "@param {string} enddate - the ending date in yyyy-MM-dd format, eg. 2019-02-28",
     "offset": "@param {number} [offset = 0]",
     "page": "@param {number} [page]",
     "sort": "@param {\"asc\" | \"desc\"} [sort] - the sorting preference, use \"asc\" to sort by ascending and \"desc\" to sort by descending",
-    "startblock": "@param {number} [startblock]",
-    "startblockRequired": "@param {number} startblock",
+    "startblock": "@param {number} [startblock] - the integer block number to start searching for transactions",
+    "startblockRequired": "@param {number} startblock - the integer block number to start searching for transactions",
     "startdate": "@param {string} [startdate] - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
+    "startdateRequired": "@param {string} startdate - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
     "txhash": "@param {Hex} txhash - the string representing the transaction hash to check for internal transactions"
   }
 }

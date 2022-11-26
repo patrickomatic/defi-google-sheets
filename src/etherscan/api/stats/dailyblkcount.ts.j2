@@ -10,8 +10,8 @@ interface EtherscanDailyblkcountResponse {
 /**
  * {{es.blocks.item[4].name}}
  *
- * {{es.common.params.startdate}}
- * {{es.common.params.enddate}}
+ * {{es.common.params.startdateRequired}}
+ * {{es.common.params.enddateRequired}}
  * {{es.common.params.sort}}
  * {{common.params.fields}}
  *
@@ -25,7 +25,7 @@ interface EtherscanDailyblkcountResponse {
 function ES$DAILYBLKCOUNT(
   startdate: string,
   enddate: string,
-  sort: EtherscanSort,
+  sort?: EtherscanSort,
   fields: FieldsOrAll<EtherscanDailyblkcountResponse> = '*',
 ) {
   return pickFields_({

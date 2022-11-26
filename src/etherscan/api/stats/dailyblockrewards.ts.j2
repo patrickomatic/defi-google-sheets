@@ -9,8 +9,8 @@ interface EtherscanDailyblockrewardsResponse {
 /**
  * {{es.blocks.item[5].name}}
  *
- * {{es.common.params.startdate}}
- * {{es.common.params.enddate}}
+ * {{es.common.params.startdateRequired}}
+ * {{es.common.params.enddateRequired}}
  * {{es.common.params.sort}}
  * {{es.common.params.fields}}
  *
@@ -24,7 +24,7 @@ interface EtherscanDailyblockrewardsResponse {
 function ES$DAILYBLOCKREWARDS(
   startdate: string,
   enddate: string,
-  sort: EtherscanSort,
+  sort?: EtherscanSort,
   fields: FieldsOrAll<EtherscanDailyblockrewardsResponse> = '*',
 ) {
   return pickFields_({
