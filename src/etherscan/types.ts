@@ -32,3 +32,22 @@ interface EtherscanAccountTokentxResponse {
  transactionIndex: string; // number
  value: string; // number
 }
+
+interface EtherscanAccountTxlistinternalResponse {
+  blockNumber: string; // number
+  contractAddress: string; // EthereumAddress
+  errCode: string;
+  from: string; // EthereumAddress
+  gas: string; // Wei
+  gasUsed: string; // Wei
+  hash: string; // Hex
+  input: string; 
+  isError: string; // number
+  timeStamp: string; // number
+  to: string; // EthereumAddress
+  traceId: string; // number
+  type: string;
+  value: string; // number
+}
+
+

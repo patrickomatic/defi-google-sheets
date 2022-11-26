@@ -4,7 +4,7 @@
 <dt><a href="#ES$BALANCE">ES$BALANCE(address, tag)</a> ⇒ <code>Wei</code></dt>
 <dd><p>Get Ether Balance for a Single Address</p>
 </dd>
-<dt><a href="#ES$BALANCE_HISTORY">ES$BALANCE_HISTORY(address, blockno)</a> ⇒ <code>number</code></dt>
+<dt><a href="#ES$BALANCEHISTORY">ES$BALANCEHISTORY(address, blockno)</a> ⇒ <code>number</code></dt>
 <dd><p>Get Historical Ether Balance for a Single Address By BlockNo</p>
 </dd>
 <dt><a href="#ES$BALANCEMULTI">ES$BALANCEMULTI(addresses, tag, [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
@@ -94,9 +94,9 @@ Get Ether Balance for a Single Address
 ```js
 =ES$BALANCE("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "latest")
 ```
-<a name="ES$BALANCE_HISTORY"></a>
+<a name="ES$BALANCEHISTORY"></a>
 
-## ES$BALANCE\_HISTORY(address, blockno) ⇒ <code>number</code>
+## ES$BALANCEHISTORY(address, blockno) ⇒ <code>number</code>
 Get Historical Ether Balance for a Single Address By BlockNo
 
 **Kind**: global function  
@@ -108,7 +108,7 @@ Get Historical Ether Balance for a Single Address By BlockNo
 
 **Example**  
 ```js
-=ES$BALANCE_HISTORY("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", 8000000)
+=ES$BALANCEHISTORY("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "8000000")
 ```
 <a name="ES$BALANCEMULTI"></a>
 
@@ -126,7 +126,7 @@ Get Ether Balance for Multiple Addresses in a Single Call
 
 **Example**  
 ```js
-=ES$BALANCEMULTI("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B,0x71C7656EC7ab88b098defB751B7401B5f6d8976F", "*", "latest")
+=ES$BALANCEMULTI("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B,0x71C7656EC7ab88b098defB751B7401B5f6d8976F", "latest", "*")
 ```
 <a name="ES$GETMINEDBLOCKS"></a>
 
@@ -134,7 +134,7 @@ Get Ether Balance for Multiple Addresses in a Single Call
 Get list of Blocks Mined by Address
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,timeStamp,blockReward  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,blockReward,timeStamp  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -146,7 +146,7 @@ Get list of Blocks Mined by Address
 
 **Example**  
 ```js
-=ES$GETMINEDBLOCKS("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+=ES$GETMINEDBLOCKS("0x9dd134d14d1e65f84b706d6f205cd5b1cd03a46b", "*", 1, 3)
 ```
 <a name="ES$TOKEN1155TX_BYADDRESS"></a>
 
@@ -191,7 +191,7 @@ Get a list of 'ERC1155 - Token Transfer Events' by Address
 
 **Example**  
 ```js
-=ES$TOKEN1155TX_BYADDRESSANDCONTRACTADDRESS("0x4e83362442b8d1bec281594cea3050c8eb01311c", "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2", "*", 0, 27925780, 1, 3, "asc")
+=ES$TOKEN1155TX_BYADDRESSANDCONTRACTADDRESS("0x83f564d180b58ad9a02a449105568189ee7de8cb", "0x76be3b62873462d2142405439777e971754e8e77", "*", 0, 27925780, 1, 3, "asc")
 ```
 <a name="ES$TOKEN1155TX_BYCONTRACTADDRESS"></a>
 
@@ -257,7 +257,7 @@ Get a list of 'ERC721 - Token Transfer Events' by Address
 
 **Example**  
 ```js
-=ES$TOKENNFTTX_BYADDRESSANDCONTRACTADDRESS("0x6975be450864c02b4613023c2152ee0743572325", "*", 1, 3)
+=ES$TOKENNFTTX_BYADDRESSANDCONTRACTADDRESS("0x6975be450864c02b4613023c2152ee0743572325", "0x06012c8cf97bead5deae237070f9587f8e7a266d", "*", 1, 3)
 ```
 <a name="ES$TOKENNFTTX_BYCONTRACTADDRESS"></a>
 
@@ -367,7 +367,7 @@ Get a list of 'Normal' Transactions By Address
 
 **Example**  
 ```js
-=ES$TXLIST("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+=ES$TXLIST("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 1, 3)
 ```
 <a name="ES$TXLISTINTERNAL_BYADDRESS"></a>
 
@@ -375,7 +375,7 @@ Get a list of 'Normal' Transactions By Address
 Get a list of 'Internal' Transactions by Address
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -389,7 +389,7 @@ Get a list of 'Internal' Transactions by Address
 
 **Example**  
 ```js
-=ES$TXLISTINTERNAL_BYADDRESS("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+=ES$TXLISTINTERNAL_BYADDRESS("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 1, 3)
 ```
 <a name="ES$TXLISTINTERNAL_BYBLOCKRANGE"></a>
 
@@ -397,7 +397,7 @@ Get a list of 'Internal' Transactions by Address
 Get "Internal Transactions" by Block Range
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -410,7 +410,7 @@ Get "Internal Transactions" by Block Range
 
 **Example**  
 ```js
-=ES$TXLISTINTERNAL_BYBLOCKRANGE("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+=ES$TXLISTINTERNAL_BYBLOCKRANGE(13481773, 13491773, "*", 1, 3)
 ```
 <a name="ES$TXLISTINTERNAL_BYTRANSACTIONHASH"></a>
 
@@ -418,7 +418,7 @@ Get "Internal Transactions" by Block Range
 Get 'Internal Transactions' by Transaction Hash
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -432,7 +432,7 @@ Get 'Internal Transactions' by Transaction Hash
 
 **Example**  
 ```js
-=ES$TXLISTINTERNAL_BYTRANSACTIONHASH("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+=ES$TXLISTINTERNAL_BYTRANSACTIONHASH("0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2daaea4b442170", "*", 1, 3)
 ```
 <a name="ES$GETBLOCKCOUNTDOWN"></a>
 
@@ -440,7 +440,7 @@ Get 'Internal Transactions' by Transaction Hash
 Get Estimated Block Countdown Time by BlockNo
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - CurrentBlock,CountdownBlock,RemainingBlock  
+**Returns**: <code>Array.&lt;string&gt;</code> - CountdownBlock,CurrentBlock,RemainingBlock  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -474,7 +474,7 @@ Get Block Number by Timestamp
 Get Block And Uncle Rewards by BlockNo
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,timeStamp,blockMiner,blockReward,uncles,uncleInclusionReward  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockMiner,blockNumber,blockReward,timeStamp,uncleInclusionReward,uncles  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -491,7 +491,7 @@ Get Block And Uncle Rewards by BlockNo
 Get Daily Average Block Size
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - UTCDate,unixTimeStamp,blockSize_bytes  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockSize_bytes,unixTimeStamp,UTCDate  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -510,7 +510,7 @@ Get Daily Average Block Size
 Get Daily Average Time for A Block to be Included in the Ethereum Blockchain
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - UTCDate,unixTimeStamp,blockSize_bytes  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockSize_bytes,unixTimeStamp,UTCDate  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -529,7 +529,7 @@ Get Daily Average Time for A Block to be Included in the Ethereum Blockchain
 Get Daily Block Count and Rewards
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - UTCDate,unixTimeStamp,blockCount,blockRewards_Eth  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockCount,blockRewards_Eth,unixTimeStamp,UTCDate  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -548,7 +548,7 @@ Get Daily Block Count and Rewards
 Get Daily Block Rewards
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - UTCDate,unixTimeStamp,blockRewards_Eth  
+**Returns**: <code>Array.&lt;string&gt;</code> - blockRewards_Eth,unixTimeStamp,UTCDate  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -566,7 +566,7 @@ Get Daily Block Rewards
 Get Daily Uncle Block Count and Rewards
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - UTCDate,unixTimeStamp,uncleBlockCount,uncleBlockRewards_Eth  
+**Returns**: <code>Array.&lt;string&gt;</code> - uncleBlockCount,uncleBlockRewards_Eth,unixTimeStamp,UTCDate  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

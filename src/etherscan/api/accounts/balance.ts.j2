@@ -16,14 +16,16 @@
 function ES$BALANCE(
   address: EthereumAddress,
   tag?: EtherscanTag,
-): SpreadsheetCell {
-  return esRequest_<Wei>({
-    caller: 'ES$BALANCE',
-    action: 'balance',
-    module: 'account',
-    params: {
-      address: validateEthereumAddress_(address),
-      tag,
-    },
-  });
+) {
+  return [[
+    esRequest_<Wei>({
+      caller: 'ES$BALANCE',
+      action: 'balance',
+      module: 'account',
+      params: {
+        address: validateEthereumAddress_(address),
+        tag,
+      },
+    }),
+  ]];
 }

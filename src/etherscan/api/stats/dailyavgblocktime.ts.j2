@@ -1,9 +1,9 @@
 /// <reference path="../../common.ts" />
 
 interface EtherscanDailyavgblocktimeResponse {
-  UTCDate: string;
-  unixTimeStamp: string; // number
   blockSize_bytes: number; 
+  unixTimeStamp: string; // number
+  UTCDate: string;
 }
 
 /**
@@ -17,7 +17,7 @@ interface EtherscanDailyavgblocktimeResponse {
  * @example
  * =ES$DAILYAVGBLOCKTIME("2019-02-01", "2019-02-28")
  *
- * @returns {string[]} UTCDate,unixTimeStamp,blockSize_bytes
+ * @returns {string[]} blockSize_bytes,unixTimeStamp,UTCDate
  *
  * @customfunction
  */

@@ -42,9 +42,15 @@ function pickFields_<T, V = void>(
   });
 
   function processRow_(row) {
-    return fieldsToResolve.map((field) => 
-      field in virtualFields ? virtualFields[field](row) : row[field]
-    );
+    return fieldsToResolve.map((field) => {
+      if (field in virtualFields) { 
+        return virtualFields[field](row);
+      } else if (field in row) {
+        return row[field];
+      } else {
+        throw new Error(`Invalid field: ${field.toString()}`);
+      }
+    });
   }
 
   return 'rows' in args 

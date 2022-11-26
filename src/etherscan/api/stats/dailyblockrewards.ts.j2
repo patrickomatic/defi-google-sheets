@@ -1,9 +1,9 @@
 /// <reference path="../../common.ts" />
 
 interface EtherscanDailyblockrewardsResponse {
-  UTCDate: string;
-  unixTimeStamp: string; // number
   blockRewards_Eth: string; // number
+  unixTimeStamp: string; // number
+  UTCDate: string;
 }
 
 /**
@@ -17,7 +17,7 @@ interface EtherscanDailyblockrewardsResponse {
  * @example
  * =ES$DAILYBLOCKREWARDS("2019-02-01", "2019-02-28")
  *
- * @returns {string[]} UTCDate,unixTimeStamp,blockRewards_Eth
+ * @returns {string[]} blockRewards_Eth,unixTimeStamp,UTCDate
  *
  * @customfunction
  */

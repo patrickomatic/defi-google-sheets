@@ -1,8 +1,8 @@
 /// <reference path="../../common.ts" />
 
 interface EtherscanGetblockcountdownResponse {
-  CurrentBlock: string; // number
   CountdownBlock: string; // number
+  CurrentBlock: string; // number
   RemainingBlock: string; // number
 }
 
@@ -15,7 +15,7 @@ interface EtherscanGetblockcountdownResponse {
  * @example
  * =ES$GETBLOCKCOUNTDOWN(16701588)
  *
- * @returns {string[]} CurrentBlock,CountdownBlock,RemainingBlock
+ * @returns {string[]} CountdownBlock,CurrentBlock,RemainingBlock
  *
  * @customfunction
  */

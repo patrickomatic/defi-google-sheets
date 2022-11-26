@@ -7,12 +7,12 @@ interface EtherscanGetblockrewardUncleResponse {
 }
 
 interface EtherscanGetblockrewardResponse {
-  blockNumber: string; // number
-  timeStamp: string; // number
   blockMiner: Hex;
+  blockNumber: string; // number
   blockReward: string; // Wei
-  uncles: EtherscanGetblockrewardUncleResponse[];
+  timeStamp: string; // number
   uncleInclusionReward: string; // Wei
+  uncles: EtherscanGetblockrewardUncleResponse[];
 }
 
 /**
@@ -24,7 +24,7 @@ interface EtherscanGetblockrewardResponse {
  * @example
  * =ES$GETBLOCKREWARD(2165403)
  *
- * @returns {string[]} blockNumber,timeStamp,blockMiner,blockReward,uncles,uncleInclusionReward
+ * @returns {string[]} blockMiner,blockNumber,blockReward,timeStamp,uncleInclusionReward,uncles
  *
  * @customfunction
  */

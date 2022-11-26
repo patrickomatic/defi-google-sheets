@@ -7,19 +7,19 @@
  * {{es.common.params.blocknoRequired}}
  *
  * @example
- * =ES$BALANCE_HISTORY("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", 8000000)
+ * =ES$BALANCEHISTORY("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "8000000")
  *
  * @returns {number}
  *
  * @customfunction
  */
-function ES$BALANCE_HISTORY(
+function ES$BALANCEHISTORY(
   address: EthereumAddress,
   blockno: number,
 ) {
   return [[
-    esRequest_<EtherscanAccountTokentxResponse[]>({
-      caller: 'ES$BALANCE_HISTORY',
+    esRequest_<number>({
+      caller: 'ES$BALANCEHISTORY',
       action: 'balancehistory',
       module: 'account',
       params: {

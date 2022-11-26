@@ -1,10 +1,10 @@
 /// <reference path="../../common.ts" />
 
 interface EtherscanDailyuncleblkcountResponse {
-  UTCDate: string;
-  unixTimeStamp: string; // number
   uncleBlockCount: number;
   uncleBlockRewards_Eth: string; // number
+  unixTimeStamp: string; // number
+  UTCDate: string;
 }
 
 /**
@@ -18,7 +18,7 @@ interface EtherscanDailyuncleblkcountResponse {
  * @example
  * =ES$DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
  *
- * @returns {string[]} UTCDate,unixTimeStamp,uncleBlockCount,uncleBlockRewards_Eth
+ * @returns {string[]} uncleBlockCount,uncleBlockRewards_Eth,unixTimeStamp,UTCDate
  *
  * @customfunction
  */

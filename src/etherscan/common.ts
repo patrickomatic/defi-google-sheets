@@ -44,11 +44,12 @@ function esRequest_<T>({
     fn: () => {
       const { message, status, result } = makeRequest_<EtherscanResponse<T>>({
         url: ETHERSCAN_API_URL,
-        params: { action, module, ...params },
+        params: { action, module, apikey, ...params },
+        marshallFn: (json) => JSON.parse(json),
       });
 
       if (status === "0") {
-        throw new Error(`etherscan.io API request failed: ${message}`);
+        throw new Error(`etherscan.io API request failed: ${message} ${result}`);
       }
 
       return result;
