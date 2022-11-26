@@ -1,0 +1,60 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountTxlistinternalByblockrangeResponse {
+  blockNumber: string; // number
+  timeStamp: string; // number
+  hash: string; // Hex
+  from: string; // EthereumAddress
+  to: string; // EthereumAddress
+  value: string; // number
+  contractAddress: string; // EthereumAddress
+  input: string; 
+  type: string;
+  gas: string; // Wei
+  gasUsed: string; // Wei
+  traceId: string; // number
+  isError: string; // number
+  errCode: string;
+}
+
+/**
+ * {{es.accounts.item[5].name}}
+ *
+ * {{es.common.params.startblockRequired}}
+ * {{es.common.params.endblockRequired}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.sort}}
+ * 
+ * @example
+ * =ES$TXLISTINTERNAL_BYBLOCKRANGE("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+ *
+ * @returns {string[]} blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode
+ *
+ * @customfunction
+ */
+function ES$TXLISTINTERNAL_BYBLOCKRANGE(
+  startblock: number,
+  endblock: number,
+  fields: FieldsOrAll<EtherscanAccountTxlistinternalByblockrangeResponse> = '*',
+  page?: number,
+  offset?: number,
+  sort?: EtherscanSort,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountTxlistinternalByblockrangeResponse[]>({
+      caller: 'ES$TXLISTINTERNAL_BYBLOCKRANGE',
+      action: 'txlistinternal',
+      module: 'account',
+      params: {
+        startblock,
+        endblock,
+        page,
+        offset,
+        sort,
+      },
+    }),
+    fields,
+  });
+}

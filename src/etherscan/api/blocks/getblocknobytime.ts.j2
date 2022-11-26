@@ -7,21 +7,23 @@
  * @param {"before" | "after"} closest - the closest available block to the provided timestamp, either "before" or "after"
  *
  * @example
- * =ES$BLOCK_GETBLOCKNOBYTIME(1578638524, "before")
+ * =ES$GETBLOCKNOBYTIME(1578638524, "before")
+ *
+ * @returns {number} block number
  *
  * @customfunction
  */
-function ES$BLOCK_GETBLOCKNOBYTIME(
+function ES$GETBLOCKNOBYTIME(
   timestamp: number,
   closest: EtherscanClosest,
 ) {
-  return esRequest_({
-    caller: 'ES$BLOCK_GETBLOCKNOBYTIME',
+  return [[esRequest_<number>({
+    caller: 'ES$GETBLOCKNOBYTIME',
     action: 'getblocknobytime',
     module: 'block',
     params: { 
       timestamp,
       closest,
     },
-  });
+  })]];
 }

@@ -9,29 +9,28 @@ interface EtherscanAccountBalanceMultiResponse {
  * {{es.accounts.item[1].name}}
  *
  * @param {EthereumAddress[]} addresses - A range or comma separated Ethereum addresses
- * {{common.params.fields}}
  * {{es.common.params.tag}}
+ * {{common.params.fields}}
  *
  * @example
- * =ES$ACCOUNT_BALANCEMULTI("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B,0x71C7656EC7ab88b098defB751B7401B5f6d8976F", "*", "latest")
+ * =ES$BALANCEMULTI("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B,0x71C7656EC7ab88b098defB751B7401B5f6d8976F", "*", "latest")
  *
  * @returns {string[]} account,balance
  *
  * @customfunction
  */
-function ES$ACCOUNT_BALANCEMULTI(
-  // XXX addresses can also be a comma-separated string
+function ES$BALANCEMULTI(
   addresses: EthereumAddress[],
+  tag: EtherscanTag,
   fields: FieldsOrAll<EtherscanAccountBalanceMultiResponse> = '*',
-  tag?: EtherscanTag,
 ): SpreadsheetRow[] {
   return pickFields_({
     rows: esRequest_<EtherscanAccountBalanceMultiResponse[]>({
-      caller: 'ES$ACCOUNT_BALANCEMULTI',
+      caller: 'ES$BALANCEMULTI',
       action: 'balancemulti',
       module: 'account',
       params: {
-        address: addresses.map(validateEthereumAddress_).join(','),
+        address: validateEthereumAddresses_(addresses).join(','),
         tag,
       },
     }),

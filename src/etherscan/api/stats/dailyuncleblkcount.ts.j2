@@ -1,30 +1,40 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanDailyuncleblkcountResponse {
+  UTCDate: string;
+  unixTimeStamp: string; // number
+  uncleBlockCount: number;
+  uncleBlockRewards_Eth: string; // number
+}
+
 /**
  * {{es.blocks.item[7].name}}
  *
  * {{es.common.params.startdate}}
  * {{es.common.params.enddate}}
  * {{es.common.params.sort}}
+ * {{common.params.fields}}
  *
  * @example
- * =ES$BLOCK_DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
+ * =ES$DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
+ *
+ * @returns {string[]} UTCDate,unixTimeStamp,uncleBlockCount,uncleBlockRewards_Eth
  *
  * @customfunction
  */
-function ES$BLOCK_DAILYUNCLEBLKCOUNT(
+function ES$DAILYUNCLEBLKCOUNT(
   startdate: string,
   enddate: string,
   sort: EtherscanSort,
+  fields: FieldsOrAll<EtherscanDailyuncleblkcountResponse> = '*',
 ) {
-  return esRequest_({
-    caller: 'ES$BLOCK_DAILYUNCLEBLKCOUNT',
-    action: 'dailyuncleblkcount',
-    module: 'stats',
-    params: { 
-      enddate,
-      startdate,
-      sort,
-    },
+  return pickFields_({
+    rows: esRequest_<EtherscanDailyuncleblkcountResponse[]>({
+      caller: 'ES$DAILYUNCLEBLKCOUNT',
+      action: 'dailyuncleblkcount',
+      module: 'stats',
+      params: { enddate, startdate, sort },
+    }),
+    fields,
   });
 }

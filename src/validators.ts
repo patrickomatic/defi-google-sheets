@@ -47,6 +47,11 @@ function validateEthereumAddress_(input: string): EthereumAddress {
   return hex as EthereumAddress;
 }
 
+function validateEthereumAddresses_(input: GSInput): EthereumAddress[] {
+  const addresses = Array.isArray(input) ? input : String(input).split(/\s*,\s*/);
+  return mapOrSingle_(addresses, validateEthereumAddress_);
+}
+
 function asEthereumAddress_(input: GSInput): EthereumAddress | EthereumAddress[] {
   return mapOrSingle_(input, validateEthereumAddress_);
 }

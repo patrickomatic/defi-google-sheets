@@ -1,20 +1,35 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanGetblockcountdownResponse {
+  CurrentBlock: string; // number
+  CountdownBlock: string; // number
+  RemainingBlock: string; // number
+}
+
 /**
  * {{es.blocks.item[1].name}}
  *
  * {{es.common.params.blockno}}
+ * {{common.params.fields}}
  *
  * @example
- * =ES$BLOCK_GETBLOCKCOUNTDOWN(16701588)
+ * =ES$GETBLOCKCOUNTDOWN(16701588)
+ *
+ * @returns {string[]} CurrentBlock,CountdownBlock,RemainingBlock
  *
  * @customfunction
  */
-function ES$BLOCK_GETBLOCKCOUNTDOWN(blockno: number) {
-  return esRequest_({
-    caller: 'ES$BLOCK_GETBLOCKCOUNTDOWN',
-    action: 'getblockcountdown',
-    module: 'block',
-    params: { blockno },
+function ES$GETBLOCKCOUNTDOWN(
+  blockno: number,
+  fields: FieldsOrAll<EtherscanGetblockcountdownResponse> = '*',
+) {
+  return pickFields_({
+    row: esRequest_({
+      caller: 'ES$GETBLOCKCOUNTDOWN',
+      action: 'getblockcountdown',
+      module: 'block',
+      params: { blockno },
+    }),
+    fields,
   });
 }

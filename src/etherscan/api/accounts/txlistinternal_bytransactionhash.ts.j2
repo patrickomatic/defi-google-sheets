@@ -1,0 +1,63 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountTxlistinternalBytransactionhashResponse {
+  blockNumber: string; // number
+  timeStamp: string; // number
+  hash: string; // Hex
+  from: string; // EthereumAddress
+  to: string; // EthereumAddress
+  value: string; // number
+  contractAddress: string; // EthereumAddress
+  input: string; 
+  type: string;
+  gas: string; // Wei
+  gasUsed: string; // Wei
+  traceId: string; // number
+  isError: string; // number
+  errCode: string;
+}
+
+/**
+ * {{es.accounts.item[4].name}}
+ *
+ * {{es.common.params.txhash}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.sort}}
+ * {{es.common.params.startblock}}
+ * {{es.common.params.endblock}}
+ * 
+ * @example
+ * =ES$TXLISTINTERNAL_BYTRANSACTIONHASH("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+ *
+ * @returns {string[]} blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode
+ *
+ * @customfunction
+ */
+function ES$TXLISTINTERNAL_BYTRANSACTIONHASH(
+  txhash: Hex,
+  fields: FieldsOrAll<EtherscanAccountTxlistinternalBytransactionhashResponse> = '*',
+  page?: number,
+  offset?: number,
+  sort?: EtherscanSort,
+  startblock?: number,
+  endblock?: number,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountTxlistinternalBytransactionhashResponse[]>({
+      caller: 'ES$TXLISTINTERNAL_BYTRANSACTIONHASH',
+      action: 'txlistinternal',
+      module: 'account',
+      params: {
+        txhash: validateHex_(txhash),
+        startblock,
+        endblock,
+        page,
+        offset,
+        sort,
+      },
+    }),
+    fields,
+  });
+}

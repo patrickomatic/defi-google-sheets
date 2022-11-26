@@ -40,7 +40,7 @@ $(BEACONCHAIN_API_DOCS_JSON):
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	curl -H "Accept: application/json" -o $@ https://beaconcha.in/api/v1/docs/doc.json 
 
-$(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/common.json
+$(API_DOCS_JSON): ./scripts/builddocvars $(BEACONCHAIN_API_DOCS_JSON) templates/common.json templates/etherscan/common.json
 	@mkdir -p $(EXTERNAL_DOCS_DIR)
 	./scripts/builddocvars > $(API_DOCS_JSON)
 
@@ -50,7 +50,7 @@ scripts/generatedocs.js: scripts/generatedocs.ts
 docs/BEACONCHAIN.md: scripts/generatedocs.js $(DOC_OUTPUT) 
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) BC > $@
 
-docs/ETHERSCAN.md: scripts/generatedocs.js $(DOC_OUTPUT) 
+docs/ETHERSCAN.md: scripts/generatedocs.js $(DOC_OUTPUT)
 	node ./scripts/generatedocs.js $(DOC_OUTPUT) ES > $@
 
 docs/BLOCKSTREAM.md: scripts/generatedocs.js $(DOC_OUTPUT) 

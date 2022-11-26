@@ -1,30 +1,39 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanDailyavgblocksizeResponse {
+  UTCDate: string;
+  unixTimeStamp: string; // number
+  blockSize_bytes: number; 
+}
+
 /**
  * {{es.blocks.item[3].name}}
  *
  * {{es.common.params.startdate}}
  * {{es.common.params.enddate}}
  * {{es.common.params.sort}}
+ * {{common.params.fields}}
  *
  * @example
- * =ES$BLOCK_DAILYAVGBLOCKSIZE("2019-02-01", "2019-02-28")
+ * =ES$DAILYAVGBLOCKSIZE("2019-02-01", "2019-02-28")
+ *
+ * @returns {string[]} UTCDate,unixTimeStamp,blockSize_bytes
  *
  * @customfunction
  */
-function ES$BLOCK_DAILYAVGBLOCKSIZE(
+function ES$DAILYAVGBLOCKSIZE(
   startdate: string,
   enddate: string,
   sort: EtherscanSort,
+  fields: FieldsOrAll<EtherscanDailyavgblocksizeResponse> = '*',
 ) {
-  return esRequest_({
-    caller: 'ES$BLOCK_DAILYAVGBLOCKSIZE',
-    action: 'dailyavgblocksize',
-    module: 'stats',
-    params: { 
-      enddate,
-      startdate,
-      sort,
-    },
+  return pickFields_({
+    rows: esRequest_<EtherscanDailyavgblocksizeResponse[]>({
+      caller: 'ES$DAILYAVGBLOCKSIZE',
+      action: 'dailyavgblocksize',
+      module: 'stats',
+      params: { enddate, startdate, sort },
+    }),
+    fields,
   });
 }

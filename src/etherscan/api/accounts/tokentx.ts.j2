@@ -1,5 +1,9 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanAccountTokentxResponse {
+
+}
+
 /**
  * {{es.accounts.item[4].name}}
  *
@@ -11,12 +15,12 @@
  * {{es.common.params.sort}}
  *
  * @example
- * =ES$ACCOUNT_TOKENTX()
+ * =ES$TOKENTX()
  *
  * @returns XXX
  * @customfunction
  */
-function ES$ACCOUNT_TOKENTX(
+function ES$TOKENTX(
   address: EthereumAddress,
   contractAddress: EthereumAddress,
   startblock: number,
@@ -26,7 +30,7 @@ function ES$ACCOUNT_TOKENTX(
   sort?: EtherscanSort,
 ) {
   return esRequest_({
-    caller: 'ES$ACCOUNT_TOKENTX',
+    caller: 'ES$TOKENTX',
     action: 'tokentx',
     module: 'account',
     params: {

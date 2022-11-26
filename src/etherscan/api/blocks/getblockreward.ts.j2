@@ -1,20 +1,44 @@
 /// <reference path="../../common.ts" />
 
+interface EtherscanGetblockrewardUncleResponse {
+  miner: Hex; 
+  unclePosition: string; // number
+  blockreward: string; // Wei
+}
+
+interface EtherscanGetblockrewardResponse {
+  blockNumber: string; // number
+  timeStamp: string; // number
+  blockMiner: Hex;
+  blockReward: string; // Wei
+  uncles: EtherscanGetblockrewardUncleResponse[];
+  uncleInclusionReward: string; // Wei
+}
+
 /**
  * {{es.blocks.item[0].name}}
  *
  * {{es.common.params.blockno}}
+ * {{common.params.fields}}
  *
  * @example
- * =ES$BLOCK_GETBLOCKREWARD(1)
+ * =ES$GETBLOCKREWARD(2165403)
+ *
+ * @returns {string[]} blockNumber,timeStamp,blockMiner,blockReward,uncles,uncleInclusionReward
  *
  * @customfunction
  */
-function ES$BLOCK_GETBLOCKREWARD(blockno: number) {
-  return esRequest_({
-    caller: 'ES$BLOCK_GETBLOCKREWARD',
-    action: 'getblockreward',
-    module: 'block',
-    params: { address: asNumber_(blockno) },
+function ES$GETBLOCKREWARD(
+  blockno: number,
+  fields: FieldsOrAll<EtherscanGetblockrewardResponse> = '*',
+) {
+  return pickFields_<EtherscanGetblockrewardResponse>({
+    row: esRequest_<EtherscanGetblockrewardResponse>({
+      caller: 'ES$GETBLOCKREWARD',
+      action: 'getblockreward',
+      module: 'block',
+      params: { address: asNumber_(blockno) },
+    }),
+    fields,
   });
 }

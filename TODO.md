@@ -1,6 +1,6 @@
 # General
 - [ ] use more eslint best practices (no unused vars, etc)
-- [ ] use validators in more places
+- [ ] use validators in more places, clean up the interface/terminology
 - [ ] make fields more forgiveable by making it all case insensitive
 - [ ] fix global types and/or polyfill the GS API.  (though it doesn't really matter unless we can test)
 - [ ] unit tests/CI
@@ -29,6 +29,7 @@
 - [x] implement: Health
 
 # etherscan.io - Ethereum
+- [ ] it sucks that their API just returns strings... I can apply reverse validators I guess
 - [ ] implement: Accounts
 - [ ] implement: Contracts
 - [ ] implement: Transactions
@@ -37,7 +38,6 @@
 - [ ] implement: Geth/Parity Proxy
 - [ ] implement: Tokens
 - [ ] implement: Gas Tracker
-- [ ] it sucks that their API just returns strings... I can apply reverse validators I guess
 - [ ] Figure out a URL to download the Postman JSON so I don't have it stored in templates/etherscan/
 - [x] implement: Stats
 

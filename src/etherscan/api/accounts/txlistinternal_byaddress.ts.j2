@@ -1,0 +1,63 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountTxlistinternalByaddressResponse {
+  blockNumber: string; // number
+  timeStamp: string; // number
+  hash: string; // Hex
+  from: string; // EthereumAddress
+  to: string; // EthereumAddress
+  value: string; // number
+  contractAddress: string; // EthereumAddress
+  input: string; 
+  type: string;
+  gas: string; // Wei
+  gasUsed: string; // Wei
+  traceId: string; // number
+  isError: string; // number
+  errCode: string;
+}
+
+/**
+ * {{es.accounts.item[3].name}}
+ *
+ * {{es.common.params.address}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.sort}}
+ * {{es.common.params.startblock}}
+ * {{es.common.params.endblock}}
+ * 
+ * @example
+ * =ES$TXLISTINTERNAL_BYADDRESS("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", "*", 0, 3)
+ *
+ * @returns {string[]} blockNumber,timeStamp,hash,from,to,value,contractAddress,input,type,gas,gasUsed,traceId,isError,errCode
+ *
+ * @customfunction
+ */
+function ES$TXLISTINTERNAL_BYADDRESS(
+  address: EthereumAddress,
+  fields: FieldsOrAll<EtherscanAccountTxlistinternalByaddressResponse> = '*',
+  page?: number,
+  offset?: number,
+  sort?: EtherscanSort,
+  startblock?: number,
+  endblock?: number,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountTxlistinternalByaddressResponse[]>({
+      caller: 'ES$TXLISTINTERNAL_BYADDRESS',
+      action: 'txlistinternal',
+      module: 'account',
+      params: {
+        address: validateEthereumAddress_(address),
+        startblock,
+        endblock,
+        page,
+        offset,
+        sort,
+      },
+    }),
+    fields,
+  });
+}
