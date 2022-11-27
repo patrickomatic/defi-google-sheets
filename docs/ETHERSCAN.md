@@ -76,6 +76,12 @@
 <dt><a href="#ES$DAILYUNCLEBLKCOUNT">ES$DAILYUNCLEBLKCOUNT(startdate, enddate, [sort], [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get Daily Uncle Block Count and Rewards</p>
 </dd>
+<dt><a href="#ES$GETSTATUS">ES$GETSTATUS(txhash, [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Check Contract Execution Status</p>
+</dd>
+<dt><a href="#ES$GETTXRECEIPTSTATUS">ES$GETTXRECEIPTSTATUS(txhash)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Check Transaction Receipt Status</p>
+</dd>
 </dl>
 
 <a name="ES$BALANCE"></a>
@@ -578,4 +584,37 @@ Get Daily Uncle Block Count and Rewards
 **Example**  
 ```js
 =ES$DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
+```
+<a name="ES$GETSTATUS"></a>
+
+## ES$GETSTATUS(txhash, [fields]) ⇒ <code>Array.&lt;string&gt;</code>
+Check Contract Execution Status
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - isError,errDescription  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| txhash | <code>Hex</code> |  | the string representing the transaction hash to check for internal transactions |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+
+**Example**  
+```js
+=ES$GETSTATUS("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a", "*")
+```
+<a name="ES$GETTXRECEIPTSTATUS"></a>
+
+## ES$GETTXRECEIPTSTATUS(txhash) ⇒ <code>Array.&lt;string&gt;</code>
+Check Transaction Receipt Status
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - status  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| txhash | <code>Hex</code> | the string representing the transaction hash to check for internal transactions |
+
+**Example**  
+```js
+=ES$GETTXRECEIPTSTATUS("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a", "*")
 ```

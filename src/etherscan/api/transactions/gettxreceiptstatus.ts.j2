@@ -1,0 +1,31 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanTransactionGettxreceiptstatusResponse {
+  status: "1" | "0";
+}
+
+/**
+ * {{es.transactions.item[1].name}}
+ *
+ * {{es.common.params.txhash}}
+ *
+ * @example
+ * =ES$GETTXRECEIPTSTATUS("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a", "*")
+ *
+ * @returns {string[]} status
+ *
+ * @customfunction
+ */
+function ES$GETTXRECEIPTSTATUS(
+  txhash: Hex,
+  fields: FieldsOrAll<EtherscanTransactionGettxreceiptstatusResponse> = '*',
+) {
+  return [[
+    esRequest_<EtherscanTransactionGettxreceiptstatusResponse>({
+      caller: 'ES$GETTXRECEIPTSTATUS',
+      action: 'gettxreceiptstatus',
+      module: 'transaction',
+      params: { txhash: validateHex_(txhash), },
+    }),
+  ]];
+}
