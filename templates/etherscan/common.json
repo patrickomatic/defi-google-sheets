@@ -17,5 +17,6 @@
     "startdate": "@param {string} [startdate] - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
     "startdateRequired": "@param {string} startdate - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
     "txhash": "@param {Hex} txhash - the string representing the transaction hash to check for internal transactions"
-  }
+  },
+  "docsLink": "@see {@link https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md}"
 }

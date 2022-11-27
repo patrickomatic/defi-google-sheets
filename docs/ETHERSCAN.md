@@ -90,6 +90,11 @@
 Get Ether Balance for a Single Address
 
 **Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-a-single-address](https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-a-single-address)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -106,6 +111,11 @@ Get Ether Balance for a Single Address
 Get Historical Ether Balance for a Single Address By BlockNo
 
 **Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-historical-ether-balance-for-a-single-address-by-blockno](https://docs.etherscan.io/api-endpoints/accounts#get-historical-ether-balance-for-a-single-address-by-blockno)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -123,6 +133,11 @@ Get Ether Balance for Multiple Addresses in a Single Call
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - account,balance  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-multiple-addresses-in-a-single-call](https://docs.etherscan.io/api-endpoints/accounts#get-ether-balance-for-multiple-addresses-in-a-single-call)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -141,6 +156,11 @@ Get list of Blocks Mined by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,blockReward,timeStamp  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-list-of-blocks-mined-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-list-of-blocks-mined-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -161,6 +181,11 @@ Get a list of 'ERC1155 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -183,6 +208,11 @@ Get a list of 'ERC1155 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -206,6 +236,11 @@ Get a list of 'ERC1155 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc1155-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -228,6 +263,11 @@ Get a list of 'ERC721 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -249,6 +289,11 @@ Get a list of 'ERC721 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -272,6 +317,11 @@ Get a list of 'ERC721 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc721-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -293,6 +343,11 @@ Get a list of 'ERC20 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -315,6 +370,11 @@ Get a list of 'ERC20 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -338,6 +398,11 @@ Get a list of 'ERC20 - Token Transfer Events' by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,gas,gasPrice,gasUsed,hash,input,nonce,timeStamp,to,tokenDecimal,tokenName,tokenSymbol,transactionIndex,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-erc20-token-transfer-events-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -360,6 +425,7 @@ Get a list of 'Normal' Transactions By Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockHash,blockNumber,confirmations,contractAddress,cumulativeGasUsed,from,functionName,gas,gasPrice,gasUsed,hash,input,isError,methodId,nonce,timeStamp,to,transactionIndex,txreceipt_status,value  
+**See**: [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -382,6 +448,11 @@ Get a list of 'Internal' Transactions by Address
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-internal-transactions-by-address](https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-internal-transactions-by-address)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -404,6 +475,11 @@ Get "Internal Transactions" by Block Range
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-internal-transactions-by-block-range](https://docs.etherscan.io/api-endpoints/accounts#get-internal-transactions-by-block-range)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -425,6 +501,11 @@ Get 'Internal Transactions' by Transaction Hash
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockNumber,contractAddress,errCode,from,gas,gasUsed,hash,input,isError,timeStamp,to,traceId,type,value  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/accounts#get-internal-transactions-by-transaction-hash](https://docs.etherscan.io/api-endpoints/accounts#get-internal-transactions-by-transaction-hash)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -447,6 +528,11 @@ Get Estimated Block Countdown Time by BlockNo
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - CountdownBlock,CurrentBlock,RemainingBlock  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-estimated-block-countdown-time-by-blockno](https://docs.etherscan.io/api-endpoints/blocks#get-estimated-block-countdown-time-by-blockno)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -464,6 +550,11 @@ Get Block Number by Timestamp
 
 **Kind**: global function  
 **Returns**: <code>number</code> - block number  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-block-number-by-timestamp](https://docs.etherscan.io/api-endpoints/blocks#get-block-number-by-timestamp)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -481,6 +572,11 @@ Get Block And Uncle Rewards by BlockNo
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockMiner,blockNumber,blockReward,timeStamp,uncleInclusionReward,uncles  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-block-and-uncle-rewards-by-blockno](https://docs.etherscan.io/api-endpoints/blocks#get-block-and-uncle-rewards-by-blockno)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -498,6 +594,11 @@ Get Daily Average Block Size
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockSize_bytes,unixTimeStamp,UTCDate  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-daily-average-block-size](https://docs.etherscan.io/api-endpoints/blocks#get-daily-average-block-size)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -517,6 +618,11 @@ Get Daily Average Time for A Block to be Included in the Ethereum Blockchain
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockSize_bytes,unixTimeStamp,UTCDate  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-daily-average-time-for-a-block-to-be-included-in-the-ethereum-blockchain](https://docs.etherscan.io/api-endpoints/blocks#get-daily-average-time-for-a-block-to-be-included-in-the-ethereum-blockchain)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -536,6 +642,11 @@ Get Daily Block Count and Rewards
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockCount,blockRewards_Eth,unixTimeStamp,UTCDate  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-daily-block-count-and-rewards](https://docs.etherscan.io/api-endpoints/blocks#get-daily-block-count-and-rewards)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -555,6 +666,11 @@ Get Daily Block Rewards
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - blockRewards_Eth,unixTimeStamp,UTCDate  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-daily-block-rewards](https://docs.etherscan.io/api-endpoints/blocks#get-daily-block-rewards)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -573,6 +689,11 @@ Get Daily Uncle Block Count and Rewards
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - uncleBlockCount,uncleBlockRewards_Eth,unixTimeStamp,UTCDate  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/blocks#get-daily-uncle-block-count-and-rewards](https://docs.etherscan.io/api-endpoints/blocks#get-daily-uncle-block-count-and-rewards)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -592,6 +713,11 @@ Check Contract Execution Status
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - isError,errDescription  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/stats#check-contract-execution-status](https://docs.etherscan.io/api-endpoints/stats#check-contract-execution-status)
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -609,6 +735,11 @@ Check Transaction Receipt Status
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - status  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/stats#check-transaction-receipt-status](https://docs.etherscan.io/api-endpoints/stats#check-transaction-receipt-status)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
