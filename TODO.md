@@ -8,7 +8,6 @@
 - [x] make `fields` work consistently if it's an array of strings, single value or comma-joined string 
 
 # Documentation
-- [ ] include a footer that has @see {@link url}
 - [ ] get rid of the "Kind: global function"
 - [x] have them include a header of fields
 - [x] looks like "Done in 1.72s" is being added to the bottom of the generated file...
@@ -33,11 +32,11 @@
 # etherscan.io - Ethereum
 - [ ] it sucks that their API just returns strings... I can apply reverse validators I guess
 - [ ] implement: Contracts
-- [ ] implement: Logs
 - [ ] implement: Geth/Parity Proxy
 - [ ] implement: Tokens
 - [ ] implement: Gas Tracker
 - [ ] Figure out a URL to download the Postman JSON so I don't have it stored in templates/etherscan/
+- [x] implement: Logs
 - [x] implement: Blocks
 - [x] implement: Transactions
 - [x] implement: Accounts

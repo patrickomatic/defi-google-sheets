@@ -1,0 +1,46 @@
+/// <reference path="../../common.ts" />
+/// <reference path="./types.ts" />
+
+/**
+ * {{es.logs.item[0].name}}
+ *
+ * {{es.common.params.address}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.fromBlock}}
+ * {{es.common.params.toBlock}}
+ *
+ * @example
+ * =ES$GETLOGS_BYADDRESS("0xbd3531da5cf5857e7cfaa92426877b022e612cf8", "*", 1, 3)
+ *
+ * @returns {string[]} address,blockNumber,data,gasPrice,gasUsed,logIndex,timeStamp,topics,transactionHash,transactionIndex,
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-address}
+ *
+ * @customfunction
+ */
+function ES$GETLOGS_BYADDRESS(
+  address: EthereumAddress,
+  fields: FieldsOrAll<EtherscanLogsGetlogsResponse> = '*',
+  page?: number,
+  offset?: number,
+  fromBlock?: number,
+  toBlock?: number,
+) {
+  return pickFields_({
+    row: esRequest_({
+      action: 'getLogs',
+      module: 'logs',
+      params: {
+        address,
+        page,
+        offset,
+        fromBlock,
+        toBlock,
+      },
+    }),
+    fields,
+  });
+}

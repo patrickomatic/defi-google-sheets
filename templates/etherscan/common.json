@@ -9,6 +9,8 @@
     "endblockRequired": "@param {number} endblock - the integer block number to stop searching for transactions",
     "enddate": "@param {string} [enddate] - the ending date in yyyy-MM-dd format, eg. 2019-02-28",
     "enddateRequired": "@param {string} enddate - the ending date in yyyy-MM-dd format, eg. 2019-02-28",
+    "fromBlock": "@param {number} [fromBlock] - the integer block number to start searching for logs eg. 12878196",
+    "toBlock": "@param {number} [toBlock] - the integer block number to stop searching for logs eg. 12879196",
     "offset": "@param {number} [offset = 0]",
     "page": "@param {number} [page]",
     "sort": "@param {\"asc\" | \"desc\"} [sort] - the sorting preference, use \"asc\" to sort by ascending and \"desc\" to sort by descending",
@@ -16,6 +18,8 @@
     "startblockRequired": "@param {number} startblock - the integer block number to start searching for transactions",
     "startdate": "@param {string} [startdate] - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
     "startdateRequired": "@param {string} startdate - the starting date in yyyy-MM-dd format, eg. 2019-02-01",
+    "topic": "@param {string[]} topic - the topic numbers to search for. limited totopic0, topic1, topic2, topic3",
+    "topicOperator": "@param {string[]} topicOperator - the topic operator when multiple topic combinations are used. limited totopic0, topic1, topic2, topic3",
     "txhash": "@param {Hex} txhash - the string representing the transaction hash to check for internal transactions"
   },
   "docsLink": "@see {@link https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md}"

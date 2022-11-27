@@ -61,6 +61,15 @@
 <dt><a href="#ES$GETBLOCKREWARD">ES$GETBLOCKREWARD([blockno], [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get Block And Uncle Rewards by BlockNo</p>
 </dd>
+<dt><a href="#ES$GETLOGS_BYADDRESS">ES$GETLOGS_BYADDRESS(address, [fields], [page], [offset], [fromBlock], [toBlock])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Event Logs by Address</p>
+</dd>
+<dt><a href="#ES$GETLOGS_BYADDRESSANDTOPICS">ES$GETLOGS_BYADDRESSANDTOPICS(address, topic, topicOperator, [fields], [page], [offset], [fromBlock], [toBlock])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Event Logs by Address filtered by Topics</p>
+</dd>
+<dt><a href="#ES$GETLOGS_BYTOPICS">ES$GETLOGS_BYTOPICS(topic, topicOperator, [fields], [page], [offset], [fromBlock], [toBlock])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Event Logs by Topics</p>
+</dd>
 <dt><a href="#ES$DAILYAVGBLOCKSIZE">ES$DAILYAVGBLOCKSIZE(startdate, enddate, [sort], [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get Daily Average Block Size</p>
 </dd>
@@ -586,6 +595,95 @@ Get Block And Uncle Rewards by BlockNo
 **Example**  
 ```js
 =ES$GETBLOCKREWARD(2165403)
+```
+<a name="ES$GETLOGS_BYADDRESS"></a>
+
+## ES$GETLOGS\_BYADDRESS(address, [fields], [page], [offset], [fromBlock], [toBlock]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Event Logs by Address
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - address,blockNumber,data,gasPrice,gasUsed,logIndex,timeStamp,topics,transactionHash,transactionIndex,  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-address](https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-address)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>EthereumAddress</code> |  | the string representing the address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+| [fromBlock] | <code>number</code> |  | the integer block number to start searching for logs eg. 12878196 |
+| [toBlock] | <code>number</code> |  | the integer block number to stop searching for logs eg. 12879196 |
+
+**Example**  
+```js
+=ES$GETLOGS_BYADDRESS("0xbd3531da5cf5857e7cfaa92426877b022e612cf8", "*", 1, 3)
+```
+<a name="ES$GETLOGS_BYADDRESSANDTOPICS"></a>
+
+## ES$GETLOGS\_BYADDRESSANDTOPICS(address, topic, topicOperator, [fields], [page], [offset], [fromBlock], [toBlock]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Event Logs by Address filtered by Topics
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - address,blockNumber,data,gasPrice,gasUsed,logIndex,timeStamp,topics,transactionHash,transactionIndex,  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-address-filtered-by-topics](https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-address-filtered-by-topics)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>EthereumAddress</code> |  | the string representing the address to check for balance |
+| topic | <code>Array.&lt;string&gt;</code> |  | the topic numbers to search for. limited totopic0, topic1, topic2, topic3 |
+| topicOperator | <code>Array.&lt;string&gt;</code> |  | the topic operator when multiple topic combinations are used. limited totopic0, topic1, topic2, topic3 |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+| [fromBlock] | <code>number</code> |  | the integer block number to start searching for logs eg. 12878196 |
+| [toBlock] | <code>number</code> |  | the integer block number to stop searching for logs eg. 12879196 |
+
+**Example**  
+```js
+=ES$GETLOGS_BYADDRESSANDTOPICS("0x59728544b08ab483533076417fbbb2fd0b17ce3a", "topic0=0x27c4f0403323142b599832f26acd21c74a9e5b809f2215726e244a4ac588cd7d,topic1=0x00000000000000000000000023581767a106ae21c074b2276d25e5c3e136a68b", "topic0_1_opr=and", "*", 1, 3)
+```
+**Example**  
+```js
+=ES$GETLOGS_BYADDRESSANDTOPICS("0x59728544b08ab483533076417fbbb2fd0b17ce3a", "topic0=0x27c4f0403323142b599832f26acd21c74a9e5b809f2215726e244a4ac588cd7d", "", "*", 1, 3)
+```
+<a name="ES$GETLOGS_BYTOPICS"></a>
+
+## ES$GETLOGS\_BYTOPICS(topic, topicOperator, [fields], [page], [offset], [fromBlock], [toBlock]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Event Logs by Topics
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - address,blockNumber,data,gasPrice,gasUsed,logIndex,timeStamp,topics,transactionHash,transactionIndex,  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-topics](https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-topics)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| topic | <code>Array.&lt;string&gt;</code> |  | the topic numbers to search for. limited totopic0, topic1, topic2, topic3 |
+| topicOperator | <code>Array.&lt;string&gt;</code> |  | the topic operator when multiple topic combinations are used. limited totopic0, topic1, topic2, topic3 |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+| [fromBlock] | <code>number</code> |  | the integer block number to start searching for logs eg. 12878196 |
+| [toBlock] | <code>number</code> |  | the integer block number to stop searching for logs eg. 12879196 |
+
+**Example**  
+```js
+=ES$GETLOGS_BYTOPICS("topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef,topic1=0x0000000000000000000000000000000000000000000000000000000000000000", "topic0_1_opr=and", "*", 1, 3)
+```
+**Example**  
+```js
+=ES$GETLOGS_BYTOPICS("topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", "", "*", 1, 3)
 ```
 <a name="ES$DAILYAVGBLOCKSIZE"></a>
 

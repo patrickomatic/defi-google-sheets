@@ -1,0 +1,52 @@
+/// <reference path="../../common.ts" />
+/// <reference path="./types.ts" />
+/// <reference path="./topics.ts" />
+
+/**
+ * {{es.logs.item[1].name}}
+ *
+ * {{es.common.params.topic}}
+ * {{es.common.params.topicOperator}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ * {{es.common.params.fromBlock}}
+ * {{es.common.params.toBlock}}
+ *
+ * @example
+ * =ES$GETLOGS_BYTOPICS("topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef,topic1=0x0000000000000000000000000000000000000000000000000000000000000000", "topic0_1_opr=and", "*", 1, 3)
+ *
+ * @example
+ * =ES$GETLOGS_BYTOPICS("topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", "", "*", 1, 3)
+ *
+ * @returns {string[]} address,blockNumber,data,gasPrice,gasUsed,logIndex,timeStamp,topics,transactionHash,transactionIndex,
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/logs#get-event-logs-by-topics}
+ *
+ * @customfunction
+ */
+function ES$GETLOGS_BYTOPICS(
+  topic: string,
+  topicOperator: string,
+  fields: FieldsOrAll<EtherscanLogsGetlogsResponse> = '*',
+  page?: number,
+  offset?: number,
+  fromBlock?: number,
+  toBlock?: number,
+) {
+  return pickFields_({
+    row: esRequest_({
+      action: 'getLogs',
+      module: 'logs',
+      params: {
+        page,
+        offset,
+        fromBlock,
+        toBlock,
+        ...parseTopicsParams({ topic, topicOperator }),
+      },
+    }),
+    fields,
+  });
+}
