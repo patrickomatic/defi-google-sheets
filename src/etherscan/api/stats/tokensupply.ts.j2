@@ -1,0 +1,26 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.tokens.item[0].name}}
+ *
+ * {{es.common.params.contractaddress}}
+ *
+ * @example
+ * =ES$TOKENSUPPLY("0x57d90b64a1a57749b0f932f1a3395792e12e7055")
+ *
+ * @returns {Wei} 
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-totalsupply-by-contractaddress}
+ *
+ * @customfunction
+ */
+function ES$TOKENSUPPLY(contractaddress: EthereumAddress) {
+  return [[
+    esRequest_<Wei>({
+      action: 'tokensupply',
+      module: 'stats',
+      params: { contractaddress },
+    }),
+  ]];
+}

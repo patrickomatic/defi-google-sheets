@@ -1,0 +1,43 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountAddresstokenbalanceResponse {
+  TokenAddress: Hex;
+  TokenDivisor: string; // number
+  TokenName: string;
+  TokenQuantity: string; // number
+  TokenSymbol: string;
+}
+
+/**
+ * {{es.tokens.item[6].name}}
+ *
+ * {{es.common.params.address}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ *
+ * @example
+ * =ES$ADDRESSTOKENBALANCE("0x0e3a2a1f2146d86a604adc220b4967a898d7fe07")
+ *
+ * @returns {string[]} TokenAddress,TokenDivisor,TokenName,TokenQuantity,TokenSymbol
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-address-erc20-token-holding}
+ *
+ * @customfunction
+ */
+function ES$ADDRESSTOKENBALANCE(
+  address: EthereumAddress,
+  fields: FieldsOrAll<EtherscanAccountAddresstokenbalanceResponse> = '*',
+  page?: number,
+  offset?: number,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountAddresstokenbalanceResponse[]>({
+      action: 'addresstokenbalance',
+      module: 'account',
+      params: { address, page, offset },
+    }),
+    fields,
+  });
+}

@@ -1,0 +1,57 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanTokenTokeninfoResponse {
+  bitcointalk: string;
+  blog: string;
+  blueCheckmark: string;
+  contractAddress: string;
+  description: string;
+  discord: string;
+  divisor: string;
+  email: string;
+  facebook: string;
+  github: string;
+  linkedin: string;
+  reddit: string;
+  slack: string;
+  symbol: string;
+  telegram: string;
+  tokenName: string;
+  tokenPriceUSD: string;
+  tokenType: string;
+  totalSupply: string;
+  twitter: string;
+  website: string;
+  wechat: string;
+  whitepaper: string;
+}
+
+/**
+ * {{es.tokens.item[5].name}}
+ *
+ * {{es.common.params.contractaddress}}
+ * {{common.params.fields}}
+ *
+ * @example
+ * =ES$TOKENINFO("0x0e3a2a1f2146d86a604adc220b4967a898d7fe07")
+ *
+ * @returns {string[]} bitcointalk,blog,blueCheckmark,contractAddress,description,discord,divisor,email,facebook,github,linkedin,reddit,slack,symbol,telegram,tokenName,tokenPriceUSD,tokenType,totalSupply,twitter,website,wechat,whitepaper
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-token-info-by-contractaddress}
+ *
+ * @customfunction
+ */
+function ES$TOKENINFO(
+  contractaddress: EthereumAddress,
+  fields: FieldsOrAll<EtherscanTokenTokeninfoResponse> = '*',
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanTokenTokeninfoResponse[]>({
+      action: 'tokeninfo',
+      module: 'token',
+      params: { contractaddress },
+    }),
+    fields,
+  });
+}

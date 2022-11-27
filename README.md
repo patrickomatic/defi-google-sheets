@@ -1,25 +1,18 @@
-# Spreadsheet API
-
-Once you've successfully added defi-google-sheets to your spreadsheet, you'll have access to the following functions:
-
 # defi-google-sheets
 
-A collection of functions that can be used in a Google Spreadsheet to pull info about DeFi/crypto assets. 
+A collection of functions that can be used in a Google Spreadsheet to pull info about DeFi/cryptocurrency assets. 
 
 Currently supported APIs:
 
-* [beaconcha.in](https://beaconcha.in) - [documentation](docs/BEACONCHAIN.md)
-* [etherscan.io](https://etherscan.io) - [documentation](docs/ETHERSCAN.md)
-* [blockstream.info](https://blockstream.info) - [documentation](docs/BLOCKSTREAM.md)
+* [beaconcha.in](https://beaconcha.in) 
+* [etherscan.io](https://etherscan.io)
 
-## Motivation
+# Documentation
 
-There are several similar libraries, but IMO they had the following downsides:
+Each supported API comes with a set of functions:
 
-* A subscription-based model.  These all seemed to have a backend that proxied the API calls rather 
-* Specific to a spreadsheet.  There are several "net worth" tracker type apps which are nice, but they work by supplying a pre-canned spreadsheet and you fill in the data.  
-
-The key idea for this library is to provide a simple wrapper function around the underlying API calls.  We don't want to be tied heavily to the Google Sheet's API or any underlying assumptions about the spreadsheet using it.
+* [beaconcha.in functions](docs/BEACONCHAIN.md)
+* [etherscan.io functions](docs/ETHERSCAN.md)
 
 # How to use on your Google Spreadsheet
 
@@ -27,5 +20,15 @@ The key idea for this library is to provide a simple wrapper function around the
 1. Click the "+" next to Libraries
 1. Enter this libraries Script ID: `1hsL\_MpXDchOZcavD217yl7tmX19KzXRnNUtnWbKUv8u3r1alFtiXbBlh`
 
+## Motivation
+
+There are several libraries and ways of managing crypto out there but I wanted something simpler:
+
+* They cost money rather than just being an API wrapper
+* Specific to a spreadsheet.  There are several "net worth" tracker type apps which are nice, but they work by supplying a pre-canned spreadsheet and you fill in the data.  
+
+The key idea for this library is to provide a simple one-to-one wrapper around the API which allows you to build your own spreadsheets.
+
 ## [Contributing](docs/CONTRIBUTING.md)
+
 ## [Testing](docs/TESTING.md)

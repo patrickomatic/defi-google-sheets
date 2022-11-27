@@ -1,6 +1,15 @@
 ## Functions
 
 <dl>
+<dt><a href="#ES$ADDRESSTOKENBALANCE">ES$ADDRESSTOKENBALANCE(address, [fields], [page], [offset])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Address ERC20 Token Holding</p>
+</dd>
+<dt><a href="#ES$ADDRESSTOKENNFTBALANCE">ES$ADDRESSTOKENNFTBALANCE(address, [fields], [page], [offset])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Address ERC20 Token Holding</p>
+</dd>
+<dt><a href="#ES$ADDRESSTOKENNFTINVENTORY">ES$ADDRESSTOKENNFTINVENTORY(address, contractaddress, [fields], [page], [offset])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Address ERC721 Token Holding</p>
+</dd>
 <dt><a href="#ES$BALANCE">ES$BALANCE(address, tag)</a> ⇒ <code>Wei</code></dt>
 <dd><p>Get Ether Balance for a Single Address</p>
 </dd>
@@ -21,6 +30,9 @@
 </dd>
 <dt><a href="#ES$TOKEN1155TX_BYCONTRACTADDRESS">ES$TOKEN1155TX_BYCONTRACTADDRESS(contractaddress, [fields], [startblock], [endblock], [page], [offset], [sort])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get a list of &#39;ERC1155 - Token Transfer Events&#39; by Address</p>
+</dd>
+<dt><a href="#ES$TOKENBALANCE">ES$TOKENBALANCE(address, contractaddress, tag)</a> ⇒ <code>Wei</code></dt>
+<dd><p>Get ERC20-Token Account Balance for TokenContractAddress</p>
 </dd>
 <dt><a href="#ES$TOKENNFTTX_BYADDRESS">ES$TOKENNFTTX_BYADDRESS(address, [page], [offset], [sort], [startblock], [endblock])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get a list of &#39;ERC721 - Token Transfer Events&#39; by Address</p>
@@ -85,6 +97,21 @@
 <dt><a href="#ES$DAILYUNCLEBLKCOUNT">ES$DAILYUNCLEBLKCOUNT(startdate, enddate, [sort], [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Get Daily Uncle Block Count and Rewards</p>
 </dd>
+<dt><a href="#ES$TOKENBALANCEHISTORY">ES$TOKENBALANCEHISTORY(address, contractaddress, [blockno])</a> ⇒ <code>number</code></dt>
+<dd><p>Get Historical ERC20-Token Account Balance for TokenContractAddress by BlockNo</p>
+</dd>
+<dt><a href="#ES$TOKENSUPPLY">ES$TOKENSUPPLY(contractaddress)</a> ⇒ <code>Wei</code></dt>
+<dd><p>Get ERC20-Token TotalSupply by ContractAddress</p>
+</dd>
+<dt><a href="#ES$TOKENSUPPLYHISTORY">ES$TOKENSUPPLYHISTORY(contractaddress, [blockno])</a> ⇒ <code>number</code></dt>
+<dd><p>Get Historical ERC20-Token TotalSupply by ContractAddress &amp; BlockNo</p>
+</dd>
+<dt><a href="#ES$TOKENHOLDERLIST">ES$TOKENHOLDERLIST(contractaddress, [fields], [page], [offset])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Token Holder List by Contract Address</p>
+</dd>
+<dt><a href="#ES$TOKENINFO">ES$TOKENINFO(contractaddress, [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Get Token Info by ContractAddress</p>
+</dd>
 <dt><a href="#ES$GETSTATUS">ES$GETSTATUS(txhash, [fields])</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>Check Contract Execution Status</p>
 </dd>
@@ -93,6 +120,79 @@
 </dd>
 </dl>
 
+<a name="ES$ADDRESSTOKENBALANCE"></a>
+
+## ES$ADDRESSTOKENBALANCE(address, [fields], [page], [offset]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Address ERC20 Token Holding
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - TokenAddress,TokenDivisor,TokenName,TokenQuantity,TokenSymbol  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-address-erc20-token-holding](https://docs.etherscan.io/api-endpoints/tokens#get-address-erc20-token-holding)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>EthereumAddress</code> |  | the string representing the address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+
+**Example**  
+```js
+=ES$ADDRESSTOKENBALANCE("0x0e3a2a1f2146d86a604adc220b4967a898d7fe07")
+```
+<a name="ES$ADDRESSTOKENNFTBALANCE"></a>
+
+## ES$ADDRESSTOKENNFTBALANCE(address, [fields], [page], [offset]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Address ERC20 Token Holding
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - TokenAddress,TokenName,TokenQuantity,TokenSymbol  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-holding](https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-holding)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>EthereumAddress</code> |  | the string representing the address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+
+**Example**  
+```js
+=ES$ADDRESSTOKENNFTBALANCE("0x6b52e83941eb10f9c613c395a834457559a80114")
+```
+<a name="ES$ADDRESSTOKENNFTINVENTORY"></a>
+
+## ES$ADDRESSTOKENNFTINVENTORY(address, contractaddress, [fields], [page], [offset]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Address ERC721 Token Holding
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - TokenAddress,TokenId  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-inventory-by-contract-address](https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-inventory-by-contract-address)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>EthereumAddress</code> |  | the string representing the address to check for balance |
+| contractaddress | <code>EthereumAddress</code> |  | the string representing the token contract address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+
+**Example**  
+```js
+=ES$ADDRESSTOKENNFTINVENTORY("0x123432244443b54409430979df8333f9308a6040", "0xed5af388653567af2f388e6224dc7c4b3241c544", "*", 1, 3)
+```
 <a name="ES$BALANCE"></a>
 
 ## ES$BALANCE(address, tag) ⇒ <code>Wei</code>
@@ -264,6 +364,28 @@ Get a list of 'ERC1155 - Token Transfer Events' by Address
 **Example**  
 ```js
 =ES$TOKEN1155TX_BYCONTRACTADDRESS("0x4e83362442b8d1bec281594cea3050c8eb01311c", "*", 0, 27925780, 1, 3, "asc")
+```
+<a name="ES$TOKENBALANCE"></a>
+
+## ES$TOKENBALANCE(address, contractaddress, tag) ⇒ <code>Wei</code>
+Get ERC20-Token Account Balance for TokenContractAddress
+
+**Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-account-balance-for-tokencontractaddress](https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-account-balance-for-tokencontractaddress)
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address | <code>EthereumAddress</code> | the string representing the address to check for balance |
+| contractaddress | <code>EthereumAddress</code> | the string representing the token contract address to check for balance |
+| tag | <code>number</code> \| <code>&quot;earliest&quot;</code> \| <code>&quot;pending&quot;</code> \| <code>&quot;latest&quot;</code> | the integer pre-defined block parameter, either earliest, pending or latest |
+
+**Example**  
+```js
+=ES$TOKENBALANCE("0xe04f27eb70e025b78871a2ad7eabe85e61212761", "0x57d90b64a1a57749b0f932f1a3395792e12e7055", "latest")
 ```
 <a name="ES$TOKENNFTTX_BYADDRESS"></a>
 
@@ -803,6 +925,115 @@ Get Daily Uncle Block Count and Rewards
 **Example**  
 ```js
 =ES$DAILYUNCLEBLKCOUNT("2019-02-01", "2019-02-28")
+```
+<a name="ES$TOKENBALANCEHISTORY"></a>
+
+## ES$TOKENBALANCEHISTORY(address, contractaddress, [blockno]) ⇒ <code>number</code>
+Get Historical ERC20-Token Account Balance for TokenContractAddress by BlockNo
+
+**Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-historical-erc20-token-account-balance-for-tokencontractaddress-by-blockno](https://docs.etherscan.io/api-endpoints/tokens#get-historical-erc20-token-account-balance-for-tokencontractaddress-by-blockno)
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address | <code>EthereumAddress</code> | the string representing the address to check for balance |
+| contractaddress | <code>EthereumAddress</code> | the string representing the token contract address to check for balance |
+| [blockno] | <code>number</code> | the integer block number |
+
+**Example**  
+```js
+=ES$TOKENBALANCEHISTORY("0xe04f27eb70e025b78871a2ad7eabe85e61212761", "0x57d90b64a1a57749b0f932f1a3395792e12e7055", 80000)
+```
+<a name="ES$TOKENSUPPLY"></a>
+
+## ES$TOKENSUPPLY(contractaddress) ⇒ <code>Wei</code>
+Get ERC20-Token TotalSupply by ContractAddress
+
+**Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-totalsupply-by-contractaddress](https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-totalsupply-by-contractaddress)
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| contractaddress | <code>EthereumAddress</code> | the string representing the token contract address to check for balance |
+
+**Example**  
+```js
+=ES$TOKENSUPPLY("0x57d90b64a1a57749b0f932f1a3395792e12e7055")
+```
+<a name="ES$TOKENSUPPLYHISTORY"></a>
+
+## ES$TOKENSUPPLYHISTORY(contractaddress, [blockno]) ⇒ <code>number</code>
+Get Historical ERC20-Token TotalSupply by ContractAddress & BlockNo
+
+**Kind**: global function  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-historical-erc20-token-totalsupply-by-contractaddress-and-blockno](https://docs.etherscan.io/api-endpoints/tokens#get-historical-erc20-token-totalsupply-by-contractaddress-and-blockno)
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| contractaddress | <code>EthereumAddress</code> | the string representing the token contract address to check for balance |
+| [blockno] | <code>number</code> | the integer block number |
+
+**Example**  
+```js
+=ES$TOKENSUPPLYHISTORY("0x57d90b64a1a57749b0f932f1a3395792e12e7055", 80000)
+```
+<a name="ES$TOKENHOLDERLIST"></a>
+
+## ES$TOKENHOLDERLIST(contractaddress, [fields], [page], [offset]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Token Holder List by Contract Address
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - TokenHolderAddress,TokenHolderQuantity  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-token-holder-list-by-contract-address](https://docs.etherscan.io/api-endpoints/tokens#get-token-holder-list-by-contract-address)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| contractaddress | <code>EthereumAddress</code> |  | the string representing the token contract address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+| [page] | <code>number</code> |  |  |
+| [offset] | <code>number</code> | <code>0</code> |  |
+
+**Example**  
+```js
+=ES$TOKENHOLDERLIST("0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d", 1, 3)
+```
+<a name="ES$TOKENINFO"></a>
+
+## ES$TOKENINFO(contractaddress, [fields]) ⇒ <code>Array.&lt;string&gt;</code>
+Get Token Info by ContractAddress
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - bitcointalk,blog,blueCheckmark,contractAddress,description,discord,divisor,email,facebook,github,linkedin,reddit,slack,symbol,telegram,tokenName,tokenPriceUSD,tokenType,totalSupply,twitter,website,wechat,whitepaper  
+**See**
+
+- [https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md](https://github.com/patrickomatic/defi-google-sheets/blob/main/docs/ETHERSCAN.md)
+- [https://docs.etherscan.io/api-endpoints/tokens#get-token-info-by-contractaddress](https://docs.etherscan.io/api-endpoints/tokens#get-token-info-by-contractaddress)
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| contractaddress | <code>EthereumAddress</code> |  | the string representing the token contract address to check for balance |
+| [fields] | <code>FieldsOrAll</code> | <code>&quot;*&quot;</code> | Which fields to return from the API response. By default all will be returned (in sorted order) |
+
+**Example**  
+```js
+=ES$TOKENINFO("0x0e3a2a1f2146d86a604adc220b4967a898d7fe07")
 ```
 <a name="ES$GETSTATUS"></a>
 

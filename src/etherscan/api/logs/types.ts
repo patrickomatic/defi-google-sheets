@@ -1,12 +1,12 @@
 interface EtherscanLogsGetlogsResponse {
   address: EthereumAddress;
-  topics: Hex[];
-  data: Hex;
   blockNumber: Hex; 
-  timeStamp: Hex;
+  data: Hex;
   gasPrice: Hex;
   gasUsed: Hex;
   logIndex: Hex;
+  timeStamp: Hex;
+  topics: Hex[];
   transactionHash: Hex;
   transactionIndex: Hex;
 }

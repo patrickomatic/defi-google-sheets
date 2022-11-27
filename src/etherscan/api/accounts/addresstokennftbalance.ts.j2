@@ -1,0 +1,42 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountAddresstokennftbalanceResponse {
+  TokenAddress: Hex;
+  TokenName: string;
+  TokenQuantity: string; // number
+  TokenSymbol: string;
+}
+
+/**
+ * {{es.tokens.item[6].name}}
+ *
+ * {{es.common.params.address}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ *
+ * @example
+ * =ES$ADDRESSTOKENNFTBALANCE("0x6b52e83941eb10f9c613c395a834457559a80114")
+ *
+ * @returns {string[]} TokenAddress,TokenName,TokenQuantity,TokenSymbol
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-holding}
+ *
+ * @customfunction
+ */
+function ES$ADDRESSTOKENNFTBALANCE(
+  address: EthereumAddress,
+  fields: FieldsOrAll<EtherscanAccountAddresstokennftbalanceResponse> = '*',
+  page?: number,
+  offset?: number,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountAddresstokennftbalanceResponse[]>({
+      action: 'addresstokennftbalance',
+      module: 'account',
+      params: { address, page, offset },
+    }),
+    fields,
+  });
+}

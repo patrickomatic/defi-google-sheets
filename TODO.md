@@ -1,4 +1,5 @@
 # General
+- [ ] the README needs some better wording, more explanation
 - [ ] use more eslint best practices (no unused vars, etc)
 - [ ] use validators in more places, clean up the interface/terminology
 - [ ] make fields more forgiveable by making it all case insensitive
@@ -30,12 +31,15 @@
 - [x] implement: Health
 
 # etherscan.io - Ethereum
-- [ ] it sucks that their API just returns strings... I can apply reverse validators I guess
-- [ ] implement: Contracts
 - [ ] implement: Geth/Parity Proxy
-- [ ] implement: Tokens
 - [ ] implement: Gas Tracker
+- [ ] the rate limits depend on your plan, so make it configurable (and document)
+- [ ] document: all properties: override the URL for a test network, rate limit
+- [ ] some endpoints have their own rate limits: https://docs.etherscan.io/api-endpoints/tokens#get-address-erc20-token-holding
 - [ ] Figure out a URL to download the Postman JSON so I don't have it stored in templates/etherscan/
+- [ ] it's not great that their API just returns strings for all values... I can apply reverse validators I guess
+- [ ] implement: Contracts - low priority, I don't even know 
+- [x] implement: Tokens
 - [x] implement: Logs
 - [x] implement: Blocks
 - [x] implement: Transactions

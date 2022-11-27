@@ -1,0 +1,30 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.tokens.item[2].name}}
+ *
+ * {{es.common.params.contractaddress}}
+ * {{es.common.params.blockno}}
+ *
+ * @example
+ * =ES$TOKENSUPPLYHISTORY("0x57d90b64a1a57749b0f932f1a3395792e12e7055", 80000)
+ *
+ * @returns {number} 
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-historical-erc20-token-totalsupply-by-contractaddress-and-blockno}
+ *
+ * @customfunction
+ */
+function ES$TOKENSUPPLYHISTORY(
+  contractaddress: EthereumAddress,
+  blockno: number,
+) {
+  return [[
+    esRequest_<number>({
+      action: 'tokensupplyhistory',
+      module: 'stats',
+      params: { contractaddress, blockno },
+    }),
+  ]];
+}

@@ -1,0 +1,42 @@
+/// <reference path="../../common.ts" />
+
+interface EtherscanAccountAddresstokennftinventoryResponse {
+  TokenAddress: Hex;
+  TokenId: string; // number
+}
+
+/**
+ * {{es.tokens.item[7].name}}
+ *
+ * {{es.common.params.address}}
+ * {{es.common.params.contractaddress}}
+ * {{common.params.fields}}
+ * {{es.common.params.page}}
+ * {{es.common.params.offset}}
+ *
+ * @example
+ * =ES$ADDRESSTOKENNFTINVENTORY("0x123432244443b54409430979df8333f9308a6040", "0xed5af388653567af2f388e6224dc7c4b3241c544", "*", 1, 3)
+ *
+ * @returns {string[]} TokenAddress,TokenId
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-address-erc721-token-inventory-by-contract-address}
+ *
+ * @customfunction
+ */
+function ES$ADDRESSTOKENNFTINVENTORY(
+  address: EthereumAddress,
+  contractaddress: EthereumAddress,
+  fields: FieldsOrAll<EtherscanAccountAddresstokennftinventoryResponse> = '*',
+  page?: number,
+  offset?: number,
+) {
+  return pickFields_({
+    rows: esRequest_<EtherscanAccountAddresstokennftinventoryResponse[]>({
+      action: 'addresstokennftinventory',
+      module: 'account',
+      params: { address, page, offset },
+    }),
+    fields,
+  });
+}

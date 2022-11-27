@@ -1,0 +1,36 @@
+/// <reference path="../../common.ts" />
+
+/**
+ * {{es.tokens.item[1].name}}
+ *
+ * {{es.common.params.address}}
+ * {{es.common.params.contractaddress}}
+ * {{es.common.params.tag}}
+ *
+ * @example
+ * =ES$TOKENBALANCE("0xe04f27eb70e025b78871a2ad7eabe85e61212761", "0x57d90b64a1a57749b0f932f1a3395792e12e7055", "latest")
+ *
+ * @returns {Wei} 
+ *
+ * {{es.common.docsLink}}
+ * @see {@link https://docs.etherscan.io/api-endpoints/tokens#get-erc20-token-account-balance-for-tokencontractaddress}
+ *
+ * @customfunction
+ */
+function ES$TOKENBALANCE(
+  address: EthereumAddress,
+  contractaddress: EthereumAddress,
+  tag: EtherscanTag,
+) {
+  return [[
+    esRequest_<Wei>({
+      action: 'tokenbalance',
+      module: 'account',
+      params: { 
+        address,
+        contractaddress,
+        tag,
+      },
+    }),
+  ]];
+}
