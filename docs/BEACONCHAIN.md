@@ -405,7 +405,7 @@ Get the current top 100 performing validators (using the income over the last 7 
 Get the daily validator stats by the validator index
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - attester_slashings,day,deposits,deposits_amount,end_balance,end_effective_balance,max_balance,max_effective_balance,min_balance,min_effective_balance,missed_attestations,missed_blocks,missed_sync,orphaned_attestations,orphaned_blocks,orphaned_sync,participated_sync,proposed_blocks,proposer_slashings,start_balance,start_effective_balance,validatorindex  
+**Returns**: <code>Array.&lt;string&gt;</code> - attester_slashings,day,date,deposits,deposits_amount,end_balance,end_effective_balance,max_balance,max_effective_balance,min_balance,min_effective_balance,missed_attestations,missed_blocks,missed_sync,orphaned_attestations,orphaned_blocks,orphaned_sync,participated_sync,proposed_blocks,proposer_slashings,start_balance,start_effective_balance,validatorindex  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
