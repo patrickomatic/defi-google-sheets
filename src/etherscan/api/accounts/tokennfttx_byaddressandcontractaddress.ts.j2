@@ -31,7 +31,6 @@ function ES$TOKENNFTTX_BYADDRESSANDCONTRACTADDRESS(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountTokentxResponse[]>({
-      caller: 'ES$TOKENNFTTX_BYADDRESSANDCONTRACTADDRESS',
       action: 'tokennfttx',
       module: 'account',
       params: {

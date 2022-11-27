@@ -24,7 +24,6 @@ function ES$GETSTATUS(
 ) {
   return pickFields_({
     row: esRequest_<EtherscanTransactionGetstatusResponse>({
-      caller: 'ES$GETSTATUS',
       action: 'getstatus',
       module: 'transaction',
       params: { txhash: validateHex_(txhash), },

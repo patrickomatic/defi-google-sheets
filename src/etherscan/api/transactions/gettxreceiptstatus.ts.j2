@@ -22,7 +22,6 @@ function ES$GETTXRECEIPTSTATUS(
 ) {
   return [[
     esRequest_<EtherscanTransactionGettxreceiptstatusResponse>({
-      caller: 'ES$GETTXRECEIPTSTATUS',
       action: 'gettxreceiptstatus',
       module: 'transaction',
       params: { txhash: validateHex_(txhash), },

@@ -29,7 +29,6 @@ function ES$TXLISTINTERNAL_BYTRANSACTIONHASH(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountTxlistinternalResponse[]>({
-      caller: 'ES$TXLISTINTERNAL_BYTRANSACTIONHASH',
       action: 'txlistinternal',
       module: 'account',
       params: {

@@ -29,7 +29,6 @@ function ES$TOKENTX_BYCONTRACTADDRESS(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountTokentxResponse[]>({
-      caller: 'ES$TOKENTX_BYCONTRACTADDRESS',
       action: 'tokentx',
       module: 'account',
       params: {

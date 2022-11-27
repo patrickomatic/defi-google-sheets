@@ -29,7 +29,6 @@ function ES$DAILYAVGBLOCKSIZE(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanDailyavgblocksizeResponse[]>({
-      caller: 'ES$DAILYAVGBLOCKSIZE',
       action: 'dailyavgblocksize',
       module: 'stats',
       params: { enddate, startdate, sort },

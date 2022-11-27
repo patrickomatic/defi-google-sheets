@@ -29,7 +29,6 @@ function ES$TXLISTINTERNAL_BYADDRESS(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountTxlistinternalResponse[]>({
-      caller: 'ES$TXLISTINTERNAL_BYADDRESS',
       action: 'txlistinternal',
       module: 'account',
       params: {

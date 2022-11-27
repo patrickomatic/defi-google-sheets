@@ -30,7 +30,6 @@ function ES$GETMINEDBLOCKS(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountGetminedblocksResponse[]>({
-      caller: 'ES$GETMINEDBLOCKS',
       action: 'getminedblocks',
       module: 'account',
       params: {

@@ -34,7 +34,6 @@ function ES$GETBLOCKREWARD(
 ) {
   return pickFields_<EtherscanGetblockrewardResponse>({
     row: esRequest_<EtherscanGetblockrewardResponse>({
-      caller: 'ES$GETBLOCKREWARD',
       action: 'getblockreward',
       module: 'block',
       params: { address: asNumber_(blockno) },

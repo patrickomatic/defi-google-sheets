@@ -8,6 +8,7 @@
 - [x] make `fields` work consistently if it's an array of strings, single value or comma-joined string 
 
 # Documentation
+- [ ] include a footer that has @see {@link url}
 - [ ] get rid of the "Kind: global function"
 - [x] have them include a header of fields
 - [x] looks like "Done in 1.72s" is being added to the bottom of the generated file...

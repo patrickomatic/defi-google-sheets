@@ -30,7 +30,6 @@ function ES$DAILYUNCLEBLKCOUNT(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanDailyuncleblkcountResponse[]>({
-      caller: 'ES$DAILYUNCLEBLKCOUNT',
       action: 'dailyuncleblkcount',
       module: 'stats',
       params: { enddate, startdate, sort },

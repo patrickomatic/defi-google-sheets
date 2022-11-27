@@ -30,7 +30,6 @@ function ES$DAILYBLKCOUNT(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanDailyblkcountResponse[]>({
-      caller: 'ES$DAILYBLKCOUNT',
       action: 'dailyblkcount',
       module: 'stats',
       params: { enddate, startdate, sort },

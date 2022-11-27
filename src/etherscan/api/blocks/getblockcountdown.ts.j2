@@ -25,7 +25,6 @@ function ES$GETBLOCKCOUNTDOWN(
 ) {
   return pickFields_({
     row: esRequest_({
-      caller: 'ES$GETBLOCKCOUNTDOWN',
       action: 'getblockcountdown',
       module: 'block',
       params: { blockno },

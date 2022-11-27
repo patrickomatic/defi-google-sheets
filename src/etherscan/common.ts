@@ -20,18 +20,16 @@ function stripUndefined_(obj: object) {
 
 function esRequest_<T>({
   action,
-  caller,
   module,
   params = {},
 }: { 
   action: string;
-  caller: string;
   module: string; 
   params: object, // TODO can I do a better type?
 }): T {
-  const apikey = getProperty_({ caller, key: ETHERSCAN_API_KEY_PROPERTY });
+  const apikey = getProperty_({ caller: 'etherscan.io', key: ETHERSCAN_API_KEY_PROPERTY });
   const apiUrl = getProperty_({ 
-    caller, 
+    caller: 'etherscan.io', 
     key: ETHERSCAN_API_URL_PROPERTY, 
     defaultValue: ETHERSCAN_API_URL,
   });

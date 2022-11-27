@@ -52,7 +52,6 @@ function ES$TXLIST(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanAccountTxlistResponse[]>({
-      caller: 'ES$TXLIST',
       action: 'txlist',
       module: 'account',
       params: {

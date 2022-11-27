@@ -29,7 +29,6 @@ function ES$DAILYAVGBLOCKTIME(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanDailyavgblocktimeResponse[]>({
-      caller: 'ES$DAILYAVGBLOCKTIME',
       action: 'dailyavgblocktime',
       module: 'stats',
       params: { enddate, startdate, sort },

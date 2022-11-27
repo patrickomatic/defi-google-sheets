@@ -29,7 +29,6 @@ function ES$DAILYBLOCKREWARDS(
 ) {
   return pickFields_({
     rows: esRequest_<EtherscanDailyblockrewardsResponse[]>({
-      caller: 'ES$DAILYBLOCKREWARDS',
       action: 'dailyblockrewards',
       module: 'stats',
       params: { enddate, startdate, sort },
