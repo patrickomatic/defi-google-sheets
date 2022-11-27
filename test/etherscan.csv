@@ -96,27 +96,27 @@
 ,
 ,
 ,
-"",blockSize_bytes,unixTimeStamp,UTCDate
+"",UTCDate,blockSize_bytes,unixTimeStamp
 "ES$DAILYAVGBLOCKSIZE(""2019-02-01"", ""2019-02-28"")","=ES$DAILYAVGBLOCKSIZE(""2019-02-01"", ""2019-02-28"")"
 ,
 ,
 ,
-"",blockSize_bytes,unixTimeStamp,UTCDate
+"",UTCDate,blockSize_bytes,unixTimeStamp
 "ES$DAILYAVGBLOCKTIME(""2019-02-01"", ""2019-02-28"")","=ES$DAILYAVGBLOCKTIME(""2019-02-01"", ""2019-02-28"")"
 ,
 ,
 ,
-"",blockCount,blockRewards_Eth,unixTimeStamp,UTCDate
+"",UTCDate,blockCount,blockRewards_Eth,unixTimeStamp
 "ES$DAILYBLKCOUNT(""2019-02-01"", ""2019-02-28"")","=ES$DAILYBLKCOUNT(""2019-02-01"", ""2019-02-28"")"
 ,
 ,
 ,
-"",blockRewards_Eth,unixTimeStamp,UTCDate
+"",UTCDate,blockRewards_Eth,unixTimeStamp
 "ES$DAILYBLOCKREWARDS(""2019-02-01"", ""2019-02-28"")","=ES$DAILYBLOCKREWARDS(""2019-02-01"", ""2019-02-28"")"
 ,
 ,
 ,
-"",uncleBlockCount,uncleBlockRewards_Eth,unixTimeStamp,UTCDate
+"",UTCDate,uncleBlockCount,uncleBlockRewards_Eth,unixTimeStamp
 "ES$DAILYUNCLEBLKCOUNT(""2019-02-01"", ""2019-02-28"")","=ES$DAILYUNCLEBLKCOUNT(""2019-02-01"", ""2019-02-28"")"
 ,
 ,

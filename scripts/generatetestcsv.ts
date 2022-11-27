@@ -15,7 +15,9 @@ jsdoc2md.getJsdocData({ files: [file] }).then((allJsdocData) => {
         && entry.examples != null) {
       entry.examples.forEach((example) => {
         if (entry.returns != null && entry.returns[0].description != null) {
-          process.stdout.write(`"",${entry.returns[0].description}\n`);
+          const returns = entry.returns[0].description.split(/\s*,\s*/);
+          returns.sort();
+          process.stdout.write(`"",${returns.join(',')}\n`);
         }
         process.stdout.write(`"${example.replace('=', '').replaceAll('"', '""')}","${example.replaceAll('"', '""')}"\n`);
         process.stdout.write(`,\n`.repeat(3));
